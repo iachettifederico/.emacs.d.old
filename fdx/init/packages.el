@@ -67,4 +67,22 @@
  'yasnippet
  'projectile
  'multiple-cursors
+ 'rvm
+ 'ruby-mode
+ 'inf-ruby
+ 'ruby-compilation
+ 'rspec-mode
+ 'minitest
+ 'rhtml-mode
+ 'enh-ruby-mode
+ 'haml-mode
+ 'slim-mode
+ 'yaml-mode
+ 'css-mode
+ 'scss-mode
+ 'coffee-mode
+ 'dired+
  )
+
+;; vendored packages
+(fdx/load-init-file "fdx/vendor/rcodetools")
