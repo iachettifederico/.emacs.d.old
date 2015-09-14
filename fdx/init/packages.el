@@ -65,4 +65,5 @@
  'color-theme-ir-black
  'color-theme-sanityinc-tomorrow
  'yasnippet
+ 'multiple-cursors
  )
