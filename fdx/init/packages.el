@@ -65,5 +65,6 @@
  'color-theme-ir-black
  'color-theme-sanityinc-tomorrow
  'yasnippet
+ 'projectile
  'multiple-cursors
  )
