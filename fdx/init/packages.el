@@ -82,6 +82,7 @@
  'scss-mode
  'coffee-mode
  'dired+
+ 'undo-tree
  )
 
 ;; vendored packages
