@@ -1,3 +1,6 @@
+;; Menu
+(fdx/global-set-key (kbd "M-x") 'smex)
+
 ;; Magit
 (fdx/global-set-key (kbd "C-c g") 'magit-status)
 
