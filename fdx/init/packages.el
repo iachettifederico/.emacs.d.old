@@ -83,6 +83,7 @@
  'coffee-mode
  'dired+
  'undo-tree
+ 'smex
  )
 
 ;; vendored packages
