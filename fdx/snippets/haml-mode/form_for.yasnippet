@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+#name : Form For
+#expand-env: ((yas-indent-line 'fixed))
+#key : form_for
+# --
+- if $1.errors.any?
+  #error_explanation
+    %h2= "#{pluralize($1.errors.count, "error")} prohibited this writer_application from being saved:"
+    %ul
+      - $1.errors.full_messages.each do |msg|
+        %li= msg
+
+= form_for ${1:model} do |f|
+  .actions
+    = f.submit "${2:Save}" ${3:$(if (> (length yas-text) 0) ", class: '" "")}${3:btn}${3:$(if (> (length yas-text) 0) "'" "")}
+
+  - # Fields: ${4:fields}
+  ${4:$
+  (mapconcat
+    '(lambda (field) (concat "= f.input :" field))
+    (split-string yas-text " ")
+    (concat "\n" (make-string (current-column) 32)))
+  }
+  $0
+
+  .actions
+    = f.submit '$2' ${3:$(if (> (length yas-text) 0) ", class: '" "")}$3${3:$(if (> (length yas-text) 0) "'" "")}

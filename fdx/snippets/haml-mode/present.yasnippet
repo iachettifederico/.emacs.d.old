@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : present
+#key : present
+# --
+- present(${1:model}) do |${2:${1:$(replace-regexp-in-string "\@" "" yas-text)}}|
+  $0

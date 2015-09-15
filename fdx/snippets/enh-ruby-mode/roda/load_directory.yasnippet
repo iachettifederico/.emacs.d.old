@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Roda Load Directory
+# key: rload
+# --
+Dir["./${1:directory}/*.rb"].each{|f| require f}

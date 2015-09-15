@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+#name : Simple Form
+#expand-env: ((yas-indent-line 'fixed))
+#key : simple_form
+# --
+= simple_form_for ${1:model} do |f|
+  = f.error_notification
+  
+  .actions
+    = f.submit "${2:Save}" ${3:$(if (> (length yas-text) 0) ", class: '" "")}${3:btn}${3:$(if (> (length yas-text) 0) "'" "")}
+
+  - # Fields: ${4:fields}
+  .form-inputs
+    ${4:$
+    (mapconcat
+      '(lambda (field) (concat "= f.input :" field))
+      (split-string yas-text " ")
+      (concat "\n" (make-string (current-column) 32)))
+    }
+    $0
+
+  .actions
+    = f.submit '$2' ${3:$(if (> (length yas-text) 0) ", class: '" "")}$3${3:$(if (> (length yas-text) 0) "'" "")}

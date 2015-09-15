@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: Roda App
+# key: roda
+# --
+class ${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "\[_*\]" "" fn))`} < Roda
+  plugin :render, engine: "${2:haml}"
+
+  route do |r|
+    r.root do
+      "<h1>Welcome</h1>"$0
+    end
+  end
+end
