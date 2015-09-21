@@ -10,6 +10,10 @@
 ;; Text
 (fdx/global-set-key (kbd "M--") 'kill-whole-line)
 
+;; Buffers
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+(global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
+
 ;; Multiple cursors
 (fdx/global-set-key (kbd "C-M-<return>") 'mc/edit-lines)
 (fdx/global-set-key (kbd "C-c C-a") 'mc/edit-lines)
