@@ -5,6 +5,5 @@
 (with-current-buffer "*scratch*"
   (interactive)
   (insert "RUBY_VERSION  # =>")
-  (enh-ruby-mode)
   (if (fboundp 'xmp)
       (xmp)))
