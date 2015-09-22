@@ -84,6 +84,7 @@
  'dired+
  'undo-tree
  'smex
+ 'ace-window
  )
 
 ;; vendored packages
