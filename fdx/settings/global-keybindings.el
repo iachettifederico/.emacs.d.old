@@ -28,3 +28,5 @@
 
 (fdx/global-set-key (kbd "C-c C-<") 'mc/mark-previous-like-this)
 (fdx/global-set-key (kbd "C-c C->") 'mc/mark-next-like-this)
+(fdx/global-set-key (kbd "C-x /") 'toggle-window-split)
+
