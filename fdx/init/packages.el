@@ -75,6 +75,7 @@
  'minitest
  'rhtml-mode
  'enh-ruby-mode
+ 'ruby-electric
  'haml-mode
  'slim-mode
  'yaml-mode
