@@ -1,5 +1,7 @@
 (require 'package)
 
+(setq package-user-dir "~/.emacs.d/elisp/elpa")
+
 (dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
                 ("melpa"     . "http://melpa.milkbox.net/packages/")))
