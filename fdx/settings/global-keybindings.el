@@ -11,6 +11,8 @@
 (fdx/global-set-key (kbd "M--") 'kill-whole-line)
 (fdx/global-set-key (kbd "M-d") 'fdx/duplicate-line)
 
+(fdx/global-set-key (kbd "<M-down>") 'move-line-down)
+(fdx/global-set-key (kbd "<M-up>") 'move-line-up)
 
 ;; Buffers
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
