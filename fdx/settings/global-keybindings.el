@@ -9,6 +9,8 @@
 
 ;; Text
 (fdx/global-set-key (kbd "M--") 'kill-whole-line)
+(fdx/global-set-key (kbd "M-d") 'fdx/duplicate-line)
+
 
 ;; Buffers
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
