@@ -1,5 +1,5 @@
 ;;;###autoload
-(defun move-line-up ()
+(defun fdx/move-line-up ()
   "Move up the current line."
   (interactive)
   (transpose-lines 1)
@@ -7,7 +7,7 @@
   (indent-according-to-mode))
 
 ;;;###autoload
-(defun move-line-down ()
+(defun fdx/move-line-down ()
   "Move down the current line."
   (interactive)
   (forward-line 1)
