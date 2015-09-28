@@ -1,5 +1,5 @@
 ;;;###autoload
-(defun rename-current-buffer-file ()
+(defun fdx/rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
   (interactive)
   (let ((name (buffer-name))
@@ -17,7 +17,7 @@
                    name (file-name-nondirectory new-name)))))))
 
 ;;;###autoload
-(defun delete-current-buffer-file ()
+(defun fdx/delete-current-buffer-file ()
   "Removes file connected to current buffer and kills buffer."
   (interactive)
   (let ((filename (buffer-file-name))

@@ -15,8 +15,8 @@
 (fdx/global-set-key (kbd "<M-up>") 'fdx/move-line-up)
 
 ;; Buffers
-(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
-(global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
+(fdx/global-set-key (kbd "C-x C-r") 'fdx/rename-current-buffer-file)
+(fdx/global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
 
 (fdx/global-set-key (kbd "C-c k") 'fdx/kill-other-buffers)
 
