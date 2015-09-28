@@ -18,6 +18,8 @@
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
+(fdx/global-set-key (kbd "C-c k") 'fdx/kill-other-buffers)
+
 ;; Multiple cursors
 (fdx/global-set-key (kbd "C-M-<return>") 'mc/edit-lines)
 (fdx/global-set-key (kbd "C-c C-a") 'mc/edit-lines)
