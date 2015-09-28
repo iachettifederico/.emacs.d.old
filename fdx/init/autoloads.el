@@ -3,7 +3,7 @@
 
 (require 'find-lisp)
 
-(setq fdx-autoload-file (concat user-emacs-directory "loaddefs.el"))
+(setq fdx-autoload-file (concat user-emacs-directory "fdx/" "loaddefs.el"))
 
 (defun fdx/autoload-directories (directories)
   "Regenerate the autoload definitions file if necessary and load it."
@@ -32,8 +32,7 @@
   (fdx/autoload-directories
    (mapcar (lambda (directory) (concat user-emacs-directory directory "/"))
            '("fdx/functions" "fdx/commands")))
-  (add-to-list 'load-path ( concat user-emacs-directory "/elisp/") t)
-  (add-to-list 'load-path ( concat user-emacs-directory "/fdx/") t)
+  (add-to-list 'load-path (concat user-emacs-directory "fdx/") t)
   (load fdx-autoload-file))
 
 (fdx/prepare-autoloads)
