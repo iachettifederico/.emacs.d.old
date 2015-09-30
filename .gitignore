@@ -1,0 +1,11 @@
+*
+!.gitignore
+!init.el
+!fdx
+
+fdx/settings/secrets.el
+!fdx/**/*
+fdx/**/*.elc
+fdx/snippets/**/.yas-compiled-snippets.el
+fdx/loaddefs.el 
+fdx/settings/secrets.el
