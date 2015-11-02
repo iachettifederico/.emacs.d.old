@@ -21,6 +21,7 @@
 (fdx/global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
 
 (fdx/global-set-key (kbd "C-c k") 'fdx/kill-other-buffers)
+(fdx/global-set-key (kbd "C-x C-w") (lambda () (interactive) (switch-to-buffer "*scratch*")))
 
 ;; Multiple cursors
 (fdx/global-set-key (kbd "C-M-<return>") 'mc/edit-lines)
