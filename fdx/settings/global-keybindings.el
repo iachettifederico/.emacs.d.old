@@ -37,6 +37,8 @@
 
 (fdx/global-set-key (kbd "M-p") 'ace-window)
 
+;; Navigation
+(fdx/global-set-key (kbd "M-j") 'ace-jump-word-mode)
 ;; Appearence
 
 (fdx/global-set-key (kbd "C-}") 'fdx/increase-font-size)

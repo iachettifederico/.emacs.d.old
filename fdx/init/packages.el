@@ -36,6 +36,7 @@
  'undo-tree
  'smex
  'dockerfile-mode
+ 'ace-jump-mode
  'ace-window
  )
 
