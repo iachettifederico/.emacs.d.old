@@ -1,5 +1,5 @@
-(require 'ruby-electric)
-(electric-pair-mode t)
+(require 'smartparens)
+(smartparens-mode)
 
 (fdx/local-set-key (kbd "C-c C-c") 'xmp)
 (fdx/local-set-key (kbd "C-;") 'comment-dwim)
