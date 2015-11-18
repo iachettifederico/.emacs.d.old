@@ -9,7 +9,7 @@
   (package-install 'package+))
 
 (package-manifest
- 'package+ 
+ 'package+
  'magit
  'color-theme
  'color-theme-ir-black
