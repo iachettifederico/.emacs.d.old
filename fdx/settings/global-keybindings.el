@@ -37,3 +37,7 @@
 
 (fdx/global-set-key (kbd "M-p") 'ace-window)
 
+;; Appearence
+
+(fdx/global-set-key (kbd "C-}") 'fdx/increase-font-size)
+(fdx/global-set-key (kbd "C-{") 'fdx/decrease-font-size)
