@@ -38,6 +38,7 @@
  'dockerfile-mode
  'ace-jump-mode
  'ace-window
+ 'htmlize
  )
 
 ;; vendored packages
