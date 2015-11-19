@@ -44,5 +44,5 @@
 
 ;; Appearence
 
-(fdx/global-set-key (kbd "C-}") 'fdx/increase-font-size)
-(fdx/global-set-key (kbd "C-{") 'fdx/decrease-font-size)
+(fdx/global-set-key (kbd "C-{") 'fdx/increase-font-size)
+(fdx/global-set-key (kbd "C-}") 'fdx/decrease-font-size)
