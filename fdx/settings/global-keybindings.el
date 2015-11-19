@@ -39,6 +39,9 @@
 
 ;; Navigation
 (fdx/global-set-key (kbd "M-j") 'ace-jump-word-mode)
+(fdx/global-set-key (kbd "M-J") 'ace-jump-char-mode)
+(fdx/global-set-key (kbd "M-K") 'ace-jump-line-mode)
+
 ;; Appearence
 
 (fdx/global-set-key (kbd "C-}") 'fdx/increase-font-size)
