@@ -18,3 +18,4 @@
     ad-do-it))
 
 (setq xmpfilter-command-name "ruby -S xmpfilter --no-warnings --dev --fork --detect-rbtest")
+

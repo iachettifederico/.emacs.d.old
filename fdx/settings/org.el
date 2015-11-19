@@ -6,3 +6,5 @@
 
 (setq org-export-html-postamble nil)
 
+
+(require 'ox-reveal)

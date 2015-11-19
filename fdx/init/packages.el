@@ -39,6 +39,7 @@
  'ace-jump-mode
  'ace-window
  'htmlize
+ 'ox-reveal
  )
 
 ;; vendored packages
