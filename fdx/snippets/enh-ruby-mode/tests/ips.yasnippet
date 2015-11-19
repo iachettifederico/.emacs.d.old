@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Benchmark Ips
+# key: ips
+# --
+require "benchmark/ips"
+
+Benchmark.ips do |x|
+  x.config(time: 5, warmup: 2)
+
+  rep$0
+
+  x.compare!
+end
