@@ -39,6 +39,7 @@
  'ace-window
  'htmlize
  'ox-reveal
+ 'markdown-mode+
  )
 
 ;; vendored packages
