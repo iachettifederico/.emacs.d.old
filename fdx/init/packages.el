@@ -44,3 +44,4 @@
 
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
+(fdx/load-init-file "fdx/vendor/ox-reveal")
