@@ -17,9 +17,6 @@
 (fdx/global-set-key (kbd "C-c i") 'align-regexp)
 
 ;; Buffers
-(fdx/global-set-key (kbd "C-x C-r") 'fdx/rename-current-buffer-file)
-(fdx/global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
-
 (fdx/global-set-key (kbd "C-c k") 'fdx/kill-other-buffers)
 (fdx/global-set-key (kbd "C-x C-w") (lambda () (interactive) (switch-to-buffer "*scratch*")))
 
@@ -43,6 +40,10 @@
 (fdx/global-set-key (kbd "M-K") 'ace-jump-line-mode)
 
 ;; Appearence
+(fdx/global-set-key (kbd "M-{") 'fdx/increase-font-size)
+(fdx/global-set-key (kbd "M-}") 'fdx/decrease-font-size)
 
-(fdx/global-set-key (kbd "C-{") 'fdx/increase-font-size)
-(fdx/global-set-key (kbd "C-}") 'fdx/decrease-font-size)
+;; Files and directories
+(fdx/global-set-key (kbd "C-x C-r") 'fdx/rename-current-buffer-file)
+(fdx/global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
+
