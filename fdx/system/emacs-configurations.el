@@ -11,6 +11,9 @@
    (quote
     ("private" "public" "protected" "module_function" "raise" "fail")))
  '(fci-rule-color "#003f8e")
+ '(git-commit-fill-column 1000)
+ '(git-commit-finish-query-functions nil)
+ '(git-commit-summary-max-length 1000)
  '(rspec-use-spring-when-possible nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
