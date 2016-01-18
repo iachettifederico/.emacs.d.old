@@ -4,12 +4,10 @@
 #expand-env: ((yas-indent-line 'fixed))
 # --
 %table.table
-  %thead
+  %tr
+    %th To String
+    %th Inspect
+  - ${1:collection}.each do |${2:element}|
     %tr
-      %th To String
-      %th Inspect
-  %tbody
-    - ${1:collection}.each do |${2:element}|
-      %tr
-        %td= $2.to_s
-        %td= $2.inspect
+      %td= $2.to_s
+      %td= $2.inspect
