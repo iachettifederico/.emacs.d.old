@@ -33,6 +33,7 @@
  'scss-mode
  'coffee-mode
  'dired+
+ 'neotree
  'undo-tree
  'smex
  'ace-jump-mode

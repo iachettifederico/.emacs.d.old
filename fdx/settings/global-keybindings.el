@@ -47,3 +47,4 @@
 (fdx/global-set-key (kbd "C-x C-r") 'fdx/rename-current-buffer-file)
 (fdx/global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
 
+(fdx/global-set-key (kbd "<f8>") 'neotree-toggle)
