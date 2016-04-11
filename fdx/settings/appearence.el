@@ -13,5 +13,10 @@
 (require 'color-theme)
 (color-theme-initialize)
 
-(require 'color-theme-ir-black)
-(color-theme-ir-black)
+;(require 'color-theme-ir-black)
+;(color-theme-sanityinc-tomorrow-night)
+(color-theme-sanityinc-tomorrow-bright)
+
+;(require 'ir-black-theme)
+
+;(color-theme-charcoal-black)
