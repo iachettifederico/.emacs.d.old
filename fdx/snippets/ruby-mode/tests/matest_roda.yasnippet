@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Matest File for Roda
+# key: matest_roda
+# --
+require "spec_helper"
+require "./models/`(replace-regexp-in-string "_spec.rb\$" "" (buffer-name (current-buffer)))`$1"
+
+scope do
+  spec do
+    true$0
+  end
+end

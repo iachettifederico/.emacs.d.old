@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: Gemfile
+# key: gemfile
+# --
+source "https://rubygems.org"
+$0
+# gem "thin"
+# gem "rails"
+# gem "sinatra"
+# gem "cuba"
+# gem "roda"
+
+group :test do
+  gem "matest"
+  # gem "rspec"
+end
+
+group :development do
+  gem "pry"
+  gem "capistrano"
+  gem "pessimize"
+  gem "rake"
+end
