@@ -12,7 +12,7 @@
  'package+
  'magit
  'color-theme
- 'color-theme-ir-black
+ 'ir-black-theme
  'color-theme-sanityinc-tomorrow
  'yasnippet
  'projectile
@@ -21,11 +21,12 @@
  'ruby-mode
  'inf-ruby
  'ruby-compilation
+ 'seeing-is-believing
  'rspec-mode
  'minitest
  'rhtml-mode
  'enh-ruby-mode
- 'smartparens
+ 'ruby-electric
  'haml-mode
  'slim-mode
  'yaml-mode
@@ -41,6 +42,8 @@
  'htmlize
  'ox-reveal
  'markdown-mode+
+ 'org-eww
+ 'whitespace-cleanup-mode
  )
 
 ;; vendored packages

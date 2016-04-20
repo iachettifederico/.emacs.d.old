@@ -7,6 +7,10 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["black" "red3" "green3" "yellow3" "royal blue" "magenta3" "cyan3" "gray90"])
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
+ '(custom-safe-themes
+   (quote
+    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(enh-ruby-extra-keywords
    (quote
     ("private" "public" "protected" "module_function" "raise" "fail")))
@@ -14,6 +18,10 @@
  '(git-commit-fill-column 1000)
  '(git-commit-finish-query-functions nil)
  '(git-commit-summary-max-length 1000)
+ '(package-selected-packages
+   (quote
+    (bundler whitespace-cleanup-mode csv-mode csv-nav slack ruby-electric seeing-is-believing org-eww package-build git commander f dash s cask cucumber-goto-step feature-mode ecukes markdown-mode+ ox-reveal htmlize ace-window ace-jump-mode smex undo-tree neotree dired+ coffee-mode scss-mode yaml-mode slim-mode haml-mode enh-ruby-mode rhtml-mode minitest rspec-mode ruby-compilation inf-ruby rvm multiple-cursors projectile yasnippet color-theme-sanityinc-tomorrow ir-black-theme color-theme magit git-commit magit-popup pkg-info avy markdown-mode epl package+)))
+ '(rspec-use-rake-when-possible t)
  '(rspec-use-spring-when-possible nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map

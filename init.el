@@ -1,5 +1,8 @@
 ;; FDX's Emacs configuration
 
+
+(package-initialize)
+
 (require 'autoload)
 
 (defun fdx/load-init-file (path &optional noerror)
