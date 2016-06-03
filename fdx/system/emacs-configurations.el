@@ -20,7 +20,7 @@
  '(git-commit-summary-max-length 1000)
  '(package-selected-packages
    (quote
-    (bundler whitespace-cleanup-mode csv-mode csv-nav slack ruby-electric seeing-is-believing org-eww package-build git commander f dash s cask cucumber-goto-step feature-mode ecukes markdown-mode+ ox-reveal htmlize ace-window ace-jump-mode smex undo-tree neotree dired+ coffee-mode scss-mode yaml-mode slim-mode haml-mode enh-ruby-mode rhtml-mode minitest rspec-mode ruby-compilation inf-ruby rvm multiple-cursors projectile yasnippet color-theme-sanityinc-tomorrow ir-black-theme color-theme magit git-commit magit-popup pkg-info avy markdown-mode epl package+)))
+    (typescript-mode tidy rudel centered-cursor-mode bundler whitespace-cleanup-mode csv-mode csv-nav slack ruby-electric seeing-is-believing org-eww package-build git commander f dash s cask cucumber-goto-step feature-mode ecukes markdown-mode+ ox-reveal htmlize ace-window ace-jump-mode smex undo-tree neotree dired+ coffee-mode scss-mode yaml-mode slim-mode haml-mode enh-ruby-mode rhtml-mode minitest rspec-mode ruby-compilation inf-ruby rvm multiple-cursors projectile yasnippet color-theme-sanityinc-tomorrow ir-black-theme color-theme magit git-commit magit-popup pkg-info avy markdown-mode epl package+)))
  '(rspec-use-rake-when-possible t)
  '(rspec-use-spring-when-possible nil)
  '(vc-annotate-background nil)
