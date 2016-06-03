@@ -45,6 +45,7 @@
  'org-eww
  'whitespace-cleanup-mode
  'centered-cursor-mode
+ 'typescript-mode
  )
 
 ;; vendored packages
