@@ -48,3 +48,7 @@
 (fdx/global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
 
 (fdx/global-set-key (kbd "<f8>") 'neotree-toggle)
+
+;; Compilation
+(fdx/global-set-key (kbd "C-\\") 'recompile)
+(fdx/global-set-key (kbd "M-\\") 'compile)

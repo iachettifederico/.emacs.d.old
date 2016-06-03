@@ -1,10 +1,6 @@
 (require 'ruby-electric)
 (electric-pair-mode t)
 
-;; ;; Compilation
-(fdx/local-set-key (kbd "C-\\") 'recompile)
-(fdx/local-set-key (kbd "M-\\") 'compile)
-
 (defadvice comment-dwim (around rct-hack activate)
   "If comment-dwim is successively called, add => mark."
   (if (and (eq major-mode 'enh-ruby-mode)
