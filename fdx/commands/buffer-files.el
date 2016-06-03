@@ -1,3 +1,4 @@
+
 ;;;###autoload
 (defun fdx/rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."

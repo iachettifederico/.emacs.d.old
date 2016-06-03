@@ -1,4 +1,16 @@
 ;;;###autoload
+(defun fdx/bundle ()
+  "Run Pessimize."
+  (interactive)
+  (async-shell-command "bundle install" "*Pessimize*"))
+
+;;;###autoload
+(defun fdx/bundle-update ()
+  "Run Pessimize."
+  (interactive)
+  (async-shell-command "bundle update" "*Pessimize*"))
+
+;;;###autoload
 (defun fdx/pessimize ()
   "Run Pessimize."
   (interactive)
