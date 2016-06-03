@@ -44,6 +44,7 @@
  'markdown-mode+
  'org-eww
  'whitespace-cleanup-mode
+ 'centered-cursor-mode
  )
 
 ;; vendored packages
