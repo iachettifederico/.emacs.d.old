@@ -45,6 +45,7 @@
  'whitespace-cleanup-mode
  'centered-cursor-mode
  'typescript-mode
+ 'try
  )
 
 ;; vendored packages
