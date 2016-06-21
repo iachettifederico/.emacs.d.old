@@ -21,7 +21,6 @@
  'ruby-mode
  'inf-ruby
  'ruby-compilation
- 'seeing-is-believing
  'rspec-mode
  'minitest
  'rhtml-mode
