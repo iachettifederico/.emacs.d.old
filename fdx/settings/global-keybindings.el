@@ -16,6 +16,9 @@
 
 (fdx/global-set-key (kbd "C-c i") 'align-regexp)
 
+(fdx/global-set-key [(control return)] 'fdx/open-line-below)
+(fdx/global-set-key [(control shift return)] 'fdx/open-line-above)
+
 ;; Buffers
 (fdx/global-set-key (kbd "C-c k") 'fdx/kill-other-buffers)
 (fdx/global-set-key (kbd "C-x C-w") (lambda () (interactive) (switch-to-buffer "*scratch*")))
