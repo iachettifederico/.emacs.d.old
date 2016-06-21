@@ -4,20 +4,17 @@
 (defadvice comment-dwim (around rct-hack activate)
   "If comment-dwim is successively called, add => mark."
   (if (and (eq major-mode 'enh-ruby-mode)
-           (eq last-command 'comment-dwim)
-           ;; TODO =>check
-           )
-      (insert "=>")
+           (eq last-command 'comment-dwim))
+      (if (string= (string (preceding-char)) "#")
+          (insert " =>")
+        (insert "=>"))
     ad-do-it))
 
-(setq xmpfilter-command-name "ruby -S xmpfilter --no-warnings --dev --fork --detect-rbtest")
-
-(require 'seeing-is-believing)
-(seeing-is-believing)
+(setq xmpfilter-command-name
+      "ruby -S seeing_is_believing --xmpfilter-style")
 
 (fdx/local-set-key (kbd "C-c C-c") 'xmp)
 (fdx/local-set-key (kbd "C-c c") 'xmp)
-(fdx/local-set-key (kbd "C-c l") 'seeing-is-believing-clear)
 (fdx/local-set-key (kbd "C-;") 'comment-dwim)
 
 (whitespace-cleanup-mode)
