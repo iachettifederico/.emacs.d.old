@@ -12,7 +12,7 @@
  'package+
  'magit
  'color-theme
- 'ir-black-theme
+ 'color-theme-ir-black
  'color-theme-sanityinc-tomorrow
  'yasnippet
  'projectile
