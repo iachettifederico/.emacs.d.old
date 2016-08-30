@@ -46,6 +46,8 @@
  'centered-cursor-mode
  'typescript-mode
  'try
+ 'nlinum
+ 'nlinum-relative
  )
 
 ;; vendored packages
