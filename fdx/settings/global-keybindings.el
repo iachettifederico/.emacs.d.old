@@ -16,8 +16,8 @@
 
 (fdx/global-set-key (kbd "C-c i") 'align-regexp)
 
-(fdx/global-set-key [(control return)] 'fdx/open-line-below)
-(fdx/global-set-key [(control shift return)] 'fdx/open-line-above)
+(fdx/global-set-key (kbd "C-<return>") 'fdx/open-line-below)
+(fdx/global-set-key (kbd "C-S-<return>") 'fdx/open-line-above)
 
 ;; Buffers
 (fdx/global-set-key (kbd "C-c k") 'fdx/kill-other-buffers)
@@ -46,6 +46,9 @@
 (fdx/global-set-key (kbd "M-{") 'fdx/increase-font-size)
 (fdx/global-set-key (kbd "M-}") 'fdx/decrease-font-size)
 
+(fdx/global-set-key (kbd "M-[") 'fdx/increase-font-size)
+(fdx/global-set-key (kbd "M-]") 'fdx/decrease-font-size)
+
 ;; Files and directories
 (fdx/global-set-key (kbd "C-x C-r") 'fdx/rename-current-buffer-file)
 (fdx/global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
@@ -55,5 +58,8 @@
 ;; Compilation
 (fdx/global-set-key (kbd "C-\\") 'recompile)
 (fdx/global-set-key (kbd "M-\\") 'compile)
+
+;; Shells
+(fdx/global-set-key (kbd "C-x m") 'eshell)
 
 (fdx/global-set-key (kbd "M-e") 'er/expand-region)
