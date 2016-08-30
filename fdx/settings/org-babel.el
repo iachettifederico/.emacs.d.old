@@ -3,10 +3,11 @@
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
- '( (ruby . y)
-    (dot . t)
-    (ditaa . t)
-    ))
+ '(
+   (ruby . y)
+   (dot . t)
+   (ditaa . t)
+   ))
 
 ;; Do not prompt to confirm evaluation
 ;; This may be dangerous - make sure you understand the consequences

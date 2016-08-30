@@ -1,3 +1,5 @@
+(flyspell-mode 1)
+
 (require 'htmlize)
 (setq org-src-fontify-natively t)
 
@@ -6,4 +8,4 @@
 
 (setq org-export-html-postamble nil)
 
-(require 'ox-reveal)
+
