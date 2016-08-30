@@ -50,6 +50,7 @@
  'typescript-mode
  'nlinum
  'nlinum-relative
+ 'crux
  'expand-region
  'smart-mode-line
  'smart-mode-line-powerline-theme
