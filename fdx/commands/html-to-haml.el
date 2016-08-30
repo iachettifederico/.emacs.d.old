@@ -4,7 +4,7 @@
   (interactive)
   (save-excursion
     (save-buffer)
-    (shell-command (concat "html2haml --html-attributes --erb " (buffer-file-name) " 2> /dev/null")
+    (shell-command (concat "html2haml --html-attributes --erb " (buffer-file-name)) ; " 2> /dev/null")
                    (current-buffer)
                    )))
 
@@ -18,8 +18,8 @@
                        (buffer-substring start end)
                        "\n<!-- UPTO HERE -->\n")))
       (let (
-            (haml-string (shell-command-to-string (concat "echo \"" erb-string"\" |" "html2haml -s --html-attributes --erb 2> /dev/null")))
-            )
+            (haml-string (shell-command-to-string (concat "echo \"" erb-string"\" |" "html2haml -s --html-attributes --erb"); " 2> /dev/null")
+                                                  )))
         (delete-region start end)
         (insert haml-string)
         ) ; let 2
@@ -48,7 +48,7 @@
   (interactive)
   (save-excursion
     (save-buffer)
-    (shell-command (concat "html2haml --html-attributes --erb " (buffer-file-name) " 2> /dev/null")
+    (shell-command (concat "html2haml --html-attributes --erb " (buffer-file-name)); " 2> /dev/null")
                    (current-buffer)
                    )
     (let ((new-name (replace-regexp-in-string "erb" "haml" (buffer-file-name))))
