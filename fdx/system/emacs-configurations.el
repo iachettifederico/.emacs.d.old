@@ -10,7 +10,7 @@
  '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
  '(custom-safe-themes
    (quote
-    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(enh-ruby-extra-keywords
    (quote
     ("private" "public" "protected" "module_function" "raise" "fail")))
@@ -19,9 +19,20 @@
  '(git-commit-finish-query-functions nil)
  '(git-commit-summary-max-length 1000)
  '(magit-pull-arguments nil)
+ '(openwith-associations
+   (quote
+    (("\\.pdf\\'" "evince"
+      (file))
+     ("\\.odt\\'" "libreoffice"
+      (file))
+     ("\\.odf\\'" "libreoffice"
+      (file))
+     ("\\.ods\\'" "libreoffice"
+      (file)))))
+ '(org-export-backends (quote (beamer html icalendar md odt freemind)))
  '(package-selected-packages
    (quote
-    (color-theme-ir-black smart-cursor-color smart-mode-line speed-type typescript-mode tidy rudel centered-cursor-mode bundler whitespace-cleanup-mode csv-mode csv-nav slack ruby-electric seeing-is-believing org-eww package-build git commander f dash s cask cucumber-goto-step feature-mode ecukes markdown-mode+ ox-reveal htmlize ace-window ace-jump-mode smex undo-tree neotree dired+ coffee-mode scss-mode yaml-mode slim-mode haml-mode enh-ruby-mode rhtml-mode minitest rspec-mode ruby-compilation inf-ruby rvm multiple-cursors projectile yasnippet color-theme-sanityinc-tomorrow color-theme magit git-commit magit-popup pkg-info avy markdown-mode epl package+)))
+    (ox-pandoc crux smart-mode-line-powerline-theme nlinum expand-region openwith org-mode color-theme-ir-black smart-cursor-color smart-mode-line speed-type typescript-mode tidy rudel centered-cursor-mode bundler whitespace-cleanup-mode csv-mode csv-nav slack ruby-electric seeing-is-believing org-eww package-build git commander f dash s cask cucumber-goto-step feature-mode ecukes markdown-mode+ ox-reveal htmlize ace-window ace-jump-mode smex undo-tree neotree dired+ coffee-mode scss-mode yaml-mode slim-mode haml-mode enh-ruby-mode rhtml-mode minitest rspec-mode ruby-compilation inf-ruby rvm multiple-cursors projectile yasnippet color-theme-sanityinc-tomorrow color-theme magit git-commit magit-popup pkg-info avy markdown-mode epl package+)))
  '(rspec-use-rake-when-possible t)
  '(rspec-use-spring-when-possible nil)
  '(safe-local-variable-values
