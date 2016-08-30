@@ -24,4 +24,5 @@
 (define-key dired-mode-map
   (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 
-(setq dired-listing-switches "-la --group-directories-first")
+;;(setq dired-listing-switches "-la --group-directories-first")
+(setq dired-listing-switches "-aBhl  --group-directories-first")
