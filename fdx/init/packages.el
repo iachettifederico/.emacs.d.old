@@ -50,6 +50,9 @@
  'typescript-mode
  'nlinum
  'nlinum-relative
+ 'smart-mode-line
+ 'smart-mode-line-powerline-theme
+ 'openwith
  )
 
 ;; vendored packages
