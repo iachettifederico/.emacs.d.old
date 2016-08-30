@@ -10,13 +10,16 @@
 
 (package-manifest
  'package+
+ 'try
  'magit
+ 'projectile
+ 'yasnippet
+ 'multiple-cursors
  'color-theme
  'color-theme-ir-black
  'color-theme-sanityinc-tomorrow
- 'yasnippet
- 'projectile
- 'multiple-cursors
+ 'dired+
+ 'neotree
  'rvm
  'ruby-mode
  'inf-ruby
@@ -26,26 +29,24 @@
  'rhtml-mode
  'enh-ruby-mode
  'ruby-electric
+ 'htmlize
  'haml-mode
  'slim-mode
  'yaml-mode
  'css-mode
  'scss-mode
  'coffee-mode
- 'dired+
- 'neotree
  'undo-tree
  'smex
  'ace-jump-mode
  'ace-window
- 'htmlize
- 'ox-reveal
  'markdown-mode+
+ 'org-mode
  'org-eww
+ 'ox-reveal
  'whitespace-cleanup-mode
  'centered-cursor-mode
  'typescript-mode
- 'try
  'nlinum
  'nlinum-relative
  )
