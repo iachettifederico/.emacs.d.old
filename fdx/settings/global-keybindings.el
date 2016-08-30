@@ -55,3 +55,5 @@
 ;; Compilation
 (fdx/global-set-key (kbd "C-\\") 'recompile)
 (fdx/global-set-key (kbd "M-\\") 'compile)
+
+(fdx/global-set-key (kbd "M-e") 'er/expand-region)
