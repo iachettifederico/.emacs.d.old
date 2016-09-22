@@ -1,27 +1,11 @@
-(setq fdx/current-font-size 120)
-
-;; (custom-set-faces
-;;  '(default ((t (:family "Monaco"
-;;                         :foundry "unknown"
-;;                         :slant normal
-;;                         :weight normal
-;;                         :height 125
-;;                         :width normal)))))
-
-;; (custom-set-faces
-;;  '(default ((t (:family "Source Code Pro"
-;;                         :foundry "unknown"
-;;                         :slant normal
-;;                         :weight normal
-;;                         :height 120
-;;                         :width normal)))))
+(setq fdx/current-font-size 160)
 
 (custom-set-faces
- '(default ((t (:family "Inconsolata"
+ `(default ((t (:family "Inconsolata"
                         :foundry "unknown"
                         :slant normal
                         :weight normal
-                        :height 120
+                        :height ,fdx/current-font-size
                         :width normal)))))
 
 (show-paren-mode t)
