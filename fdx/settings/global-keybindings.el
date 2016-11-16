@@ -64,3 +64,7 @@
 (fdx/global-set-key (kbd "C-x m") 'eshell)
 
 (fdx/global-set-key (kbd "M-e") 'er/expand-region)
+
+(fdx/global-set-key (kbd "C-x C-c") 'noop)
+(fdx/global-set-key (kbd "C-z") 'noop)
+
