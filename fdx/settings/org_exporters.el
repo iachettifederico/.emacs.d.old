@@ -4,3 +4,4 @@
 (setq org-reveal-mathjax t)
 
 (require 'ox-pandoc)
+(require 'ob-browser)

@@ -1,4 +1,6 @@
 (setq org-ditaa-jar-path "/usr/bin/ditaa")
+(setq org-plantuml-jar-path
+      (expand-file-name "~/src/org/contrib/scripts/plantuml.jar"))
 
 ;; active Babel languages
 (org-babel-do-load-languages
@@ -7,6 +9,7 @@
    (ruby . y)
    (dot . t)
    (ditaa . t)
+   (plantuml . t)
    ))
 
 ;; Do not prompt to confirm evaluation

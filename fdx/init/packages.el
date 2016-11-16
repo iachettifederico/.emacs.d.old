@@ -45,6 +45,7 @@
  'org-eww
  'ox-reveal
  'ox-pandoc
+ 'ob-browser
  'whitespace-cleanup-mode
  'centered-cursor-mode
  'typescript-mode

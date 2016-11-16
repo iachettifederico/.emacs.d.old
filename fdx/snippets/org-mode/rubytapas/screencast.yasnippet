@@ -2,5 +2,9 @@
 # name: Screencast Layout
 # key: screencast
 # --
-#+TITLE:     ${1:title}
+#+TITLE:     ${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "-" " - " (replace-regexp-in-string "\[_*\]" " " fn)))`}
 #+SETUPFILE: ../defaults.org
