@@ -13,3 +13,5 @@
 (column-number-mode)
 
 (global-hl-line-mode t)
+
+(setq-default fill-column 80)
