@@ -6,7 +6,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
-   (ruby . y)
+   (ruby . t)
    (dot . t)
    (ditaa . t)
    (plantuml . t)

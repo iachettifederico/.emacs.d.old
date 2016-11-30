@@ -7,5 +7,3 @@
 (setq org-babel-results-keyword "results")
 
 (setq org-export-html-postamble nil)
-
-
