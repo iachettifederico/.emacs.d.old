@@ -43,7 +43,7 @@
  'markdown-mode+
  'org-mode
  'org-eww
- 'ox-reveal
+ ;;'ox-reveal
  'ox-pandoc
  'ob-browser
  'whitespace-cleanup-mode
