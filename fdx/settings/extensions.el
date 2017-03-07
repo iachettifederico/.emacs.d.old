@@ -10,6 +10,7 @@
 (add-to-list 'auto-mode-alist '("\\.env\\'"           . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee\\.erb\\'"  . coffee-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\.erb\\'"      . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\.jsx\\'"      . rjsx-mode))
 
 (require 'openwith)
 (openwith-mode t)

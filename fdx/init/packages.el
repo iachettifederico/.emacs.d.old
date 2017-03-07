@@ -56,8 +56,9 @@
  'smart-mode-line
  'smart-mode-line-powerline-theme
  'openwith
+ 'rjsx-mode
  )
 
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
-(fdx/load-init-file "fdx/vendor/ox-reveal")
+;;(fdx/load-init-file "fdx/vendor/ox-reveal")
