@@ -3,6 +3,7 @@
 (setq truncate-lines nil)
 (setq truncate-partial-width-windows nil)
 
+(whitespace-cleanup-mode)
 
 (fdx/local-set-key (kbd "C-c t t") 'tapas/populate-tapas-shots)
 (fdx/local-set-key (kbd "C-c t r") 'tapas/tapas-shots)
