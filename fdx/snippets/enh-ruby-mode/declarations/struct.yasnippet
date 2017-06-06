@@ -6,12 +6,4 @@ ${1:`(let ((fn (capitalize (file-name-nondirectory
                                  (file-name-sans-extension
                  (or (buffer-file-name)
                      (buffer-name (current-buffer))))))))
-       (replace-regexp-in-string "\[_*\]" "" fn))`} = Struct.new(${2:**attrs}) do
-  def initialize(**attrs)
-    attrs.each do |attr, val|
-      self.send("#{attr}=", val)
-    end
-  end
-
-  $0
-end
+       (replace-regexp-in-string "\[_*\]" "" fn))`} = Struct.new(${2:**attrs})$0
