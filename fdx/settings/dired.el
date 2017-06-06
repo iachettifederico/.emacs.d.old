@@ -26,3 +26,9 @@
 
 ;;(setq dired-listing-switches "-la --group-directories-first")
 (setq dired-listing-switches "-aBhl  --group-directories-first")
+
+
+(require 'dired-x)
+(setq-default dired-omit-files-p t) ; Buffer-local variable
+(setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.[^\\.]")
+(setq dired-omit-mode t) ; Turn on Omit mode.
