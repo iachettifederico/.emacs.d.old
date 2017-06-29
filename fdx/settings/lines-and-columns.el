@@ -4,6 +4,7 @@
 ;; (set-face-attribute 'linum nil :background "#191919")
 
 (require 'nlinum)
+(require 'nlinum-hl)
 (global-nlinum-mode t)
 
 (setq nlinum-relative-redisplay-delay 0)        ;; delay

@@ -50,6 +50,7 @@
  'centered-cursor-mode
  'typescript-mode
  'nlinum
+ 'nlinum-hl
  'nlinum-relative
  'crux
  'expand-region
