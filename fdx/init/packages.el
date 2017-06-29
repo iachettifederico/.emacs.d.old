@@ -58,6 +58,7 @@
  'smart-mode-line-powerline-theme
  'openwith
  'rjsx-mode
+ 'emmet-mode
  )
 
 ;; vendored packages
