@@ -65,6 +65,4 @@
 
 (fdx/global-set-key (kbd "M-e") 'er/expand-region)
 
-(fdx/global-set-key (kbd "C-x C-c") 'noop)
-(fdx/global-set-key (kbd "C-z") 'noop)
-
+(fdx/global-set-key (kbd "H-s") 'save-buffer) 
