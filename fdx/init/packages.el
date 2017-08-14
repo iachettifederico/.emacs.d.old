@@ -61,6 +61,7 @@
  'emmet-mode
  'protobuf-mode
  'ag
+ 'ox-jira
  'yafolding
  )
 
