@@ -6,7 +6,7 @@
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
-   ["black" "red3" "green3" "yellow3" "royal blue" "magenta3" "cyan3" "gray90"])
+   ["black" "red3" "green3" "yellow3" "DodgerBlue1" "magenta3" "cyan3" "gray90"])
  '(ccm-vpos-init (quote (round (* 21 (window-text-height)) 34)))
  '(ccm-vpos-inverted -1)
  '(compilation-always-kill t)
