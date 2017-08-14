@@ -1,0 +1,1 @@
+(yafolding-mode 1)
