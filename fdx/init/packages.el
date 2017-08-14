@@ -60,6 +60,7 @@
  'rjsx-mode
  'emmet-mode
  'protobuf-mode
+ 'yafolding
  )
 
 ;; vendored packages

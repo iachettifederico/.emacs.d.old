@@ -66,3 +66,6 @@
 (fdx/global-set-key (kbd "M-e") 'er/expand-region)
 
 (fdx/global-set-key (kbd "H-s") 'save-buffer) 
+(fdx/global-set-key (kbd "H-<tab>") 'yafolding-toggle-element)
+(fdx/global-set-key (kbd "H-S-<tab>") 'yafolding-toggle-all)
+; (fdx/global-set-key (kbd "H-iso-lefttab") 'yafolding-toggle-all)
