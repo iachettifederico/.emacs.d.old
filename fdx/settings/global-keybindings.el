@@ -8,11 +8,11 @@
 (fdx/global-set-key (kbd "<f7>") 'fdx/recompile-snippets)
 
 ;; Text
-(fdx/global-set-key (kbd "M--") 'kill-whole-line)
-(fdx/global-set-key (kbd "M-d") 'fdx/duplicate-line)
+(fdx/global-set-key (kbd "H--") 'kill-whole-line)
+(fdx/global-set-key (kbd "H-d") 'fdx/duplicate-line)
 
-(fdx/global-set-key (kbd "<M-down>") 'fdx/move-line-down)
-(fdx/global-set-key (kbd "<M-up>") 'fdx/move-line-up)
+(fdx/global-set-key (kbd "<H-down>") 'fdx/move-line-down)
+(fdx/global-set-key (kbd "<H-up>") 'fdx/move-line-up)
 
 (fdx/global-set-key (kbd "C-c i") 'align-regexp)
 
@@ -57,15 +57,17 @@
 (fdx/global-set-key (kbd "<f8>") 'neotree-toggle)
 
 ;; Compilation
-(fdx/global-set-key (kbd "C-\\") 'recompile)
-(fdx/global-set-key (kbd "M-\\") 'compile)
+(fdx/global-set-key (kbd "H-m") 'recompile)
+(fdx/global-set-key (kbd "H-b") 'compile)
 
 ;; Shells
 (fdx/global-set-key (kbd "C-x m") 'eshell)
 
-(fdx/global-set-key (kbd "M-e") 'er/expand-region)
+(fdx/global-set-key (kbd "H-e") 'er/expand-region)
+(fdx/global-set-key (kbd "H-s") 'save-buffer)
+(fdx/global-set-key (kbd "H-f") 'ido-find-file)
 
-(fdx/global-set-key (kbd "H-s") 'save-buffer) 
+
 (fdx/global-set-key (kbd "H-<tab>") 'yafolding-toggle-element)
 (fdx/global-set-key (kbd "H-S-<tab>") 'yafolding-toggle-all)
 ; (fdx/global-set-key (kbd "H-iso-lefttab") 'yafolding-toggle-all)
