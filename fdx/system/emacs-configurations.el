@@ -15,6 +15,8 @@
  '(custom-safe-themes
    (quote
     ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
+ '(enh-ruby-deep-arglist nil)
+ '(enh-ruby-deep-indent-paren nil)
  '(enh-ruby-extra-keywords
    (quote
     ("private" "public" "protected" "module_function" "raise" "fail")))
