@@ -72,3 +72,8 @@
 (fdx/global-set-key (kbd "H-<tab>") 'yafolding-toggle-element)
 (fdx/global-set-key (kbd "H-S-<tab>") 'yafolding-toggle-all)
 ; (fdx/global-set-key (kbd "H-iso-lefttab") 'yafolding-toggle-all)
+
+(fdx/global-set-key (kbd "H-<left>")  'windmove-left)
+(fdx/global-set-key (kbd "H-<right>") 'windmove-right)
+(fdx/global-set-key (kbd "H-<up>")    'windmove-up)
+(fdx/global-set-key (kbd "H-<down>")  'windmove-down)
