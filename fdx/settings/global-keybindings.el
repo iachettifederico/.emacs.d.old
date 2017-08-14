@@ -67,6 +67,7 @@
 (fdx/global-set-key (kbd "H-s") 'save-buffer)
 (fdx/global-set-key (kbd "H-f") 'ido-find-file)
 
+(fdx/global-set-key (kbd "H-g") 'ag)
 
 (fdx/global-set-key (kbd "H-<tab>") 'yafolding-toggle-element)
 (fdx/global-set-key (kbd "H-S-<tab>") 'yafolding-toggle-all)

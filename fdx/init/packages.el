@@ -60,6 +60,7 @@
  'rjsx-mode
  'emmet-mode
  'protobuf-mode
+ 'ag
  'yafolding
  )
 
