@@ -59,6 +59,7 @@
  'openwith
  'rjsx-mode
  'emmet-mode
+ 'protobuf-mode
  )
 
 ;; vendored packages
