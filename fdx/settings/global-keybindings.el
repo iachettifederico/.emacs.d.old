@@ -11,8 +11,8 @@
 (fdx/global-set-key (kbd "H--") 'kill-whole-line)
 (fdx/global-set-key (kbd "H-d") 'fdx/duplicate-line)
 
-(fdx/global-set-key (kbd "<H-down>") 'fdx/move-line-down)
-(fdx/global-set-key (kbd "<H-up>") 'fdx/move-line-up)
+(fdx/global-set-key (kbd "<H-S-down>") 'fdx/move-line-down)
+(fdx/global-set-key (kbd "<H-S-up>") 'fdx/move-line-up)
 
 (fdx/global-set-key (kbd "C-c i") 'align-regexp)
 
