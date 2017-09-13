@@ -32,3 +32,4 @@
 (setq-default dired-omit-files-p t) ; Buffer-local variable
 (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.[^\\.]")
 (setq dired-omit-mode t) ; Turn on Omit mode.
+(setq dired-omit-verbose nil) ; Turn off Omit mode messages.
