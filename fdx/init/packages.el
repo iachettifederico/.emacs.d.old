@@ -69,6 +69,7 @@
 (use-package ag :ensure t)
 (use-package ox-jira :ensure t)
 (use-package yafolding :ensure t)
+(use-package dumb-jump :ensure t)
 
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
