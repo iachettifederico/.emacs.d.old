@@ -5,4 +5,5 @@
 
 (require 'ox-pandoc)
 (require 'ob-browser)
+(require 'ox-jira)
 
