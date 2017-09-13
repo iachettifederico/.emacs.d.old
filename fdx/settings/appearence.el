@@ -1,4 +1,4 @@
-(setq fdx/current-font-size 160)
+(setq fdx/current-font-size 120)
 
 (custom-set-faces
  `(default ((t (:family "Inconsolata"
