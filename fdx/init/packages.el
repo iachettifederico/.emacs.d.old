@@ -18,6 +18,7 @@
 
 (use-package try :ensure t)
 (use-package magit :ensure t)
+(use-package which-key :ensure t)
 (use-package projectile :ensure t)
 (use-package yasnippet :ensure t)
 (use-package multiple-cursors :ensure t)
