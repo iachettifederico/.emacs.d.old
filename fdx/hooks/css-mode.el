@@ -1,1 +1,1 @@
-(fdx/local-set-key (kbd "H-=") 'fdx/reindent-buffer)
+(local-set-key (kbd "H-=") 'fdx/reindent-buffer)

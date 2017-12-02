@@ -13,15 +13,15 @@
 (setq xmpfilter-command-name
       "ruby -S seeing_is_believing --xmpfilter-style")
 
-(fdx/local-set-key (kbd "C-c C-c") 'xmp)
-(fdx/local-set-key (kbd "C-c c") 'xmp)
-(fdx/local-set-key (kbd "C-;") 'comment-dwim)
+(local-set-key (kbd "C-c C-c") 'xmp)
+(local-set-key (kbd "C-c c") 'xmp)
+(local-set-key (kbd "C-;") 'comment-dwim)
 
 (whitespace-cleanup-mode)
 
 ;; ;; Refactorings
-(fdx/local-set-key (kbd "M-r l") 'fdx/refactoring/extract-let)
-(fdx/local-set-key (kbd "M-r m") 'rrf-extract-method)
-(fdx/local-set-key (kbd "M-r t") 'rrf-extract-temporary)
-(fdx/local-set-key (kbd "M-r c") 'rrf-extract-constant)
-(fdx/local-set-key (kbd "M-r i") 'fdx/refactoring/interpolate-string)
+(local-set-key (kbd "M-r l") 'fdx/refactoring/extract-let)
+(local-set-key (kbd "M-r m") 'rrf-extract-method)
+(local-set-key (kbd "M-r t") 'rrf-extract-temporary)
+(local-set-key (kbd "M-r c") 'rrf-extract-constant)
+(local-set-key (kbd "M-r i") 'fdx/refactoring/interpolate-string)
