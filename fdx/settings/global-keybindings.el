@@ -85,3 +85,5 @@
 (global-set-key (kbd "H-r s")  'rspec-verify-single)
 
 (global-set-key (kbd "H-k")  'global-set-key)
+
+(global-set-key (kbd "H-9") 'fdx/kmacro-name-and-assign)
