@@ -5,7 +5,7 @@
 
 (dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("melpa"     . "http://melpa.milkbox.net/packages/")))
+                ("melpa"     . "https://melpa.org/packages/")))
   (add-to-list 'package-archives repo))
 
 (package-initialize)
