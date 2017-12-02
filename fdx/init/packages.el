@@ -59,7 +59,7 @@
 (use-package nlinum :ensure t)
 (use-package nlinum-hl :ensure t)
 (use-package nlinum-relative :ensure t)
-(use-package crux :ensure t)
+;; (use-package crux :ensure t)
 (use-package expand-region :ensure t)
 (use-package smart-mode-line :ensure t)
 (use-package smart-mode-line-powerline-theme :ensure t)

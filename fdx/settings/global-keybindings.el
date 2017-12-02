@@ -42,7 +42,7 @@
 (global-set-key (kbd "M-J") 'ace-jump-char-mode)
 (global-set-key (kbd "M-K") 'ace-jump-line-mode)
 
-(global-set-key (kbd "C-a") 'crux-move-beginning-of-line)
+;; (global-set-key (kbd "C-a") 'crux-move-beginning-of-line)
 ;; Appearence
 (global-set-key (kbd "M-{") 'fdx/increase-font-size)
 (global-set-key (kbd "M-}") 'fdx/decrease-font-size)
