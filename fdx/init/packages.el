@@ -71,6 +71,7 @@
 (use-package ox-jira                         :ensure t)
 (use-package yafolding                       :ensure t)
 (use-package dumb-jump                       :ensure t)
+(use-package shell-pop                       :ensure t)
 
 
 ;; vendored packages
