@@ -26,7 +26,6 @@
 (use-package color-theme-ir-black            :ensure t)
 (use-package color-theme-sanityinc-tomorrow  :ensure t)
 (use-package dired+                          :ensure t)
-(use-package neotree                         :ensure t)
 (use-package rvm                             :ensure t)
 (use-package ruby-mode                       :ensure t)
 (use-package inf-ruby                        :ensure t)
