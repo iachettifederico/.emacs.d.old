@@ -1,2 +1,2 @@
-(require 'dumb-jump)
-(dumb-jump-mode)
+;;(require 'dumb-jump)
+;;(dumb-jump-mode)

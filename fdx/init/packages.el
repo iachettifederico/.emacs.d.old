@@ -1,12 +1,10 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 
-
-
-(dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
-                ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("melpa"     . "https://melpa.org/packages/")))
-  (add-to-list 'package-archives repo))
+(add-to-list 'package-archives '("melpa"     . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("elpa"      . "http://tromey.com/elpa/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("org"       . "https://orgmode.org/elpa/"))
 
 (package-initialize)
 
@@ -22,10 +20,6 @@
 (use-package projectile                      :ensure t)
 (use-package yasnippet                       :ensure t)
 (use-package multiple-cursors                :ensure t)
-(use-package color-theme                     :ensure t)
-(use-package color-theme-ir-black            :ensure t)
-(use-package color-theme-sanityinc-tomorrow  :ensure t)
-(use-package dired+                          :ensure t)
 (use-package rvm                             :ensure t)
 (use-package ruby-mode                       :ensure t)
 (use-package inf-ruby                        :ensure t)
@@ -47,18 +41,13 @@
 (use-package ace-jump-mode                   :ensure t)
 (use-package ace-window                      :ensure t)
 (use-package markdown-mode+                  :ensure t)
-(use-package org-mode                        :ensure t)
-(use-package org-eww                         :ensure t)
 (use-package ox-reveal                       :ensure t)
 (use-package ox-pandoc                       :ensure t)
 (use-package ob-browser                      :ensure t)
 (use-package whitespace-cleanup-mode         :ensure t)
-(use-package centered-cursor-mode            :ensure t)
 (use-package typescript-mode                 :ensure t)
 (use-package nlinum                          :ensure t)
 (use-package nlinum-hl                       :ensure t)
-(use-package nlinum-relative                 :ensure t)
-;; (use-package crux                         :ensure t)
 (use-package expand-region                   :ensure t)
 (use-package smart-mode-line                 :ensure t)
 (use-package smart-mode-line-powerline-theme :ensure t)
@@ -69,10 +58,12 @@
 (use-package ag                              :ensure t)
 (use-package ox-jira                         :ensure t)
 (use-package yafolding                       :ensure t)
-(use-package dumb-jump                       :ensure t)
 (use-package shell-pop                       :ensure t)
+(use-package gif-screencast                  :ensure t)
 
-
+(use-package rudel                           :ensure t)
+(use-package centered-cursor-mode            :ensure t)
+(use-package color-theme-sanityinc-tomorrow  :ensure t)
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
 (fdx/load-init-file "fdx/vendor/lockstep")

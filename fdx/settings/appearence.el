@@ -10,10 +10,9 @@
 
 (show-paren-mode t)
 
-(require 'color-theme)
-(color-theme-initialize)
 
+;;(require 'color-theme)
+;;(color-theme-initialize)
+
+;;(require 'color-theme-sanityinc-tomorrow-bright)
 (color-theme-sanityinc-tomorrow-bright)
-
-;;(require 'color-theme-ir-black)
-;;(color-theme-ir-black)
