@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: #+BEGIN_SRC browser
+# key: browser
+# --
+#+CAPTION: Browse http://localhost:9292/$1
+#+BEGIN_SRC browser :out $2.png
+<iframe src="http://localhost:9292/$1" no-border>
+#+END_SRC
+$0
