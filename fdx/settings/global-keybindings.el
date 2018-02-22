@@ -74,10 +74,10 @@
 (global-set-key (kbd "H-s") 'save-buffer)
 (global-set-key (kbd "H-f") 'ido-find-file)
 
-(global-set-key (kbd "H-g") 'ag)
+(global-set-key (kbd "H-g") 'fdx/ag-or-projectile-ag)
 
-(global-set-key (kbd "H-l") 'yafolding-toggle-element)
-(global-set-key (kbd "H-L") 'yafolding-toggle-all)
+(global-set-key (kbd "H-c") 'yafolding-toggle-element)
+(global-set-key (kbd "H-C") 'yafolding-toggle-all)
 ; (global-set-key (kbd "H-iso-lefttab") 'yafolding-toggle-all)
 
 (global-set-key (kbd "H-<left>")  'windmove-left)
@@ -85,16 +85,10 @@
 (global-set-key (kbd "H-<up>")    'windmove-up)
 (global-set-key (kbd "H-<down>")  'windmove-down)
 
-(global-set-key (kbd "H-H")  'windmove-left)
-(global-set-key (kbd "H-N") 'windmove-right)
-(global-set-key (kbd "H-C")    'windmove-up)
-(global-set-key (kbd "H-T")  'windmove-down)
-
-(global-set-key (kbd "H-r r")  'rspec-rerun)
-(global-set-key (kbd "H-r t")  'rspec-toggle-spec-and-target)
-(global-set-key (kbd "H-r v")  'rspec-verify)
-(global-set-key (kbd "H-r a")  'rspec-verify-all)
-(global-set-key (kbd "H-r s")  'rspec-verify-single)
+;; (global-set-key (kbd "H-H")  'windmove-left)
+;; (global-set-key (kbd "H-N") 'windmove-right)
+;; (global-set-key (kbd "H-C")    'windmove-up)
+;; (global-set-key (kbd "H-T")  'windmove-down)
 
 ;; Maybe save H-v for minitest or else, there might be a way to circle the
 ;; default keybindings for H-r between test modes
@@ -107,3 +101,6 @@
 
 (global-set-key (kbd "H-o") 'org-capture)
 
+(global-set-key (kbd "H-\\") 'overwrite-mode)
+
+(global-set-key (kbd "H-l") 'magit-show-refs-popup)

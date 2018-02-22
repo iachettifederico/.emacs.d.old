@@ -25,3 +25,9 @@
 (local-set-key (kbd "M-r t") 'rrf-extract-temporary)
 (local-set-key (kbd "M-r c") 'rrf-extract-constant)
 (local-set-key (kbd "M-r i") 'fdx/refactoring/interpolate-string)
+
+(local-set-key (kbd "H-r r")  'rspec-rerun)
+(local-set-key (kbd "H-r t")  'rspec-toggle-spec-and-target)
+(local-set-key (kbd "H-r v")  'rspec-verify)
+(local-set-key (kbd "H-r a")  'rspec-verify-all)
+(local-set-key (kbd "H-r s")  'rspec-verify-single)
