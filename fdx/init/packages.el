@@ -68,11 +68,14 @@
 (use-package shell-pop                       :ensure t)
 (use-package gif-screencast                  :ensure t)
 (use-package diredfl                         :ensure t)
+(use-package exwm                            :ensure t)
+(use-package dmenu                           :ensure t)
 (use-package highlight-indent-guides         :ensure t)
 (use-package popup-kill-ring                 :ensure t)
 (use-package ido-vertical-mode               :ensure t)
 
 (use-package rudel                           :ensure t)
+
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
 (fdx/load-init-file "fdx/vendor/lockstep")
