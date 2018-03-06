@@ -16,3 +16,5 @@
 (global-hl-line-mode t)
 
 (setq-default fill-column 80)
+
+(setq highlight-indent-guides-method 'fill)
