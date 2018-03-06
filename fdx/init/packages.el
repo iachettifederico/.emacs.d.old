@@ -60,6 +60,7 @@
 (use-package yafolding                       :ensure t)
 (use-package shell-pop                       :ensure t)
 (use-package gif-screencast                  :ensure t)
+(use-package diredfl                         :ensure t)
 (use-package highlight-indent-guides         :ensure t)
 
 (use-package rudel                           :ensure t)
