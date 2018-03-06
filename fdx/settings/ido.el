@@ -11,3 +11,6 @@
       ido-use-virtual-buffers t
       ido-handle-duplicate-virtual-buffers 2
       )
+
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)

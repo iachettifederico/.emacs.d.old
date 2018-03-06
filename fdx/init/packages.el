@@ -70,6 +70,7 @@
 (use-package diredfl                         :ensure t)
 (use-package highlight-indent-guides         :ensure t)
 (use-package popup-kill-ring                 :ensure t)
+(use-package ido-vertical-mode               :ensure t)
 
 (use-package rudel                           :ensure t)
 ;; vendored packages
