@@ -13,6 +13,13 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(unless (package-installed-p 'centered-cursor-mode)
+  (package-refresh-contents)
+  (package-install 'centered-cursor-mode))
+
+(unless (package-installed-p 'color-theme-sanityinc-tomorrow)
+  (package-refresh-contents)
+  (package-install 'color-theme-sanityinc-tomorrow))
 
 (use-package try                             :ensure t)
 (use-package magit                           :ensure t)
@@ -64,8 +71,6 @@
 (use-package highlight-indent-guides         :ensure t)
 
 (use-package rudel                           :ensure t)
-(use-package centered-cursor-mode            :ensure t)
-(use-package color-theme-sanityinc-tomorrow  :ensure t)
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
 (fdx/load-init-file "fdx/vendor/lockstep")
