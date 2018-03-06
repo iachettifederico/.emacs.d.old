@@ -10,3 +10,7 @@
 (local-set-key (kbd "C-c t e") 'tapas/insert-episode-link)
 
 (local-set-key (kbd "H-=") 'fdx/reindent-buffer)
+
+(toggle-word-wrap t)
+(flyspell-mode t)
+(flyspell-buffer)
