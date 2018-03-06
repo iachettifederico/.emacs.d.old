@@ -75,6 +75,7 @@
 (global-set-key (kbd "H-f") 'ido-find-file)
 
 (global-set-key (kbd "H-g") 'fdx/ag-or-projectile-ag)
+(global-set-key (kbd "H-G") 'ag)
 
 (global-set-key (kbd "H-c") 'yafolding-toggle-element)
 (global-set-key (kbd "H-C") 'yafolding-toggle-all)
@@ -104,3 +105,5 @@
 (global-set-key (kbd "H-\\") 'overwrite-mode)
 
 (global-set-key (kbd "H-l") 'magit-show-refs-popup)
+
+(global-set-key (kbd "M-y") 'popup-kill-ring)
