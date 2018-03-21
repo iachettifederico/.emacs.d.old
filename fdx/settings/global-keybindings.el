@@ -107,3 +107,8 @@
 (global-set-key (kbd "H-l") 'magit-show-refs-popup)
 
 (global-set-key (kbd "M-y") 'popup-kill-ring)
+
+(global-set-key (kbd "H-v a") 'fdx/vm/rspec-verify-all)
+(global-set-key (kbd "H-v d") 'fdx/vm/rspec-verify-dir)
+(global-set-key (kbd "H-v v") 'fdx/vm/rspec-verify)
+(global-set-key (kbd "H-v s") 'fdx/vm/rspec-verify-single)
