@@ -73,6 +73,7 @@
 
 (global-set-key (kbd "H-s") 'save-buffer)
 (global-set-key (kbd "H-f") 'ido-find-file)
+(global-set-key (kbd "H-F") 'projectile-find-file)
 
 (global-set-key (kbd "H-g") 'fdx/ag-or-projectile-ag)
 (global-set-key (kbd "H-G") 'ag)
