@@ -6,7 +6,7 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("org"       . "https://orgmode.org/elpa/"))
 
-(package-initialize)
+;;(package-initialize)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
