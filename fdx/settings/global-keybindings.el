@@ -1,8 +1,3 @@
-;; Moving cursor
-(global-set-key (kbd "H-h") 'backward-char)
-(global-set-key (kbd "H-n") 'forward-char)
-(global-set-key (kbd "H-c") 'previous-line)
-(global-set-key (kbd "H-t") 'next-line)
 
 ;; Menu
 (global-set-key (kbd "M-x") 'smex)
@@ -12,7 +7,7 @@
 
 ;; Yasnippet
 (global-set-key (kbd "<f7>") 'fdx/recompile-snippets)
-
+(global-set-key (kbd "<backtab>") 'yas-insert-snippet)
 ;; Text
 (global-set-key (kbd "H--") 'kill-whole-line)
 (global-set-key (kbd "H-d") 'fdx/duplicate-line)
@@ -61,6 +56,7 @@
 (global-set-key (kbd "C-x C-k") 'fdx/delete-current-buffer-file)
 
 (global-set-key (kbd "<f8>") 'neotree-toggle)
+(global-set-key (kbd "<f5>") 'revert-buffer)
 
 ;; Compilation
 (global-set-key (kbd "H-m") 'recompile)
@@ -72,7 +68,8 @@
 (global-set-key (kbd "H-e") 'er/expand-region)
 
 (global-set-key (kbd "H-s") 'save-buffer)
-(global-set-key (kbd "H-f") 'ido-find-file)
+(global-set-key (kbd "H-S") 'save-some-buffers)
+
 (global-set-key (kbd "H-f") 'fdx/visit-or-projectile-visit)
 (global-set-key (kbd "H-F") 'ido-find-file)
 
@@ -110,7 +107,3 @@
 
 (global-set-key (kbd "M-y") 'popup-kill-ring)
 
-(global-set-key (kbd "H-v a") 'fdx/vm/rspec-verify-all)
-(global-set-key (kbd "H-v d") 'fdx/vm/rspec-verify-dir)
-(global-set-key (kbd "H-v v") 'fdx/vm/rspec-verify)
-(global-set-key (kbd "H-v s") 'fdx/vm/rspec-verify-single)
