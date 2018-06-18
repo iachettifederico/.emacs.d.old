@@ -2,30 +2,30 @@
 (defun fdx/bundle ()
   "Run Pessimize."
   (interactive)
-  (async-shell-command "bundle install" "*Pessimize*"))
+  (compile "bundle install"))
 
 ;;;###autoload
 (defun fdx/bundle-update ()
   "Run Pessimize."
   (interactive)
-  (async-shell-command "bundle update" "*Pessimize*"))
+  (compile "bundle update"))
 
 ;;;###autoload
 (defun fdx/pessimize ()
   "Run Pessimize."
   (interactive)
-  (async-shell-command "pessimize -c patch --no-backup" "*Pessimize*"))
+  (compile "pessimize -c patch --no-backup"))
 
 ;;;###autoload
 (defun fdx/bp ()
   "Run bundel install and pessimize."
   (interactive)
-  (async-shell-command "bundle install && pessimize -c patch --no-backup" "*Pessimize*"))
+  (compile "bundle install && pessimize -c patch --no-backup"))
 
 ;;;###autoload
 (defun fdx/burp ()
   "Run bundle update and pessimize."
   (interactive)
-  (async-shell-command "bundle update && pessimize -c patch --no-backup" "*Pessimize*"))
+  (compile "bundle update && pessimize -c patch --no-backup"))
 
 
