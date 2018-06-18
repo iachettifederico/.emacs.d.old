@@ -6,7 +6,7 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("org"       . "https://orgmode.org/elpa/"))
 
-;;(package-initialize)
+;; (package-initialize)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -68,13 +68,23 @@
 (use-package shell-pop                       :ensure t)
 (use-package gif-screencast                  :ensure t)
 (use-package diredfl                         :ensure t)
-(use-package exwm                            :ensure t)
-(use-package dmenu                           :ensure t)
 (use-package highlight-indent-guides         :ensure t)
 (use-package popup-kill-ring                 :ensure t)
 (use-package ido-vertical-mode               :ensure t)
+(use-package org-bullets                     :ensure t)
+(use-package hydra                           :ensure t)
+(use-package vlf                             :ensure t)
+(use-package coverage                        :ensure t)
+(use-package rainbow-mode                    :ensure t)
 
-(use-package rudel                           :ensure t)
+(use-package ox-twbs                         :ensure t)
+
+;; EXWM
+(use-package xelb :ensure t)
+(use-package exwm :ensure t)
+(use-package dmenu :ensure t)
+
+
 
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
