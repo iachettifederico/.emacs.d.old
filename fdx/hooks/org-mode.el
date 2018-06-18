@@ -14,3 +14,5 @@
 (toggle-word-wrap t)
 (flyspell-mode t)
 (flyspell-buffer)
+
+(org-bullets-mode 1)
