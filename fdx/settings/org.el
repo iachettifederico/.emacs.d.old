@@ -52,3 +52,5 @@
                    path (or desc "")))
      (latex (format "\href{%s}{%s}"
                     path (or desc "video"))))))
+
+(require 'org-bullets)
