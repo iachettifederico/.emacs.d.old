@@ -107,3 +107,4 @@
 
 (global-set-key (kbd "M-y") 'popup-kill-ring)
 
+(global-set-key (kbd "H-w") 'balance-windows)
