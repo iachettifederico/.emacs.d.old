@@ -3,13 +3,15 @@
 ;; (global-linum-mode t)
 ;; (set-face-attribute 'linum nil :background "#191919")
 
-(require 'nlinum)
-(require 'nlinum-hl)
-(global-nlinum-mode t)
+;; (require 'nlinum)
+;; (require 'nlinum-hl)
+;; (global-nlinum-mode t)
 
-(setq nlinum-relative-redisplay-delay 0)        ;; delay
-;; (setq nlinum-relative-current-symbol "->")   ;; or "" for display current line number
-(setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
+;; (setq nlinum-relative-redisplay-delay 0)        ;; delay
+;; ;; (setq nlinum-relative-current-symbol "->")   ;; or "" for display current line number
+;; (setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
+
+(global-display-line-numbers-mode t)
 
 (column-number-mode)
 
