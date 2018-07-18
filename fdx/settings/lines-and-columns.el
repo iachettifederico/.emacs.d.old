@@ -1,22 +1,15 @@
-;;;; Show line Numbers
-
-;; (global-linum-mode t)
-;; (set-face-attribute 'linum nil :background "#191919")
-
-;; (require 'nlinum)
-;; (require 'nlinum-hl)
-;; (global-nlinum-mode t)
-
-;; (setq nlinum-relative-redisplay-delay 0)        ;; delay
-;; ;; (setq nlinum-relative-current-symbol "->")   ;; or "" for display current line number
-;; (setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
-
-(global-display-line-numbers-mode t)
+(global-display-line-numbers-mode 0)
+(global-hl-line-mode t)
 
 (column-number-mode)
 
-(global-hl-line-mode t)
-
 (setq-default fill-column 80)
-
 (setq highlight-indent-guides-method 'fill)
+
+(require 'fill-column-indicator)
+
+(setq fci-rule-width 1)
+(setq fci-rule-color "grey8")
+
+(fci-mode t)
+
