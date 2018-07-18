@@ -1,12 +1,11 @@
+
 (require 'package)
 (setq package-enable-at-startup nil)
-
-(add-to-list 'package-archives '("melpa"     . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("elpa"      . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("org"       . "https://orgmode.org/elpa/"))
-
-;; (package-initialize)
+(setq package-archives '(("org"       . "http://orgmode.org/elpa/")
+                         ("gnu"       . "http://elpa.gnu.org/packages/")
+                         ("melpa"     . "https://melpa.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -74,6 +73,8 @@
 (use-package vlf                             :ensure t)
 (use-package coverage                        :ensure t)
 (use-package rainbow-mode                    :ensure t)
+(use-package doom-themes                     :ensure t)
+(use-package fill-column-indicator           :ensure t)
 
 (use-package ox-twbs                         :ensure t)
 

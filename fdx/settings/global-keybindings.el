@@ -103,8 +103,8 @@
 
 (global-set-key (kbd "H-\\") 'overwrite-mode)
 
-(global-set-key (kbd "H-l") 'magit-show-refs-popup)
-
 (global-set-key (kbd "M-y") 'popup-kill-ring)
 
 (global-set-key (kbd "H-w") 'balance-windows)
+
+(global-set-key (kbd "H-t") 'hydra-modes/body)
