@@ -77,6 +77,7 @@
 (use-package fill-column-indicator           :ensure t)
 
 (use-package ox-twbs                         :ensure t)
+(use-package ido-completing-read+            :ensure t)
 
 ;; EXWM
 (use-package xelb :ensure t)

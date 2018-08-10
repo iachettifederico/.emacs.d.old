@@ -10,8 +10,9 @@
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
 
-
 (custom-set-variables
 '(git-commit-fill-column 1000)
 '(git-commit-finish-query-functions nil)
 '(git-commit-summary-max-length 1000))
+
+(setq magit-completing-read-function 'magit-ido-completing-read)
