@@ -8,14 +8,16 @@
   ("t"    next-line     "")
   ("q"    nil           "cancel"))
 
-(defhydra hydra-modes ()
+(defhydra hydra-modes (:color blue)
   "Decorations"
-  ("h"    hl-line-mode              "HL"           )
-  ("n"    display-line-numbers-mode "Line Numbers" )
-  ("f"    fci-mode                  "Column fill"  )
-  ("c"    coverage-mode             "Coverage"     :color blue)
-  ("b"    magit-blame               "Git Blame"    :color blue)
-  ("q"    nil                       ""           )
+  ("h"    hl-line-mode              "HL"            )
+  ("n"    display-line-numbers-mode "Line Numbers"  )
+  ("f"    fci-mode                  "Column fill"   )
+  ("c"    coverage-mode             "Coverage"      )
+  ("b"    magit-blame               "Git Blame"     )
+  ("g"    git-timemachine           "Git History"   )
+  ("w"    centered-window-mode      "Center buffer" )
+  ("q"    nil                       ""            )
   )
 
 

@@ -1,6 +1,8 @@
 (require 'ruby-electric)
 (electric-pair-mode t)
 
+(hl-line-mode t)
+
 (defadvice comment-dwim (around rct-hack activate)
   "If comment-dwim is successively called, add => mark."
   (if (and (eq major-mode 'enh-ruby-mode)

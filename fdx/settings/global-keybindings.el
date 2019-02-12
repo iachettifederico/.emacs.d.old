@@ -1,6 +1,7 @@
 
 ;; Menu
-(global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-x") 'counsel-M-x)
 
 ;; Magit
 (global-set-key (kbd "C-c g") 'magit-status)
@@ -20,6 +21,8 @@
 (global-set-key (kbd "C-<return>") 'fdx/open-line-below)
 (global-set-key (kbd "C-S-<return>") 'fdx/open-line-above)
 
+(global-set-key (kbd "C-s") 'swiper)
+
 ;; Buffers
 (global-set-key (kbd "C-c k") 'fdx/kill-other-buffers)
 (global-set-key (kbd "C-x C-w") (lambda () (interactive) (switch-to-buffer "*scratch*")))
@@ -38,6 +41,8 @@
 (global-set-key (kbd "C-x /") 'toggle-window-split)
 
 (global-set-key (kbd "M-p") 'ace-window)
+
+(global-set-key (kbd "M-s") 'swiper)
 
 ;; Navigation
 (global-set-key (kbd "M-j") 'ace-jump-word-mode)
@@ -70,6 +75,7 @@
 (global-set-key (kbd "H-s") 'save-buffer)
 (global-set-key (kbd "H-S") 'save-some-buffers)
 
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "H-f") 'fdx/visit-or-projectile-visit)
 (global-set-key (kbd "H-F") 'ido-find-file)
 
@@ -85,11 +91,6 @@
 (global-set-key (kbd "H-<up>")    'windmove-up)
 (global-set-key (kbd "H-<down>")  'windmove-down)
 
-;; (global-set-key (kbd "H-H")  'windmove-left)
-;; (global-set-key (kbd "H-N") 'windmove-right)
-;; (global-set-key (kbd "H-C")    'windmove-up)
-;; (global-set-key (kbd "H-T")  'windmove-down)
-
 ;; Maybe save H-v for minitest or else, there might be a way to circle the
 ;; default keybindings for H-r between test modes
 
@@ -101,10 +102,11 @@
 
 (global-set-key (kbd "H-o") 'org-capture)
 
-(global-set-key (kbd "H-\\") 'overwrite-mode)
-
 (global-set-key (kbd "M-y") 'popup-kill-ring)
 
 (global-set-key (kbd "H-w") 'balance-windows)
 
 (global-set-key (kbd "H-t") 'hydra-modes/body)
+
+(global-set-key (kbd "H-a") (lambda () (interactive) (switch-to-buffer "*dashboard*")))
+(global-set-key (kbd "H-0 k") 'fdx/open-kronickle-tracker)

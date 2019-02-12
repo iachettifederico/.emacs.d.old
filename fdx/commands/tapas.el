@@ -18,10 +18,10 @@
   (save-excursion
     (beginning-of-buffer)
     (kmacro-set-counter 1)
-    (while (search-forward "{{{shot(" nil t)
+    (while (search-forward "shot(" nil t)
       (let ((start (point)))
-        (search-forward ")}}}" nil nil)
-        (left-char 4)
+        (search-forward ")" nil nil)
+        (left-char)
         (delete-region start (point)))
       (kmacro-insert-counter ARG))
     (message "Done populating shot macros.")))
@@ -32,10 +32,10 @@
   (interactive)
   (save-excursion
     (beginning-of-buffer)
-    (while (search-forward "{{{shot(" nil nil)
+    (while (search-forward "shot(" nil nil)
       (let ((start (point)))
-        (search-forward ")}}}" nil nil)
-        (left-char 4)
+        (search-forward ")" nil nil)
+        (left-char)
         (delete-region start (point))))))
 
 ;;;###autoload

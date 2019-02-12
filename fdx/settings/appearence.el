@@ -2,7 +2,7 @@
 
 (custom-set-faces
  `(default ((t (:family "Inconsolata"
-                        :foundry "unknown"
+                        ;; :foundry "unknown"
                         :slant normal
                         :weight normal
                         :height ,fdx/current-font-size

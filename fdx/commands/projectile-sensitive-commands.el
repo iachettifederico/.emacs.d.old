@@ -9,5 +9,5 @@
 (defun fdx/visit-or-projectile-visit (&optional a b)
   (interactive)
   (if (projectile-project-p)
-      (call-interactively #'projectile-find-file)
-    (call-interactively #'ido-find-file)))
+      (call-interactively #'counsel-projectile-find-file)
+    (call-interactively #'counsel-find-file)))

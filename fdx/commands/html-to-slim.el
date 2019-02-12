@@ -4,9 +4,11 @@
   (interactive)
   (save-excursion
     (save-buffer)
-    (shell-command (concat "erb2slim " (buffer-file-name)) ; " 2> /dev/null")
-                   (current-buffer)
-                   )))
+    (shell-command (concat "erb2slim " (buffer-file-name) " -d")
+                   (current-buffer))
+    (find-file (replace-regexp-in-string
+                 "\\.erb" ".slim"
+                 (buffer-file-name)))))
 
 ;;;###autoload
 (defun fdx/erb-to-slim-on-region (start end)

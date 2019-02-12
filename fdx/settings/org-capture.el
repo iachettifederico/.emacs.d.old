@@ -19,12 +19,15 @@
         ("i" "Post idea"           entry     (file "~/Dropbox/wordpress_rake/IDEAS.org")
          "* %?\n")
 
-        ("w" "Woodworking project" entry     (file "~/Dropbox/org-files/woodworking_projects.org")
+        ("m" "Maker project"       entry     (file "~/Dropbox/org-files/maker_projects.org")
          "* TODO %?\n")
 
         ("s" "Shopping list"       checkitem (file "~/Dropbox/org-files/shopping_list.org"))
 
         ("t" "Tools to buy"        checkitem (file "~/Dropbox/org-files/tools.org"))
+
+        ("k" "Kronickle Story"     entry     (file "~/code/kronickle/stories.org")
+         "* STARTED %(fdx/prompt \"Description\" 'description)%?\n  - URL :: [[%(fdx/prompt \"Link\" 'url)][Pivotal]]\n  - Branch :: %(fdx/prompt \"Branch\" 'branch)")
 
         ("c" "Org-capture"          plain     (function fdx/open-capture.el-buffer)
          "        (\"%(fdx/prompt \"Key\" 'key)\" \"%(fdx/prompt \"Description\" 'description)\" %(fdx/prompt \"Type\" 'capture-type) %(fdx/prompt \"Target\" 'target)

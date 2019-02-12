@@ -18,3 +18,5 @@
 (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
 
 (setq ido-vertical-show-count t)
+
+(setq ido-file-extensions-order '(".rb" ".org" ".el" ".txt" ".emacs" ))

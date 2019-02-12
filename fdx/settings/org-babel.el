@@ -1,6 +1,6 @@
 (setq org-ditaa-jar-path "/usr/bin/ditaa")
 (setq org-plantuml-jar-path
-      (expand-file-name "~/src/org/contrib/scripts/plantuml.jar"))
+      (expand-file-name "fdx/vendor/plantuml.jar" user-emacs-directory))
 
 ;; active Babel languages
 (org-babel-do-load-languages

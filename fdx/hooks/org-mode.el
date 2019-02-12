@@ -16,3 +16,5 @@
 (flyspell-buffer)
 
 (org-bullets-mode 1)
+
+(hl-line-mode t)

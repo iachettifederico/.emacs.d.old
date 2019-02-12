@@ -1,29 +1,34 @@
-
-(require 'package)
+1(require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org"       . "http://orgmode.org/elpa/")
                          ("gnu"       . "http://elpa.gnu.org/packages/")
                          ("melpa"     . "https://melpa.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
-(package-initialize)
+                         ;;("marmalade" . "http://marmalade-repo.org/packages/")
+			 ))
+
+(if (not package--initialized) 
+    (package-initialize))
+
+(package-refresh-contents)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
-  (package-refresh-contents)
   (package-install 'use-package))
 
+(unless (package-installed-p 'auto-package-update)
+  (package-install 'auto-package-update))
+
 (unless (package-installed-p 'centered-cursor-mode)
-  (package-refresh-contents)
   (package-install 'centered-cursor-mode))
 
 (unless (package-installed-p 'color-theme-sanityinc-tomorrow)
-  (package-refresh-contents)
   (package-install 'color-theme-sanityinc-tomorrow))
 
 (use-package try                             :ensure t)
 (use-package magit                           :ensure t)
 (use-package which-key                       :ensure t)
 (use-package projectile                      :ensure t)
+(use-package projectile-rails                :ensure t)
 (use-package yasnippet                       :ensure t)
 (use-package multiple-cursors                :ensure t)
 (use-package rvm                             :ensure t)
@@ -46,7 +51,9 @@
 (use-package smex                            :ensure t)
 (use-package ace-jump-mode                   :ensure t)
 (use-package ace-window                      :ensure t)
+(use-package markdown-mode                   :ensure t)
 (use-package markdown-mode+                  :ensure t)
+(use-package ox-hugo                         :ensure t)
 (use-package ox-reveal                       :ensure t)
 (use-package ox-pandoc                       :ensure t)
 (use-package ob-browser                      :ensure t)
@@ -58,7 +65,6 @@
 (use-package openwith                        :ensure t)
 (use-package rjsx-mode                       :ensure t)
 (use-package emmet-mode                      :ensure t)
-(use-package protobuf-mode                   :ensure t)
 (use-package ag                              :ensure t)
 (use-package ox-jira                         :ensure t)
 (use-package yafolding                       :ensure t)
@@ -67,6 +73,10 @@
 (use-package diredfl                         :ensure t)
 (use-package highlight-indent-guides         :ensure t)
 (use-package popup-kill-ring                 :ensure t)
+(use-package ivy                             :ensure t)
+(use-package flx                             :ensure t)
+(use-package counsel                         :ensure t)
+(use-package counsel-projectile              :ensure t)
 (use-package ido-vertical-mode               :ensure t)
 (use-package org-bullets                     :ensure t)
 (use-package hydra                           :ensure t)
@@ -75,10 +85,18 @@
 (use-package rainbow-mode                    :ensure t)
 (use-package doom-themes                     :ensure t)
 (use-package fill-column-indicator           :ensure t)
-
 (use-package ox-twbs                         :ensure t)
+(use-package request                         :ensure t)
+(use-package auto-complete                   :ensure t)
 (use-package ido-completing-read+            :ensure t)
-(use-package dashboard                       :ensure t)
+;; (use-package dashboard                       :ensure t)
+(use-package exec-path-from-shell            :ensure t)
+(use-package floobits                        :ensure t)
+(use-package centered-window                 :ensure t)
+(use-package ruby-hash-syntax                :ensure t)
+(use-package pivotal-tracker                 :ensure t)
+(use-package plantuml-mode                   :ensure t)
+(use-package git-timemachine                 :ensure t)
 
 ;; EXWM
 (use-package xelb :ensure t)
@@ -90,3 +108,4 @@
 ;; vendored packages
 (fdx/load-init-file "fdx/vendor/rcodetools")
 (fdx/load-init-file "fdx/vendor/lockstep")
+

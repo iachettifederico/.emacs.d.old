@@ -1,5 +1,4 @@
-(global-display-line-numbers-mode 0)
-(global-hl-line-mode t)
+(global-display-line-numbers-mode 1)
 
 (column-number-mode)
 
@@ -12,4 +11,3 @@
 (setq fci-rule-color "grey8")
 
 (fci-mode t)
-

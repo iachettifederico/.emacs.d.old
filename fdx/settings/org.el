@@ -54,3 +54,7 @@
                     path (or desc "video"))))))
 
 (require 'org-bullets)
+
+'(org-clock-into-drawer "CLOCKING")
+
+(setq org-duration-format (quote h:mm))

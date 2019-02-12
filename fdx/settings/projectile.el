@@ -1,1 +1,1 @@
-;;(projectile-global-mode)
+;;(projectile-rails-global-mode)
