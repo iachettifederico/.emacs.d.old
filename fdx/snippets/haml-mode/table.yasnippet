@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Table
+# key: table
+#expand-env: ((yas-indent-line 'fixed))
+# --
+%table.table
+  %tr
+    %th To String
+    %th Inspect
+  - ${1:collection}.each do |${2:element}|
+    %tr
+      %td= $2.to_s
+      %td= $2.inspect

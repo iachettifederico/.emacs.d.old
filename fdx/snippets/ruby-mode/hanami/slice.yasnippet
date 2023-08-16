@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Route Slice
+# key: slice
+# --
+slice :${1:slice}, at: "/$1" do
+  root to: "$0"
+end

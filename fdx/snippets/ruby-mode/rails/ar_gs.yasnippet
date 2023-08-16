@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: ActiveRecord Getter and Setter
+# key: ar_gs
+# --
+def ${1:attr}
+  read_attribute(:$1)$0
+end
+
+def $1=(${3:val})
+  write_attribute(:$1, $3$0)
+end

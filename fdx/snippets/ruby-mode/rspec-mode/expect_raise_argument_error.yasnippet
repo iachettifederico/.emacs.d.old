@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Expect to raise ArgumentError
+# key: exrarg
+# --
+expect {
+  $1
+}.to raise_error(ArgumentError, "missing keywords: :$0")

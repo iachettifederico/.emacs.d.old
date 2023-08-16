@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+#name : View Component compontent
+#key : component
+# --
+class ${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "\[_*\]" "" fn))`} < ApplicationComponent
+  def initialize($0)
+  end
+end

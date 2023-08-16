@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+#name : Class Name
+#key : clan
+# --
+${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "\[_*\]" "" fn))`}

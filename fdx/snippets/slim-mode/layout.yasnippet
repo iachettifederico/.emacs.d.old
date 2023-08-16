@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: Slim Layout
+# key: layout
+# expand-env: ((yas-indent-line 'fixed))
+# --
+html
+  head
+    title
+      
+      meta{charset="utf-8"}
+      meta{name="viewport" content="width=device-width initial-scale=1"}
+      link{media="all" rel="stylesheet" href="/css/style.css"}
+      script{type="application/javascript" src="/js/script.js"}
+        
+  body
+    == yield

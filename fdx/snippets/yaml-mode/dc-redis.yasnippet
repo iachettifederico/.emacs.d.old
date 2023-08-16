@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Docker compose redis
+# key: dc-redis
+# expand-env: ((yas-indent-line 'fixed))
+# --
+redis:
+  image: redis:latest
+  expose:
+    - 6379
+  ports:
+    - '6379:6379'
+  volumes:
+    - redis-data:/data

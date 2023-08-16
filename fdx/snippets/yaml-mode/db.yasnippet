@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: Database Config file
+# key: db
+# expand-env: ((yas-indent-line 'fixed))
+# --
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV.fetch("DATABASE_URL")  %>
+
+development:
+  <<: *default
+test:
+  <<: *default
+production:
+  <<: *default

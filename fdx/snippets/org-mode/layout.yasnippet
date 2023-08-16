@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: Org Mode Basic Layout
+# key: layout
+# --
+#+TITLE:     $1
+#+AUTHOR:    ${2:Federico M. Iachetti}
+#+EMAIL:     ${3:iachetti.federico@gmail.com}
+#+LANGUAGE:  en
+#+OPTIONS:   H:5 num:${4:$$(yas/choose-value '("t" "nil"))} toc:${5:$$(yas/choose-value '("t" "nil"))} \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:${6:$$(yas/choose-value '("info" "overview" "content" "showall" "nil"))} toc:t ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+HTML_HEAD: ${7:$$(yas/choose-value '("<link rel='stylesheet' type='text/css' href='css/style.css' />" "<style></style>" ""))}
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+

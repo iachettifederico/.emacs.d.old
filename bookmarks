@@ -1,0 +1,35 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("ConqueredSelf"
+ (filename . "~/code/conquered_self/")
+ (front-context-string . "app\n  drwxr-xr-x")
+ (rear-context-string . "0K ago 12 11:27 ")
+ (position . 179)
+ (last-modified 25820 57351 275392 378000))
+("NB Casts - Content"
+ (filename . "~/nb-casts/site/src/content/episodes/")
+ (front-context-string . "..\n  drwxr-xr-x ")
+ (rear-context-string . "0K ago 10 12:04 ")
+ (position . 145)
+ (last-modified 25817 18078 98850 486000))
+("NB Casts - Site"
+ (filename . "~/nb-casts/site/")
+ (front-context-string . "bin\n  drwxr-xr-x")
+ (rear-context-string . "0K dic  7  2022 ")
+ (position . 173)
+ (last-modified 25817 18058 430682 178000))
+("oldreadmeemacs"
+ (filename . "~/.emacs.d.old/Readme.org")
+ (front-context-string . "#+TITLE: Emacs c")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 25817 17439 513202 658000))
+("Emacs Readme Configuration"
+ (filename . "~/.emacs.d/Readme.org")
+ (front-context-string . "#+TITLE: Emacs c")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 25817 17406 276860 829000))
+)

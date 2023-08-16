@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: Roda App
+# key: roda
+# --
+require "roda"
+
+class ${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "\[_*\]" "" fn))`} < Roda
+  plugin :render
+  plugin :empty_root
+
+  plugin :h
+
+  plugin :sessions, secret: ENV['RACK_SECRET']
+  plugin :flash
+
+  plugin :public
+  plugin :partials
+
+  route do |r|
+    r.root do
+      "<h1>Welcome</h1>"$0
+    end
+  end
+end
