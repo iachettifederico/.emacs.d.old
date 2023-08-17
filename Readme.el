@@ -2,9 +2,19 @@
 
 (global-set-key (kbd "H-k") 'global-set-key)
 
-(global-set-key (kbd "H-<f12>") 'package-refresh-contents)
+(defun fdx/reload-emacs-configuration ()
+  "Reload emacs configuration"
+  (interactive)
+  (org-babel-load-file (expand-file-name "~/.emacs.d/Readme.org")))
 
-(global-set-key (kbd "<f5>") (lambda () (interactive)(revert-buffer t t)))
+(global-set-key (kbd "<H-f12>") 'fdx/reload-emacs-configuration)
+(global-set-key (kbd "<H-S-f12>") 'package-refresh-contents)
+
+(global-set-key (kbd "S-<f12>") 'package-refresh-contents)
+
+(global-set-key (kbd "<f5>") (lambda () (interactive)
+                               (message "Reverting buffer")
+                               (revert-buffer t t)))
 (global-set-key (kbd "H-<f5>") 'revert-buffer)
 
 
@@ -630,12 +640,29 @@ Don't mess with special buffers."
 
 (column-number-mode)
 
+(use-package tree-sitter :ensure t)
+(use-package tree-sitter-langs :ensure t)
+
+(global-tree-sitter-mode)
+
 (use-package ruby-ts-mode
   :ensure t
-  :hook ((ruby-ts-mode . eglot-enable)
-         (ruby-ts-mode . company-mode))
+  :bind
+  ("H-;"     . 'seeing-is-believing-mark-current-line-for-xmpfilter)
+  ("H-="     . 'fdx/reindent-buffer)
+  ("C-c C-c" . 'seeing-is-believing-run-as-xmpfilter)
+  )
+
+(eval-after-load "ruby-ts-mode"
+  '(progn
+     ))
+
+(use-package rvm
+  :ensure t
   :config
-  (message "Ruby configurations here"))
+  (rvm-use-default))
+
+(use-package seeing-is-believing :ensure t)
 
 (use-package rspec-mode
   :bind (
@@ -809,6 +836,8 @@ Don't mess with special buffers."
   :ensure t
   :init
   (global-undo-tree-mode))
+
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
 (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))

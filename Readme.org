@@ -17,13 +17,28 @@
 ** Refresh package contents
 
 #+begin_src emacs-lisp
-  (global-set-key (kbd "H-<f12>") 'package-refresh-contents)
+  (defun fdx/reload-emacs-configuration ()
+    "Reload emacs configuration"
+    (interactive)
+    (org-babel-load-file (expand-file-name "~/.emacs.d/Readme.org")))
+
+  (global-set-key (kbd "<H-f12>") 'fdx/reload-emacs-configuration)
+  (global-set-key (kbd "<H-S-f12>") 'package-refresh-contents)
+#+end_src
+
+** Reloading config
+#+begin_src emacs-lisp
+
+  (global-set-key (kbd "S-<f12>") 'package-refresh-contents)
+
 #+end_src
 
 ** Files
 
 #+begin_src emacs-lisp
-  (global-set-key (kbd "<f5>") (lambda () (interactive)(revert-buffer t t)))
+  (global-set-key (kbd "<f5>") (lambda () (interactive)
+                                 (message "Reverting buffer")
+                                 (revert-buffer t t)))
   (global-set-key (kbd "H-<f5>") 'revert-buffer)
 
 
@@ -1101,18 +1116,53 @@ Make backups of files, even when they're in version control
 
 * Treesitter
 
-** Ruby
+#+begin_src emacs-lisp
+  (use-package tree-sitter :ensure t)
+  (use-package tree-sitter-langs :ensure t)
+#+end_src
+
+** Enable for all modes
+
+#+begin_src emacs-lisp
+  (global-tree-sitter-mode)
+#+end_src
+
+* Ruby
+
+** Ruby TreeSitter mode
 
 #+begin_src emacs-lisp
   (use-package ruby-ts-mode
     :ensure t
-    :hook ((ruby-ts-mode . eglot-enable)
-           (ruby-ts-mode . company-mode))
-    :config
-    (message "Ruby configurations here"))
+    :bind
+    ("H-;"     . 'seeing-is-believing-mark-current-line-for-xmpfilter)
+    ("H-="     . 'fdx/reindent-buffer)
+    ("C-c C-c" . 'seeing-is-believing-run-as-xmpfilter)
+    )
 #+end_src
 
-* Ruby
+** Local keybindings
+
+#+begin_src emacs-lisp
+  (eval-after-load "ruby-ts-mode"
+    '(progn
+       ))
+#+end_src
+
+** RVM
+
+#+begin_src emacs-lisp
+  (use-package rvm
+    :ensure t
+    :config
+    (rvm-use-default))
+#+end_src
+
+** Seeing is besieving
+
+#+begin_src emacs-lisp
+  (use-package seeing-is-believing :ensure t)
+#+end_src
 
 ** Rspec
 
@@ -1367,6 +1417,12 @@ Make backups of files, even when they're in version control
     :ensure t
     :init
     (global-undo-tree-mode))
+#+end_src
+
+** Prevent undo tree files from polluting your git repo
+
+#+begin_src emacs-lisp
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 #+end_src
 
 * File extensions

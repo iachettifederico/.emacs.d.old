@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        cycle-spacing
         org-beginning-of-line
         org-self-insert-command
         ))
