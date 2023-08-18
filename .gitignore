@@ -1,11 +1,12 @@
 /auto-save-list/
 /backups/
+/bookmarks
 /eln-cache/
 /elpa/
+/elpa/
+/eshell/
 /org-roam.db
 /places
+/recentf
 /transient/
 /undo/
-/eshell/
-/recentf
-/elpa/
