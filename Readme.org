@@ -1186,6 +1186,21 @@ Make backups of files, even when they're in version control
   (load (expand-file-name "~/.emacs.d/fdx/vendor/ruby-runner-mode/ruby-runner-mode.el") t)
 #+end_src
 
+*** Functions
+
+#+begin_src emacs-lisp
+  (defun rrr/rubocop ()
+    "Run Rubocop using Ruby Runner mode"
+    (interactive)
+    (rr/compile "bundle exec rubocop"))
+
+
+  (defun rrr/rubocop-autocorrect ()
+    "Run Rubocop autocorrect using Ruby Runner mode"
+    (interactive)
+    (rr/compile "bundle exec rubocop --autocorrect && bundle exec rubocop"))
+#+end_src
+
 *** Functions and Keybindings
 
 #+begin_src emacs-lisp
