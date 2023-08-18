@@ -14,34 +14,9 @@
   (global-set-key (kbd "H-k") 'global-set-key)
 #+end_src
 
-** Refresh package contents
-
-#+begin_src emacs-lisp
-  (defun fdx/reload-emacs-configuration ()
-    "Reload emacs configuration"
-    (interactive)
-    (org-babel-load-file (expand-file-name "~/.emacs.d/Readme.org")))
-
-  (global-set-key (kbd "<H-f12>") 'fdx/reload-emacs-configuration)
-  (global-set-key (kbd "<H-S-f12>") 'package-refresh-contents)
-#+end_src
-
-** Reloading config
-#+begin_src emacs-lisp
-
-  (global-set-key (kbd "S-<f12>") 'package-refresh-contents)
-
-#+end_src
-
 ** Files
 
 #+begin_src emacs-lisp
-  (global-set-key (kbd "<f5>") (lambda () (interactive)
-                                 (message "Reverting buffer")
-                                 (revert-buffer t t)))
-  (global-set-key (kbd "H-<f5>") 'revert-buffer)
-
-
   (global-set-key (kbd "H-s") 'save-buffer)
   (global-set-key (kbd "H-S") 'save-some-buffers)
 
@@ -59,21 +34,46 @@
 #+begin_src emacs-lisp
   (global-set-key (kbd "H--") 'kill-whole-line)
 
-  (global-set-key (kbd "H-d") 'duplicate-line)
+  (global-set-key (kbd "H-d") 'fdx/duplicate-line)
 
-  (global-set-key (kbd "H-j") (lambda ()
-                                (interactive)
-                                (join-line -1)))
-
-  ;; (global-set-key (kbd "<H-S-up>") 'fdx/move-line-up)
-  ;; (global-set-key (kbd "<H-S-down>") 'fdx/move-line-down)
+  (global-set-key (kbd "<H-S-up>") 'fdx/move-line-up)
+  (global-set-key (kbd "<H-S-down>") 'fdx/move-line-down)
 #+end_src
 
-** Bookmarks
+** Reloading config
 
 #+begin_src emacs-lisp
-  (global-set-key (kbd "H-0") 'bookmark-jump)
-  (global-set-key (kbd "H-)") 'bookmark-set)
+  (defun fdx/reload-emacs-configuration ()
+    "Reload emacs configuration"
+    (interactive)
+    (org-babel-load-file (expand-file-name "~/.emacs.d/Readme.org")))
+
+  (global-set-key (kbd "<H-f12>") 'fdx/reload-emacs-configuration)
+
+  (global-set-key (kbd "<H-S-f12>") 'package-refresh-contents)
+#+end_src
+
+* Configurations
+
+** Buffer
+
+Auto revert buffers
+
+#+begin_src emacs-lisp
+  (global-auto-revert-mode 1)
+#+end_src
+
+Reload file with =<f5>=
+
+#+begin_src emacs-lisp
+  (global-set-key (kbd "<f5>") 'revert-buffer)
+#+end_src
+
+** Word and line wrap
+
+#+begin_src emacs-lisp
+  (setq-default toggle-truncate-lines t)
+  (setq-default word-wrap t)
 #+end_src
 
 * Interface tweaks
