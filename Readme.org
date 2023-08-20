@@ -693,6 +693,9 @@ Pretty bullets for org-mode
       (require 'ox-pandoc)))
 #+end_src
 
+** Ruby
+
+
 ** Populate org-mode shots
 
 #+begin_src emacs-lisp
@@ -1185,6 +1188,15 @@ Make backups of files, even when they're in version control
            ("H-r f"   . rspec-run-last-failed)
            )
     :ensure t)
+#+end_src
+
+** Parens
+
+#+begin_src emacs-lisp
+  (use-package ruby-electric :ensure t)
+
+  (require 'ruby-electric)
+  (electric-pair-mode t)
 #+end_src
 
 ** Ruby Runner Mode
