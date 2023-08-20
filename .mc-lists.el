@@ -5,6 +5,7 @@
       '(
         cycle-spacing
         org-beginning-of-line
+        org-kill-line
         org-self-insert-command
         ))
 
