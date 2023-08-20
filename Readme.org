@@ -1245,6 +1245,29 @@ Make backups of files, even when they're in version control
   ;; (rr/global-set-key "H-i r" "ruby" (buffer-file-name)) <- this doesn't work
 #+end_src
 
+* web-mode
+
+#+begin_src emacs-lisp
+  (use-package web-mode :ensure t)
+#+end_src
+
+* Emmet mode
+
+#+begin_src emacs-lisp
+  (use-package emmet-mode :ensure t)
+#+end_src
+
+* Slim
+
+#+begin_src emacs-lisp
+  (use-package slim-mode
+    :bind (
+           ("H-h" . emmet-expand-yas)
+           ("H-=" . fdx/reindent-buffer)
+           )
+    :ensure t)
+#+end_src
+
 * Multiple cursors
 
 #+begin_src emacs-lisp
