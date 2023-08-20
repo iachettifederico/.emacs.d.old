@@ -102,9 +102,11 @@
  '(git-commit-summary-max-length 1000)
  '(package-selected-packages
    '(seeing-is-believing tree-sitter-langs tree-sitter noflet xterm-color nov multi-vterm vterm yafolding typescript-mode company-tabnine lsp-mode company yaml-mode dockerfile-mode countdown expand-region multiple-cursors adoc-mode vlf slim-mode emmet-mode web-mode undo-tree yasnippet flx counsel-projectile counsel ruby-refactor ruby-electric rspec-mode rvm centered-cursor-mode git-timemachine code-review forge magit wgrep-ag wgrep ripgrep ag projectile org-roam-ui org-roam ox-pandoc ob-mermaid mermaid-mode org-bullets whitespace-cleanup-mode highlight-indent-guides indent-guide which-key try doom-themes auto-package-update))
+ '(rspec-command-options "--format progress")
  '(rspec-docker-command "docker-compose run --rm")
  '(rspec-docker-container "web")
- '(rspec-use-docker-when-possible t))
+ '(rspec-use-docker-when-possible t)
+ '(rspec-use-opts-file-when-available nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
