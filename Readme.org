@@ -36,8 +36,15 @@
 
   (global-set-key (kbd "H-d") 'fdx/duplicate-line)
 
-  (global-set-key (kbd "<H-S-up>") 'fdx/move-line-up)
-  (global-set-key (kbd "<H-S-down>") 'fdx/move-line-down)
+  (global-set-key (kbd "<H-S-up>") 'fdx/move-text-up)
+  (global-set-key (kbd "<H-S-down>") 'fdx/move-text-down)
+#+end_src
+
+** Bookmarks
+
+#+begin_src emacs-lisp
+  (global-set-key (kbd "H-0") 'bookmark-jump)
+  (global-set-key (kbd "H-)") 'bookmark-set)
 #+end_src
 
 ** Reloading config
