@@ -2,22 +2,6 @@
 
 (global-set-key (kbd "H-k") 'global-set-key)
 
-(defun fdx/reload-emacs-configuration ()
-  "Reload emacs configuration"
-  (interactive)
-  (org-babel-load-file (expand-file-name "~/.emacs.d/Readme.org")))
-
-(global-set-key (kbd "<H-f12>") 'fdx/reload-emacs-configuration)
-(global-set-key (kbd "<H-S-f12>") 'package-refresh-contents)
-
-(global-set-key (kbd "S-<f12>") 'package-refresh-contents)
-
-(global-set-key (kbd "<f5>") (lambda () (interactive)
-                               (message "Reverting buffer")
-                               (revert-buffer t t)))
-(global-set-key (kbd "H-<f5>") 'revert-buffer)
-
-
 (global-set-key (kbd "H-s") 'save-buffer)
 (global-set-key (kbd "H-S") 'save-some-buffers)
 
@@ -31,17 +15,29 @@
 
 (global-set-key (kbd "H--") 'kill-whole-line)
 
-(global-set-key (kbd "H-d") 'duplicate-line)
+(global-set-key (kbd "H-d") 'fdx/duplicate-line)
 
-(global-set-key (kbd "H-j") (lambda ()
-                              (interactive)
-                              (join-line -1)))
-
-;; (global-set-key (kbd "<H-S-up>") 'fdx/move-line-up)
-;; (global-set-key (kbd "<H-S-down>") 'fdx/move-line-down)
+(global-set-key (kbd "<H-S-up>") 'fdx/move-text-up)
+(global-set-key (kbd "<H-S-down>") 'fdx/move-text-down)
 
 (global-set-key (kbd "H-0") 'bookmark-jump)
 (global-set-key (kbd "H-)") 'bookmark-set)
+
+(defun fdx/reload-emacs-configuration ()
+  "Reload emacs configuration"
+  (interactive)
+  (org-babel-load-file (expand-file-name "~/.emacs.d/Readme.org")))
+
+(global-set-key (kbd "<H-f12>") 'fdx/reload-emacs-configuration)
+
+(global-set-key (kbd "<H-S-f12>") 'package-refresh-contents)
+
+(global-auto-revert-mode 1)
+
+(global-set-key (kbd "<f5>") 'revert-buffer)
+
+(setq-default toggle-truncate-lines t)
+(setq-default word-wrap t)
 
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
@@ -676,7 +672,23 @@ Don't mess with special buffers."
          )
   :ensure t)
 
+(use-package ruby-electric :ensure t)
+
+(require 'ruby-electric)
+(electric-pair-mode t)
+
 (load (expand-file-name "~/.emacs.d/fdx/vendor/ruby-runner-mode/ruby-runner-mode.el") t)
+
+(defun rrr/rubocop ()
+  "Run Rubocop using Ruby Runner mode"
+  (interactive)
+  (rr/compile "bundle exec rubocop"))
+
+
+(defun rrr/rubocop-autocorrect ()
+  "Run Rubocop autocorrect using Ruby Runner mode"
+  (interactive)
+  (rr/compile "bundle exec rubocop --autocorrect && bundle exec rubocop"))
 
 (global-set-key (kbd "H-i i") 'rr/rerun)
 
@@ -698,6 +710,17 @@ Don't mess with special buffers."
 (rr/global-set-key-multiple "H-i b B" '("bundle update" "pessimize -c patch --no-backup" "bundle install"))
 
 ;; (rr/global-set-key "H-i r" "ruby" (buffer-file-name)) <- this doesn't work
+
+(use-package web-mode :ensure t)
+
+(use-package emmet-mode :ensure t)
+
+(use-package slim-mode
+  :bind (
+         ("H-h" . emmet-expand-yas)
+         ("H-=" . fdx/reindent-buffer)
+         )
+  :ensure t)
 
 (use-package multiple-cursors :ensure t)
 
