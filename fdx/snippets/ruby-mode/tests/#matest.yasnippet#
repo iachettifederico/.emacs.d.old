@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Matest File
+# key: matest
+# --
+require "spec_helper"
+require "${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                        (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))(replace-regexp-in-string "_spec.rb\$" "" "")}`"
+
+scope do
+  spec do
+  end
+end

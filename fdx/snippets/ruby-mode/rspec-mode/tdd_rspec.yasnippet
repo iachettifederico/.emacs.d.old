@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: RSpec file for 10 Pines TDD
+# key: tdd_rspec
+# --
+require "spec_helper"
+
+class `(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "\[_*\]" "" fn))`Factory
+
+end
+
+RSpec.describe "$1" do
+  let(:f) { `(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "\[_*\]" "" fn))`Factory.new }
+
+  $0
+end

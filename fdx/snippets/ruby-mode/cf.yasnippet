@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Camel Case File Name
+# key: cf
+# --
+`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "_" "" fn))`

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Expect to raise error
+# key: exb
+# --
+expect {
+  ${1:actual}
+}.to raise_error(${2:RuntimeError})

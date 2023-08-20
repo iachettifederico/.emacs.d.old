@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Strucu.new(args) do ...
+# key: struct
+# --
+${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "\[_*\]" "" fn))`} = Struct.new(${2:**attrs}, keyword_init: true)$0

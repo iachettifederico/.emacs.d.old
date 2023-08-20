@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+#name : class Menu
+#key : menu
+# --
+class ${1:`(let ((fn (capitalize (file-name-nondirectory
+                                 (file-name-sans-extension
+                 (or (buffer-file-name)
+                     (buffer-name (current-buffer))))))))
+       (replace-regexp-in-string "_" "" fn))`}
+  def self.menu(*args)
+    var = args.fetch(0) { return "@prompt/Type Arg" }
+    $0
+    "- Done"
+  end
+end

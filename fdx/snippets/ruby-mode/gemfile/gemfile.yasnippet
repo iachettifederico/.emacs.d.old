@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: Gemfile
+# key: gemfile
+# --
+source "https://rubygems.org"
+$0
+# gem "puma"
+# gem "thin"
+# gem "rails"
+# gem "roda"
+
+gem "awesome_print"
+
+group :test do
+  gem "rspec"
+end
+
+group :development do
+  gem "pry-byebug"
+  gem "rake"
+end

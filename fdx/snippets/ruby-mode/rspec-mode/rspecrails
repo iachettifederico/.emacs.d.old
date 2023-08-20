@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Rspec Rails spec
+# key: rspecrails
+# --
+require 'rails_helper'
+
+RSpec.describe $1, type: :model do
+  $0
+end
+
