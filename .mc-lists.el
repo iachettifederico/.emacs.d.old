@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        bookmark-jump
         cycle-spacing
         org-beginning-of-line
         org-kill-line

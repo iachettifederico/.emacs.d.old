@@ -489,8 +489,8 @@ When finding a file, if the parent directory doesn't exist, create it first
 ** Keybindings
 
 #+begin_src emacs-lisp
-  (global-set-key (kbd "<H-S-up>") 'fdx/move-text-up)
-  (global-set-key (kbd "<H-S-down>") 'fdx/move-text-down)
+  (global-set-key (kbd "<H-S-up>") 'fdx/move-line-up)
+  (global-set-key (kbd "<H-S-down>") 'fdx/move-line-down)
 #+end_src
 
 * Counsel
