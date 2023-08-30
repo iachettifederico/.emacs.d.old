@@ -80,9 +80,6 @@
                      '(("while" "while ${1:condition}\n  $0\nend" "while" nil
                         ("declarations")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/declarations/while.yasnippet" nil nil)
-                       ("when" "when ${1:matcher}\n  $0" "when" nil
-                        ("declarations")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/declarations/when.yasnippet" nil nil)
                        ("until" "until ${1:condition}\n  $0\nend" "until" nil
                         ("declarations")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/declarations/until.yasnippet" nil nil)
@@ -672,4 +669,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 11:09:12 2023
+;;; Do not edit! File generated at Wed Aug 30 11:45:15 2023

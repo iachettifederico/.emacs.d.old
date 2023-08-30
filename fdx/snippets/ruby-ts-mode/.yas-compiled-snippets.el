@@ -167,9 +167,6 @@
                        ("claa" "# frozen_string_literal: true\n\nclass ${1:`(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`}\n  def self.${0:a}\n    new\n  end\n\n  private\n\n  def initialize\n  end\nend" "Snippet Name" nil
                         ("declarations")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/claa.yasnippet" nil nil)
-                       ("case" "case ${1:object}\nwhen ${2:matcher}\n  $0\nend" "case" nil
-                        ("declarations")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/case.yasnippet" nil nil)
                        ("begin" "begin\n  $0\nrescue ${1:Exception}${2:$(if (> (length yas-text) 0) \" => \" \"\")}${2:error}\n\nend" "begin" nil
                         ("declarations")
                         ((yas/indent-line 'fixed))
@@ -710,4 +707,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 11:09:12 2023
+;;; Do not edit! File generated at Wed Aug 30 11:45:16 2023

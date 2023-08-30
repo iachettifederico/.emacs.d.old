@@ -13,4 +13,4 @@
                        ("each" "<% $1.each do |$2| %>\n  $0\n<% end %>" "ERB each" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/web-mode/each.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 11:09:12 2023
+;;; Do not edit! File generated at Wed Aug 30 11:45:16 2023
