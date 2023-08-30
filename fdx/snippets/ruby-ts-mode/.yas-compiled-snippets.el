@@ -80,9 +80,6 @@
                      '(("while" "while ${1:condition}\n  $0\nend" "while" nil
                         ("declarations")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/while.yasnippet" nil nil)
-                       ("when" "when ${1:matcher}\n  $0" "when" nil
-                        ("declarations")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/when.yasnippet" nil nil)
                        ("until" "until ${1:condition}\n  $0\nend" "until" nil
                         ("declarations")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/until.yasnippet" nil nil)
@@ -559,15 +556,9 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'ruby-ts-mode
-                     '(("wh" "When${1:$(if (> (length yas-text) 0) \"(:\" \"\")}${1:var}${1:$(if (> (length yas-text) 0) \")\" \"\")} { $0 }" "When { ... }" nil
-                        ("rspec-mode")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/when.yasnippet" nil nil)
-                       ("todo" "it \"TODO: $0\"" "todo" nil
+                     '(("todo" "it \"TODO: $0\"" "todo" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/todo.yasnippet" nil nil)
-                       ("th" "Then { $0 }" "Then { ... }" nil
-                        ("rspec-mode")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/then.yasnippet" nil nil)
                        ("tdd_rspec" "require \"spec_helper\"\n\nclass `(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`Factory\n\nend\n\nRSpec.describe \"$1\" do\n  let(:f) { `(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`Factory.new }\n\n  $0\nend" "RSpec file for 10 Pines TDD" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/tdd_rspec.yasnippet" nil nil)
@@ -589,9 +580,6 @@
                        ("it" "it \"${1:does something}\" do\n  $0\nend" "it" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/it.yasnippet" nil nil)
-                       ("gi" "Given${1:$(if (> (length yas-text) 0) \"(:\" \"\")}${1:var}${1:$(if (> (length yas-text) 0) \")\" \"\")} { $0 }" "Given(...) { ... }" nil
-                        ("rspec-mode")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/given.yasnippet" nil nil)
                        ("exrarg" "expect {\n  $1\n}.to raise_error(ArgumentError, \"missing keywords: :$0\")\n" "Expect to raise ArgumentError" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/expect_raise_argument_error.yasnippet" nil nil)
@@ -607,6 +595,47 @@
                        ("ctx" "context \"${1:in this context}\" do\n  it$0\nend" "context" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/context.yasnippet" nil nil)))
+
+
+;;; Snippet definitions:
+;;;
+(yas-define-snippets 'ruby-ts-mode
+                     '(("whenn" "When(:$1) { $2 }" "When(:arg) { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/when_arg.yasnippet" nil nil)
+                       ("when" "When { $0 }" "When { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/when.yasnippet" nil nil)
+                       ("then" "Then { $0 }" "Then { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/then.yasnippet" nil nil)
+                       ("given!" "Given!(:$1) { $2 }" "Given! { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/given_bang.yasnippet" nil nil)
+                       ("givenn" "Given(:$1) { $2 }" "Given(:arg) { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/given_arg.yasnippet" nil nil)
+                       ("given" "Given { $0 }" "Given { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/given.yasnippet" nil nil)
+                       ("Whenn" "When(:$1) { $2 }" "When(:arg) { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/When_arg.yasnippet" nil nil)
+                       ("When" "When { $0 }" "When { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/When.yasnippet" nil nil)
+                       ("Then" "Then { $0 }" "Then { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/Then.yasnippet" nil nil)
+                       ("Given!" "Given!(:$1) { $2 }" "Given! { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/Given_bang.yasnippet" nil nil)
+                       ("Givenn" "Given(:$1) { $2 }" "Given(:arg) { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/Given_arg.yasnippet" nil nil)
+                       ("Given" "Given { $0 }" "Given { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/Given.yasnippet" nil nil)))
 
 
 ;;; Snippet definitions:
@@ -681,4 +710,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Aug 19 11:08:01 2023
+;;; Do not edit! File generated at Wed Aug 30 11:09:12 2023

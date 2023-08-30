@@ -559,15 +559,9 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'ruby-mode
-                     '(("wh" "When${1:$(if (> (length yas-text) 0) \"(:\" \"\")}${1:var}${1:$(if (> (length yas-text) 0) \")\" \"\")} { $0 }" "When { ... }" nil
-                        ("rspec-mode")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/rspec-mode/when.yasnippet" nil nil)
-                       ("todo" "it \"TODO: $0\"" "todo" nil
+                     '(("todo" "it \"TODO: $0\"" "todo" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/rspec-mode/todo.yasnippet" nil nil)
-                       ("th" "Then { $0 }" "Then { ... }" nil
-                        ("rspec-mode")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/rspec-mode/then.yasnippet" nil nil)
                        ("tdd_rspec" "require \"spec_helper\"\n\nclass `(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`Factory\n\nend\n\nRSpec.describe \"$1\" do\n  let(:f) { `(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`Factory.new }\n\n  $0\nend" "RSpec file for 10 Pines TDD" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/rspec-mode/tdd_rspec.yasnippet" nil nil)
@@ -589,9 +583,6 @@
                        ("it" "it \"${1:does something}\" do\n  $0\nend" "it" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/rspec-mode/it.yasnippet" nil nil)
-                       ("gi" "Given${1:$(if (> (length yas-text) 0) \"(:\" \"\")}${1:var}${1:$(if (> (length yas-text) 0) \")\" \"\")} { $0 }" "Given(...) { ... }" nil
-                        ("rspec-mode")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/rspec-mode/given.yasnippet" nil nil)
                        ("exrarg" "expect {\n  $1\n}.to raise_error(ArgumentError, \"missing keywords: :$0\")\n" "Expect to raise ArgumentError" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/rspec-mode/expect_raise_argument_error.yasnippet" nil nil)
@@ -681,4 +672,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Aug 19 11:08:01 2023
+;;; Do not edit! File generated at Wed Aug 30 11:09:12 2023
