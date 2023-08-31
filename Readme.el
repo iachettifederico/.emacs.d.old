@@ -20,6 +20,10 @@
 (global-set-key (kbd "<H-S-up>") 'fdx/move-text-up)
 (global-set-key (kbd "<H-S-down>") 'fdx/move-text-down)
 
+(global-set-key (kbd "H-j") (lambda ()
+                              (interactive)
+                              (join-line -1)))
+
 (global-set-key (kbd "H-0") 'bookmark-jump)
 (global-set-key (kbd "H-)") 'bookmark-set)
 
@@ -266,8 +270,8 @@ Don't mess with special buffers."
   (interactive "*p")
   (fdx/move-text-internal (- arg)))
 
-(global-set-key (kbd "<H-S-up>") 'fdx/move-text-up)
-(global-set-key (kbd "<H-S-down>") 'fdx/move-text-down)
+(global-set-key (kbd "<H-S-up>") 'fdx/move-line-up)
+(global-set-key (kbd "<H-S-down>") 'fdx/move-line-down)
 
 (use-package counsel :ensure t)
 
@@ -641,6 +645,8 @@ Don't mess with special buffers."
 
 (global-tree-sitter-mode)
 
+(use-package hydra :ensure t)
+
 (use-package ruby-ts-mode
   :ensure t
   :bind
@@ -650,7 +656,7 @@ Don't mess with special buffers."
   )
 
 (eval-after-load "ruby-ts-mode"
-  '(progn
+  '(progn ()
      ))
 
 (use-package rvm

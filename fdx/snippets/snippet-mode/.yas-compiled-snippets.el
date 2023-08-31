@@ -5,4 +5,4 @@
                      '(("yas" "# -*- mode: snippet -*-\n# name: ${1:Snippet Name}\n# key: ${2:`(file-name-nondirectory (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer)))))`}\n# --\n$0" "YAYnippet" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/snippet-mode/yas.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 11:45:16 2023
+;;; Do not edit! File generated at Wed Aug 30 19:41:40 2023

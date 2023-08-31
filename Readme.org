@@ -38,6 +38,10 @@
 
   (global-set-key (kbd "<H-S-up>") 'fdx/move-text-up)
   (global-set-key (kbd "<H-S-down>") 'fdx/move-text-down)
+
+  (global-set-key (kbd "H-j") (lambda ()
+                                (interactive)
+                                (join-line -1)))
 #+end_src
 
 ** Bookmarks
@@ -1137,6 +1141,12 @@ Make backups of files, even when they're in version control
   (global-tree-sitter-mode)
 #+end_src
 
+* Hydra
+
+#+begin_src emacs-lisp
+  (use-package hydra :ensure t)
+#+end_src
+
 * Ruby
 
 ** Ruby TreeSitter mode
@@ -1155,7 +1165,7 @@ Make backups of files, even when they're in version control
 
 #+begin_src emacs-lisp
   (eval-after-load "ruby-ts-mode"
-    '(progn
+    '(progn ()
        ))
 #+end_src
 

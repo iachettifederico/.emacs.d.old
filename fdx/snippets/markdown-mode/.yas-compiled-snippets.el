@@ -9,4 +9,4 @@
                        ("browser" "#+CAPTION: Browse http://localhost:9292/$1\n#+BEGIN_SRC browser :out $2.png\n<iframe src=\"http://localhost:9292/$1\" no-border>\n#+END_SRC\n$0" "#+BEGIN_SRC browser" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/markdown-mode/browser.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 11:45:15 2023
+;;; Do not edit! File generated at Wed Aug 30 19:41:40 2023

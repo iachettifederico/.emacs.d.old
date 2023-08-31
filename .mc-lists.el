@@ -5,9 +5,14 @@
       '(
         bookmark-jump
         cycle-spacing
+        fdx/insert-and-populate-org-shots
+        fdx/reindent-buffer
         org-beginning-of-line
+        org-end-of-line
+        org-force-self-insert
         org-kill-line
         org-self-insert-command
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once

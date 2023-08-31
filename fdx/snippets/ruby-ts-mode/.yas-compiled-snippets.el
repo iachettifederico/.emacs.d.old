@@ -597,24 +597,27 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'ruby-ts-mode
-                     '(("whenn" "When(:$1) { $2 }" "When(:arg) { }" nil
+                     '(("whenn" "When(:$1) { $2 }" "When(:arg) { } (lower case)" nil
                         ("rspec-mode" "rspec-given")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/when_arg.yasnippet" nil nil)
-                       ("when" "When { $0 }" "When { }" nil
+                       ("when" "When { $0 }" "When { } (lower case)" nil
                         ("rspec-mode" "rspec-given")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/when.yasnippet" nil nil)
-                       ("then" "Then { $0 }" "Then { }" nil
+                       ("then" "Then { $0 }" "Then { } (lower case)" nil
                         ("rspec-mode" "rspec-given")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/then.yasnippet" nil nil)
-                       ("given!" "Given!(:$1) { $2 }" "Given! { }" nil
+                       ("given!" "Given!(:$1) { $2 }" "Given! { } (lower case)" nil
                         ("rspec-mode" "rspec-given")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/given_bang.yasnippet" nil nil)
-                       ("givenn" "Given(:$1) { $2 }" "Given(:arg) { }" nil
+                       ("givenn" "Given(:$1) { $2 }" "Given(:arg) { } (lower case)" nil
                         ("rspec-mode" "rspec-given")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/given_arg.yasnippet" nil nil)
-                       ("given" "Given { $0 }" "Given { }" nil
+                       ("given" "Given { $0 }" "Given { } (lower case)" nil
                         ("rspec-mode" "rspec-given")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/given.yasnippet" nil nil)
+                       ("and" "And { $0 }" "And { } (lower case)" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/and.yasnippet" nil nil)
                        ("Whenn" "When(:$1) { $2 }" "When(:arg) { }" nil
                         ("rspec-mode" "rspec-given")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/When_arg.yasnippet" nil nil)
@@ -632,7 +635,10 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/Given_arg.yasnippet" nil nil)
                        ("Given" "Given { $0 }" "Given { }" nil
                         ("rspec-mode" "rspec-given")
-                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/Given.yasnippet" nil nil)))
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/Given.yasnippet" nil nil)
+                       ("And" "And { $0 }" "And { }" nil
+                        ("rspec-mode" "rspec-given")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/rspec-given/And.yasnippet" nil nil)))
 
 
 ;;; Snippet definitions:
@@ -707,4 +713,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 11:45:16 2023
+;;; Do not edit! File generated at Wed Aug 30 19:41:40 2023
