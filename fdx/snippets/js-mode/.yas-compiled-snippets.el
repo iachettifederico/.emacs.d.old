@@ -11,8 +11,8 @@
 ;;;
 (yas-define-snippets 'js-mode
                      '(("f" "function ${1:name} ($2) {\n  $0\n};" "function" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/js-mode/declarations/f.yasnippet" nil nil)
-                       ("ctrl" "import { Controller } from \"stimulus\"\n\nexport default class extends Controller {\n  static targets = [ ]\n\n  connect() {\n    $0\n  }\n\n}" "Stimulus controller" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/js-mode/declarations/ctrl.yasnippet" nil nil)
+                       ("ctrl" "import { Controller } from \"@hotwired/stimulus\"\n\nexport default class extends Controller {\n  static targets = [ ]\n\n  connect() {\n    $0\n  }\n\n}" "Stimulus controller" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/js-mode/declarations/ctrl.yasnippet" nil nil)
                        ("af" "async function ${1:name} ($2) {\n  $0\n};" "function" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/js-mode/declarations/ap.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 19:41:40 2023
+;;; Do not edit! File generated at Sat Sep  2 10:10:20 2023

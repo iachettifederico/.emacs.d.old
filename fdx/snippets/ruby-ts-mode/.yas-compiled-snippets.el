@@ -713,4 +713,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 30 19:41:40 2023
+;;; Do not edit! File generated at Sat Sep  2 10:10:20 2023
