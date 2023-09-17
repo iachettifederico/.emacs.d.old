@@ -699,7 +699,6 @@ Pretty bullets for org-mode
 
 ** Ruby
 
-
 ** Populate org-mode shots
 
 #+begin_src emacs-lisp
@@ -1227,7 +1226,7 @@ Make backups of files, even when they're in version control
   (defun rrr/rubocop-autocorrect ()
     "Run Rubocop autocorrect using Ruby Runner mode"
     (interactive)
-    (rr/compile "bundle exec rubocop --autocorrect && bundle exec rubocop"))
+    (rr/compile "bundle exec rubocop --autocorrect; bundle exec rubocop"))
 #+end_src
 
 *** Functions and Keybindings
