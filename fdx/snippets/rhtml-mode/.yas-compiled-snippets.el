@@ -8,4 +8,4 @@
                        ("bi" "{{$0}}\n" "Handlebars" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/rhtml-mode/handlebars.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Sep  2 10:10:20 2023
+;;; Do not edit! File generated at Mon Sep 11 12:19:36 2023
