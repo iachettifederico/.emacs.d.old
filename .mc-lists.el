@@ -12,9 +12,12 @@
         org-force-self-insert
         org-kill-line
         org-self-insert-command
+        wdired--self-insert
+        wdired-finish-edit
         yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        rspec-rerun
         ))
