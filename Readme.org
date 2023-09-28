@@ -1155,7 +1155,8 @@ Make backups of files, even when they're in version control
     :ensure t
     :bind
     ("H-;"     . 'seeing-is-believing-mark-current-line-for-xmpfilter)
-    ("H-="     . 'fdx/reindent-buffer)
+    ;; ("H-="     . 'fdx/reindent-buffer)
+    ("H-="     . 'lsp-format-buffer)
     ("C-c C-c" . 'seeing-is-believing-run-as-xmpfilter)
     )
 #+end_src
