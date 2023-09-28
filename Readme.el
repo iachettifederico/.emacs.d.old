@@ -651,7 +651,7 @@ Don't mess with special buffers."
   :ensure t
   :bind
   ("H-;"     . 'seeing-is-believing-mark-current-line-for-xmpfilter)
-  ("H-="     . 'fdx/reindent-buffer)
+  ("H-="     . 'lsp-format-buffer)
   ("C-c C-c" . 'seeing-is-believing-run-as-xmpfilter)
   )
 
@@ -889,5 +889,5 @@ Don't mess with special buffers."
 
 (use-package lsp-mode :ensure t)
 
-(add-hook 'ruby-mode-hook #'lsp)
+(add-hook 'ruby-ts-mode-hook #'lsp)
 (add-hook 'ruby-mode-hook #'lsp)

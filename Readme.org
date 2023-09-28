@@ -1153,11 +1153,11 @@ Make backups of files, even when they're in version control
 #+begin_src emacs-lisp
   (use-package ruby-ts-mode
     :ensure t
-    :bind
-    ("H-;"     . 'seeing-is-believing-mark-current-line-for-xmpfilter)
-    ;; ("H-="     . 'fdx/reindent-buffer)
-    ("H-="     . 'lsp-format-buffer)
-    ("C-c C-c" . 'seeing-is-believing-run-as-xmpfilter)
+    :bind (
+           ("H-;"     . 'seeing-is-believing-mark-current-line-for-xmpfilter)
+           ("H-="     . 'lsp-format-buffer)
+           ("C-c C-c" . 'seeing-is-believing-run-as-xmpfilter)
+           )
     )
 #+end_src
 
@@ -1244,7 +1244,7 @@ Make backups of files, even when they're in version control
   (rr/global-set-key "H-i u a" "bundle exec rubocop")
   (rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect && bundle exec rubocop")
   (rr/global-set-key "H-i u T" "bundle exec rubocop --regenerate-todo")
-  
+
   ;; (rr/global-set-key-single "H-i u s" "bundle exec rubocop")
   ;; (rr/global-set-key-single "H-i u s" "bundle exec rubocop -a")
 
