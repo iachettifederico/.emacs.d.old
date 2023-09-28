@@ -1166,7 +1166,7 @@ Make backups of files, even when they're in version control
 #+begin_src emacs-lisp
   (eval-after-load "ruby-ts-mode"
     '(progn ()
-       ))
+            ))
 #+end_src
 
 ** RVM
@@ -1244,7 +1244,7 @@ Make backups of files, even when they're in version control
   (rr/global-set-key "H-i u a" "bundle exec rubocop")
   (rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect && bundle exec rubocop")
   (rr/global-set-key "H-i u T" "bundle exec rubocop --regenerate-todo")
-
+  
   ;; (rr/global-set-key-single "H-i u s" "bundle exec rubocop")
   ;; (rr/global-set-key-single "H-i u s" "bundle exec rubocop -a")
 
