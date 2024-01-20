@@ -5,15 +5,28 @@
       '(
         bookmark-jump
         cycle-spacing
+        electric-newline-and-maybe-indent
+        electric-pair-delete-pair
         fdx/insert-and-populate-org-shots
         fdx/reindent-buffer
+        indent-for-tab-command
+        kill-region
+        lsp-format-buffer
         org-beginning-of-line
+        org-deadline
         org-end-of-line
         org-force-self-insert
         org-kill-line
+        org-meta-return
+        org-metaright
+        org-return-and-maybe-indent
         org-self-insert-command
+        org-shiftright
+        org-yank
         wdired--self-insert
         wdired-finish-edit
+        wgrep-finish-edit
+        yaml-electric-backspace
         yas-expand
         ))
 

@@ -8,7 +8,7 @@
 (global-set-key (kbd "H-f") 'fdx/visit-or-projectile-visit)
 (global-set-key (kbd "H-F") 'ido-find-file)
 
-(global-set-key (kbd "H-D f") 'fdx/delete-file-and-buffer)
+(global-set-key (kbd "H-D d") 'fdx/delete-file-and-buffer)
 (global-set-key (kbd "H-D r") 'fdx/rename-current-file)
 (global-set-key (kbd "H-D m") 'fdx/chmod-current-file)
 (global-set-key (kbd "H-D t") 'fdx/touch-current-file)
@@ -19,6 +19,8 @@
 
 (global-set-key (kbd "<H-S-up>") 'fdx/move-text-up)
 (global-set-key (kbd "<H-S-down>") 'fdx/move-text-down)
+
+(global-set-key (kbd "H-l") 'sort-lines)
 
 (global-set-key (kbd "H-j") (lambda ()
                               (interactive)
@@ -632,6 +634,13 @@ Don't mess with special buffers."
 
 (use-package yaml-mode :ensure t)
 
+(defun fdx/reformat-yaml-file (filename)
+  (interactive)
+  (compile "yq -Sy < ~/bookmarks.yml")
+  )
+
+(global-set-key (kbd "H-8") (lambda () (interactive) (fdx/reformat-yaml-file (buffer-file-name))))
+
 (use-package company :ensure t)
 
 (use-package company-tabnine :ensure t)
@@ -647,17 +656,13 @@ Don't mess with special buffers."
 
 (use-package hydra :ensure t)
 
-(use-package ruby-ts-mode
-  :ensure t
-  :bind
-  ("H-;"     . 'seeing-is-believing-mark-current-line-for-xmpfilter)
-  ("H-="     . 'lsp-format-buffer)
-  ("C-c C-c" . 'seeing-is-believing-run-as-xmpfilter)
-  )
+(use-package ruby-ts-mode :ensure t )
 
-(eval-after-load "ruby-ts-mode"
-  '(progn ()
-          ))
+(with-eval-after-load "ruby-ts-mode"
+  (define-key ruby-ts-mode-map (kbd "H-;") 'seeing-is-believing-mark-current-line-for-xmpfilter)
+  (define-key ruby-ts-mode-map (kbd "H-=") 'lsp-format-buffer)
+  (define-key ruby-ts-mode-map (kbd "C-c C-c") 'seeing-is-believing-run-as-xmpfilter)
+  )
 
 (use-package rvm
   :ensure t
@@ -696,6 +701,19 @@ Don't mess with special buffers."
   (interactive)
   (rr/compile "bundle exec rubocop --autocorrect; bundle exec rubocop"))
 
+(defun fdx/run-erblint ()
+  "Bind an interactively specified key to a new command."
+  (interactive)
+  (compile "docker-compose run --rm web erblint \"**/*.erb\""))
+
+(defun fdx/run-erblint-autocorrect-on-current-file ()
+  "Bind an interactively specified key to a new command."
+  (interactive)
+  (compile (concat
+            "docker-compose run --rm web erblint --autocorrect "
+            (file-relative-name (buffer-file-name) "/home/fedex/code/conquered_self"))
+           ))
+
 (global-set-key (kbd "H-i i") 'rr/rerun)
 
 (which-key-add-key-based-replacements "H-i r" "RSpec")
@@ -705,8 +723,10 @@ Don't mess with special buffers."
 
 (which-key-add-key-based-replacements "H-i u" "Rubocop")
 (rr/global-set-key "H-i u a" "bundle exec rubocop")
-(rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect && bundle exec rubocop")
+(rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect; bundle exec rubocop")
 (rr/global-set-key "H-i u T" "bundle exec rubocop --regenerate-todo")
+(global-set-key (kbd "H-i u c") (lambda ()(interactive) (compile "ruboclean")))
+(which-key-add-key-based-replacements "H-i u c" "Ruboclean")
 
 ;; (rr/global-set-key-single "H-i u s" "bundle exec rubocop")
 ;; (rr/global-set-key-single "H-i u s" "bundle exec rubocop -a")
@@ -718,6 +738,13 @@ Don't mess with special buffers."
 ;; (rr/global-set-key "H-i r" "ruby" (buffer-file-name)) <- this doesn't work
 
 (use-package web-mode :ensure t)
+
+(with-eval-after-load "web-mode"
+  (define-key web-mode-map (kbd "H-=") (lambda ()
+                                         (interactive)
+                                         (fdx/reindent-buffer)
+                                         (fdx/run-erblint-autocorrect-on-current-file)))
+  )
 
 (use-package emmet-mode :ensure t)
 
@@ -752,6 +779,14 @@ Don't mess with special buffers."
 (global-set-key (kbd "H-e") 'er/expand-region)
 (global-set-key (kbd "C-c e") 'er/expand-region)
 
+(use-package compile
+  :ensure nil
+  :custom
+  ;; (compilation-scroll-output 'first-error)
+  (compilation-always-kill t)
+  (compilation-max-output-line-length nil)
+  :hook (compilation-mode . hl-line-mode))
+
 (global-set-key (kbd "H-m") 'recompile)
 (global-set-key (kbd "H-b") 'compile)
 
@@ -764,6 +799,25 @@ Don't mess with special buffers."
   (interactive)
   (save-buffer)
   (compile (concat "ruby " (buffer-file-name))))
+
+(defun fdx/run-current-ruby-file--docker-compose ()
+  (interactive)
+  (save-buffer)
+  (compile (concat "docker-compose run --rm web bundle exec ruby /app/bin/" (file-name-nondirectory (buffer-file-name)))))
+
+(defun fdx/run-current-python-file--docker ()
+  (interactive)
+  (save-buffer)
+  (compile (concat "docker run -v .:/app python:3.9 python /app/" (file-name-nondirectory (buffer-file-name)))))
+
+(defun fdx/run-current-python-file--docker-compose ()
+  (interactive)
+  (compile
+   (concat "docker-compose run --rm app python "
+           (replace-regexp-in-string
+            "/home/fedex/code/ai-ruby/harvard-python-code"
+            "/app"
+            (buffer-file-name)))))
 
 (require 'ansi-color)
 (defun fdx/display-ansi-colors ()
@@ -885,9 +939,13 @@ Don't mess with special buffers."
 
 (add-to-list 'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
 
+(add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
+
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 (use-package lsp-mode :ensure t)
 
 (add-hook 'ruby-ts-mode-hook #'lsp)
 (add-hook 'ruby-mode-hook #'lsp)
+
+(setq lsp-solargraph-autoformat t)
