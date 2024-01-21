@@ -1161,6 +1161,25 @@ Make backups of files, even when they're in version control
   (global-tree-sitter-mode)
 #+end_src
 
+* LSP
+
+#+begin_src emacs-lisp
+  (use-package lsp-mode :ensure t)
+#+end_src
+
+** Languages
+
+*** Ruby
+
+#+begin_src emacs-lisp
+  (add-hook 'ruby-ts-mode-hook #'lsp)
+  (add-hook 'ruby-mode-hook #'lsp)
+#+end_src
+
+#+begin_src emacs-lisp
+  (setq lsp-solargraph-autoformat t)
+#+end_src
+
 * Hydra
 
 #+begin_src emacs-lisp
@@ -1606,23 +1625,4 @@ Make backups of files, even when they're in version control
   (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-#+end_src
-
-* LSP
-
-#+begin_src emacs-lisp
-  (use-package lsp-mode :ensure t)
-#+end_src
-
-** Languages
-
-*** Ruby
-
-#+begin_src emacs-lisp
-  (add-hook 'ruby-ts-mode-hook #'lsp)
-  (add-hook 'ruby-mode-hook #'lsp)
-#+end_src
-
-#+begin_src emacs-lisp
-  (setq lsp-solargraph-autoformat t)
 #+end_src

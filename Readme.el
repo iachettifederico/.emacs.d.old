@@ -654,7 +654,12 @@ Don't mess with special buffers."
 
 (global-tree-sitter-mode)
 
-(use-package hydra :ensure t)
+(use-package lsp-mode :ensure t)
+
+(add-hook 'ruby-ts-mode-hook #'lsp)
+(add-hook 'ruby-mode-hook #'lsp)
+
+(setq lsp-solargraph-autoformat t)
 
 (use-package ruby-ts-mode :ensure t )
 
@@ -687,6 +692,9 @@ Don't mess with special buffers."
 
 (require 'ruby-electric)
 (electric-pair-mode t)
+
+(use-package inf-ruby :ensure t)
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (load (expand-file-name "~/.emacs.d/fdx/vendor/ruby-runner-mode/ruby-runner-mode.el") t)
 
@@ -745,6 +753,8 @@ Don't mess with special buffers."
                                          (fdx/reindent-buffer)
                                          (fdx/run-erblint-autocorrect-on-current-file)))
   )
+
+(use-package hydra :ensure t)
 
 (use-package emmet-mode :ensure t)
 
@@ -942,10 +952,3 @@ Don't mess with special buffers."
 (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-
-(use-package lsp-mode :ensure t)
-
-(add-hook 'ruby-ts-mode-hook #'lsp)
-(add-hook 'ruby-mode-hook #'lsp)
-
-(setq lsp-solargraph-autoformat t)
