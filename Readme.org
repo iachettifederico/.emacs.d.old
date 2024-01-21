@@ -1225,6 +1225,13 @@ Make backups of files, even when they're in version control
   (electric-pair-mode t)
 #+end_src
 
+** inf-ruby
+
+#+begin_src emacs-lisp
+  (use-package inf-ruby :ensure t)
+  (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+#+end_src
+
 ** Ruby Runner Mode
 
 #+begin_src emacs-lisp
