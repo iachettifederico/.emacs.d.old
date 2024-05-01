@@ -102,6 +102,12 @@ Reload file with =<f5>=
 #+end_src
 
 * Appearance
+** Font
+
+#+begin_src emacs-lisp
+  ;; Set default font
+  (set-face-attribute 'default nil :family "JetBrains Mono" :height 125)
+#+end_src
 
 ** Doom
 
@@ -852,7 +858,6 @@ Configuration
   (setq ag-reuse-buffers t)
 #+end_src
 
-
 ** ripgrep
 
 #+begin_src emacs-lisp
@@ -1266,7 +1271,6 @@ Make backups of files, even when they're in version control
     (interactive)
     (rr/compile "bundle exec rubocop"))
 
-
   (defun rrr/rubocop-autocorrect ()
     "Run Rubocop autocorrect using Ruby Runner mode"
     (interactive)
@@ -1284,6 +1288,11 @@ Make backups of files, even when they're in version control
               "docker-compose run --rm web erblint --autocorrect "
               (file-relative-name (buffer-file-name) "/home/fedex/code/conquered_self"))
              ))
+
+  (defun rrr/cucumber ()
+    "Run Rubocop using Ruby Runner mode"
+    (interactive)
+    (rr/compile "bundle exec cucumber"))
 #+end_src
 
 *** Functions and Keybindings
@@ -1311,6 +1320,10 @@ Make backups of files, even when they're in version control
   (rr/global-set-key-multiple "H-i b B" '("bundle update" "pessimize -c patch --no-backup" "bundle install"))
 
   ;; (rr/global-set-key "H-i r" "ruby" (buffer-file-name)) <- this doesn't work
+
+  (which-key-add-key-based-replacements "H-i c" "Cucumber")
+  (rr/global-set-key "H-i c" "bundle exec cucumber")
+
 #+end_src
 
 * web-mode
@@ -1455,7 +1468,6 @@ Make backups of files, even when they're in version control
               (buffer-file-name)))))
 #+end_src
 
-
 * Colors in compilation buffer
 
 ** Display ANSI colors on current buffer
@@ -1582,6 +1594,18 @@ Make backups of files, even when they're in version control
     )
 #+end_src
 
+** WIP implementation of the framework
+
+#+begin_src emacs-lisp
+  (defun fdx/generate_ruby_framework_project_wip (project-name)
+    "Reload web browser"
+    (interactive "sProject name: ")
+    (message (concat "Generating project " project-name))
+    (save-some-buffers)
+    (save-window-excursion (async-shell-command (concat "~/bin/ruby_framework_wip " project-name)))
+    )
+#+end_src
+
 * Centered cursor mode
 
 #+begin_src emacs-lisp
@@ -1607,6 +1631,7 @@ Make backups of files, even when they're in version control
 
 #+begin_src emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
+
   (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
   (add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
@@ -1614,16 +1639,14 @@ Make backups of files, even when they're in version control
   (add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
   (add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("Jenkinsfile\\'" . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.rabl\\'"     . ruby-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
 
   (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
   (add-to-list 'auto-mode-alist '("\\.erb\\'"      . web-mode))
 
-  (add-to-list 'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
-
   (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
+  
+  (add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+  (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 #+end_src

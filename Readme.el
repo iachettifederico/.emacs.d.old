@@ -53,6 +53,9 @@
 (blink-cursor-mode 0)
 (show-paren-mode)
 
+;; Set default font
+(set-face-attribute 'default nil :family "JetBrains Mono" :height 125)
+
 (use-package doom-themes :ensure t)
 
 (load-theme 'doom-ir-black t)
@@ -661,11 +664,14 @@ Don't mess with special buffers."
 
 (setq lsp-solargraph-autoformat t)
 
+(use-package hydra :ensure t)
+
 (use-package ruby-ts-mode :ensure t )
 
 (with-eval-after-load "ruby-ts-mode"
   (define-key ruby-ts-mode-map (kbd "H-;") 'seeing-is-believing-mark-current-line-for-xmpfilter)
   (define-key ruby-ts-mode-map (kbd "H-=") 'lsp-format-buffer)
+  (define-key ruby-ts-mode-map (kbd "H-+") 'fdx/reindent-buffer)
   (define-key ruby-ts-mode-map (kbd "C-c C-c") 'seeing-is-believing-run-as-xmpfilter)
   )
 
@@ -703,7 +709,6 @@ Don't mess with special buffers."
   (interactive)
   (rr/compile "bundle exec rubocop"))
 
-
 (defun rrr/rubocop-autocorrect ()
   "Run Rubocop autocorrect using Ruby Runner mode"
   (interactive)
@@ -721,6 +726,11 @@ Don't mess with special buffers."
             "docker-compose run --rm web erblint --autocorrect "
             (file-relative-name (buffer-file-name) "/home/fedex/code/conquered_self"))
            ))
+
+(defun rrr/cucumber ()
+  "Run Rubocop using Ruby Runner mode"
+  (interactive)
+  (rr/compile "bundle exec cucumber"))
 
 (global-set-key (kbd "H-i i") 'rr/rerun)
 
@@ -745,6 +755,9 @@ Don't mess with special buffers."
 
 ;; (rr/global-set-key "H-i r" "ruby" (buffer-file-name)) <- this doesn't work
 
+(which-key-add-key-based-replacements "H-i c" "Cucumber")
+(rr/global-set-key "H-i c" "bundle exec cucumber")
+
 (use-package web-mode :ensure t)
 
 (with-eval-after-load "web-mode"
@@ -753,8 +766,6 @@ Don't mess with special buffers."
                                          (fdx/reindent-buffer)
                                          (fdx/run-erblint-autocorrect-on-current-file)))
   )
-
-(use-package hydra :ensure t)
 
 (use-package emmet-mode :ensure t)
 
@@ -923,6 +934,14 @@ Don't mess with special buffers."
   (save-window-excursion (async-shell-command (concat "~/bin/ruby_framework_web " project-name)))
   )
 
+(defun fdx/generate_ruby_framework_project_wip (project-name)
+  "Reload web browser"
+  (interactive "sProject name: ")
+  (message (concat "Generating project " project-name))
+  (save-some-buffers)
+  (save-window-excursion (async-shell-command (concat "~/bin/ruby_framework_wip " project-name)))
+  )
+
 (use-package centered-cursor-mode :ensure t)
 
 (use-package undo-tree
@@ -933,6 +952,7 @@ Don't mess with special buffers."
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
+
 (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
 (add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
@@ -940,15 +960,13 @@ Don't mess with special buffers."
 (add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
 (add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("Jenkinsfile\\'" . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.rabl\\'"     . ruby-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
 
 (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'"      . web-mode))
 
-(add-to-list 'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
-
 (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
-(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+(add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
+
+(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))

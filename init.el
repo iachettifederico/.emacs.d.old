@@ -15,6 +15,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ccm-recenter-at-end-of-file t)
  '(ccm-vpos-init '(round (* 21 (ccm-visible-text-lines)) 34))
  '(ccm-vpos-inverted -1)
  '(connection-local-criteria-alist
@@ -102,7 +103,8 @@
  '(git-commit-summary-max-length 1000)
  '(org-agenda-files '("/data/second-brain/12_week_year.org"))
  '(org-agenda-start-with-follow-mode t)
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(undo-tree centered-cursor-mode xterm-color expand-region multiple-cursors slim-mode emmet-mode hydra web-mode inf-ruby ruby-electric rspec-mode seeing-is-believing rvm lsp-mode tree-sitter-langs company-tabnine yaml-mode dockerfile-mode magit wgrep-ag ripgrep ag org-roam-ui ox-pandoc ob-mermaid mermaid-mode org-bullets flx counsel-projectile git-timemachine whitespace-cleanup-mode yasnippet evil which-key try doom-themes auto-package-update))
  '(rspec-command-options "--format progress")
  '(rspec-docker-command "docker-compose run --rm")
  '(rspec-docker-container "web")
@@ -114,3 +116,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Inconsolata" :slant normal :weight normal :height 130 :width normal)))))
+(put 'dired-find-alternate-file 'disabled nil)

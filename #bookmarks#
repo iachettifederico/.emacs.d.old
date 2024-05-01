@@ -1,0 +1,125 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("Phlex gem"
+ (filename . "~/code/phlex/")
+ (front-context-string . "bin\n  drwxr-xr-x")
+ (rear-context-string . "0K ene  9 06:45 ")
+ (position . 170)
+ (last-modified 26016 24363 672853 505000))
+("Gamified Omashu"
+ (filename . "~/code/gamified_omashu/")
+ (front-context-string . "assets\n  drwxr-x")
+ (rear-context-string . "0K dic 22 20:14 ")
+ (position . 180)
+ (last-modified 26006 51690 122838 431000))
+("Ideas para standup"
+ (filename . "/data/standup/ideas.org")
+ (front-context-string . "* Ideas sueltas\n")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 25991 2394 993813 477000))
+("Ruby Framework"
+ (filename . "~/code/ruby_framework/")
+ (front-context-string . "config\n  drwxr-x")
+ (rear-context-string . "0K dic 15 17:44 ")
+ (position . 179)
+ (last-modified 25980 51661 457608 271000))
+("NB Consulting"
+ (filename . "~/nb-casts/nbconsulting/")
+ (front-context-string . "bin\n  drwxr-xr-x")
+ (rear-context-string . "0K dic  7  2022 ")
+ (position . 181)
+ (last-modified 25935 32381 680021 461000))
+("AI - Brillant.org"
+ (filename . "~/code/ai-ruby/brillant.org-neural-networks/")
+ (front-context-string . "..\n  drwxr-xr-x ")
+ (rear-context-string . "0K oct 28 12:08 ")
+ (position . 150)
+ (last-modified 25919 54359 389200 947000))
+("LiveTyping Gem"
+ (filename . "~/code/livetyping-lsp/livetyping/")
+ (front-context-string . "bin\n  drwxr-xr-x")
+ (rear-context-string . "0K sep 27 13:03 ")
+ (position . 187)
+ (last-modified 25877 40747 520473 234000))
+("Sandbox"
+ (filename . "/sandbox/")
+ (front-context-string . "..\n  -rw-r--r-- ")
+ (rear-context-string . "0K sep 16 11:51 ")
+ (position . 107)
+ (last-modified 25862 61383 619146 796000))
+("Pacientes Gime"
+ (filename . "~/code/pacientes_gime/")
+ (front-context-string . "..\n  drwxr-xr-x ")
+ (rear-context-string . "0K sep 15 11:34 ")
+ (position . 130)
+ (last-modified 25861 54094 175699 285000))
+("org-capture-last-stored"
+ (filename . "/data/second-brain/hard_drives.org")
+ (front-context-string)
+ (rear-context-string . "e: Hard Drives\n\n")
+ (position . 90)
+ (last-modified 26120 11141 100858 300000))
+("Web Bookmarks"
+ (filename . "~/bookmarks.yml")
+ (front-context-string . "GitHub: https://")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 25838 3913 676318 834000))
+("NB Casts - WebApp - Ruby"
+ (filename . "~/nb-casts/webapp-ruby/")
+ (front-context-string . "config\n  drwxr-x")
+ (rear-context-string . "0K ago 29 12:10 ")
+ (position . 177)
+ (last-modified 25838 3556 133833 301000))
+("i3 Config"
+ (filename . "~/.config/i3/config")
+ (front-context-string . "# Stream Deck\nbi")
+ (rear-context-string . "in/us_keyboard\n\n")
+ (position . 17547)
+ (last-modified 25830 30550 197697 692000))
+("NB Casts - WebApp"
+ (filename . "~/nb-casts/webapp/")
+ (front-context-string . "app\n  drwxr-xr-x")
+ (rear-context-string . "0K ago  8 11:08 ")
+ (position . 175)
+ (last-modified 25826 13058 550539 13000))
+("Code"
+ (filename . "~/code/")
+ (front-context-string . "..\n  drwxr-xr-x ")
+ (rear-context-string . "0K ago 17 10:30 ")
+ (position . 115)
+ (last-modified 25822 14399 45008 249000))
+("ConqueredSelf"
+ (filename . "~/code/conquered_self/")
+ (front-context-string . "app\n  drwxr-xr-x")
+ (rear-context-string . "0K ago 12 11:27 ")
+ (position . 179)
+ (last-modified 25820 57351 275392 378000))
+("NB Casts - Content"
+ (filename . "~/nb-casts/site/src/content/episodes/")
+ (front-context-string . "..\n  drwxr-xr-x ")
+ (rear-context-string . "0K ago 10 12:04 ")
+ (position . 145)
+ (last-modified 25817 18078 98850 486000))
+("NB Casts - Site"
+ (filename . "~/nb-casts/site/")
+ (front-context-string . "bin\n  drwxr-xr-x")
+ (rear-context-string . "0K dic  7  2022 ")
+ (position . 173)
+ (last-modified 25817 18058 430682 178000))
+("oldreadmeemacs"
+ (filename . "~/.emacs.d.old/Readme.org")
+ (front-context-string . "#+TITLE: Emacs c")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 25817 17439 513202 658000))
+("Emacs Readme Configuration"
+ (filename . "~/.emacs.d/Readme.org")
+ (front-context-string . "#+TITLE: Emacs c")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 25817 17406 276860 829000))
+)

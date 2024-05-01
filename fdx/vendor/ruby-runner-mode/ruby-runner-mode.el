@@ -21,7 +21,8 @@
   "RubyRunner minor mode."
   :group 'languages)
 
-(defcustom rr/docker-cwd "/app/"
+(defcustom rr/docker-cwd "/kelp/"
+;; (defcustom rr/docker-cwd "/app/"
   "Working directory when running inside Docker.  Use trailing slash."
   :type 'string
   :group 'rr/mode)

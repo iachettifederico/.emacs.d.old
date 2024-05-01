@@ -9,10 +9,12 @@
         electric-pair-delete-pair
         fdx/insert-and-populate-org-shots
         fdx/reindent-buffer
+        fdx/visit-or-projectile-visit
         indent-for-tab-command
         kill-region
         lsp-format-buffer
         org-beginning-of-line
+        org-cycle
         org-deadline
         org-end-of-line
         org-force-self-insert
@@ -23,14 +25,25 @@
         org-self-insert-command
         org-shiftright
         org-yank
+        seeing-is-believing-mark-current-line-for-xmpfilter
         wdired--self-insert
         wdired-finish-edit
         wgrep-finish-edit
         yaml-electric-backspace
+        yaml-electric-dash-and-dot
         yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        counsel-find-file
+        end-of-buffer
+        magit-status
+        markdown-beginning-of-line
+        mouse-set-region
+        recompile
         rspec-rerun
+        seeing-is-believing-run-as-xmpfilter
+        swiper
+        winner-undo
         ))
