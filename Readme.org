@@ -85,8 +85,24 @@ Reload file with =<f5>=
 ** Word and line wrap
 
 #+begin_src emacs-lisp
+  (setq-default truncate-lines t)
   (setq-default toggle-truncate-lines t)
+  (global-visual-line-mode t)
   (setq-default word-wrap t)
+#+end_src
+
+*** Add a before hook to fix =C-e= on multiple lines
+
+If I don't add this, whenever I have a line that visually extends onto two or three lines, going to the beginning or end of the line goes to the beginning or end of the visual line instead of the actual line, which is annoying
+
+#+begin_src emacs-lisp
+  (defun fdx/before-open-file-hook ()
+    "Function to run before opening any file."
+    (toggle-truncate-lines t)
+    (toggle-truncate-lines nil)
+    )
+
+  (add-hook 'find-file-hook 'fdx/before-open-file-hook)
 #+end_src
 
 * Interface tweaks
