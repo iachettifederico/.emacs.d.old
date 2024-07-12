@@ -3,20 +3,28 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        beginning-of-buffer
+        beginning-of-visual-line
         bookmark-jump
         cycle-spacing
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
+        end-of-visual-line
         fdx/insert-and-populate-org-shots
         fdx/reindent-buffer
         fdx/visit-or-projectile-visit
         indent-for-tab-command
         kill-region
+        kill-visual-line
         lsp-format-buffer
+        markdown-beginning-of-line
+        markdown-end-of-line
+        markdown-outdent-or-delete
         org-beginning-of-line
         org-cycle
         org-deadline
         org-end-of-line
+        org-export-dispatch
         org-force-self-insert
         org-kill-line
         org-meta-return
@@ -25,6 +33,7 @@
         org-self-insert-command
         org-shiftright
         org-yank
+        rspec-verify
         seeing-is-believing-mark-current-line-for-xmpfilter
         wdired--self-insert
         wdired-finish-edit
@@ -38,11 +47,13 @@
       '(
         counsel-find-file
         end-of-buffer
+        fdx/run-current-ruby-file
+        handle-switch-frame
         magit-status
-        markdown-beginning-of-line
         mouse-set-region
         recompile
         rspec-rerun
+        rspec-verify-single
         seeing-is-believing-run-as-xmpfilter
         swiper
         winner-undo
