@@ -6,4 +6,4 @@
                        ("bi" "{{$0}}" "Handlebars" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/html-mode/handlebars.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Mon Sep 11 12:19:36 2023
+;;; Do not edit! File generated at Tue Jul  2 10:55:36 2024

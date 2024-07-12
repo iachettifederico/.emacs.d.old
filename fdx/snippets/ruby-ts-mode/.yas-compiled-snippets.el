@@ -577,6 +577,9 @@
                        ("it" "it \"${1:does something}\" do\n  $0\nend" "it" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/it.yasnippet" nil nil)
+                       ("fit" "fit do\n  $0\nend" "fit" nil
+                        ("rspec-mode")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/fit.yasnippet" nil nil)
                        ("exrarg" "expect {\n  $1\n}.to raise_error(ArgumentError, \"missing keywords: :$0\")\n" "Expect to raise ArgumentError" nil
                         ("rspec-mode")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/rspec-mode/expect_raise_argument_error.yasnippet" nil nil)
@@ -713,4 +716,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Mon Sep 11 12:19:36 2023
+;;; Do not edit! File generated at Tue Jul  2 10:55:37 2024

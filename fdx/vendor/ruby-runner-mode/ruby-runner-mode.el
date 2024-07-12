@@ -22,7 +22,7 @@
   :group 'languages)
 
 (defcustom rr/docker-cwd "/kelp/"
-;; (defcustom rr/docker-cwd "/app/"
+  ;; (defcustom rr/docker-cwd "/app/"
   "Working directory when running inside Docker.  Use trailing slash."
   :type 'string
   :group 'rr/mode)
@@ -71,7 +71,7 @@ Walk the directory tree until it finds a rake file."
    (rr/define-target-path target))
   )
 
-(defcustom rr/docker-command "docker-compose run --rm web sh -c"
+(defcustom rr/docker-command "docker compose run --rm web sh -c"
   "Docker command to run."
   :type 'string
   :group 'rr/mode
@@ -83,6 +83,7 @@ Walk the directory tree until it finds a rake file."
 
 (defun rr/docker-wrapper (command-name target)
   "Docker wrapper for command"
+  (message (rr/project-root))
   (if (rr/docker-p)
       (rr/run-command-on-target
        (concat rr/docker-command " \"" command-name " " (rr/container-file-name target) "\""))
@@ -106,7 +107,7 @@ Walk the directory tree until it finds a rake file."
 
 (defun rr/silent-compile (command-name &optional target)
   "Actually compile silently"
-    (message (concat "Running " (rr/compile-command command-name target)))
+  (message (concat "Running " (rr/compile-command command-name target)))
 
   (let ((process (start-process-shell-command
                   "silent-shell-command" nil (rr/compile-command command-name target))))
