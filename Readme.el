@@ -42,8 +42,18 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer)
 
+(setq-default truncate-lines t)
 (setq-default toggle-truncate-lines t)
+(global-visual-line-mode t)
 (setq-default word-wrap t)
+
+(defun fdx/before-open-file-hook ()
+  "Function to run before opening any file."
+  (toggle-truncate-lines t)
+  (toggle-truncate-lines nil)
+  )
+
+(add-hook 'find-file-hook 'fdx/before-open-file-hook)
 
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
@@ -55,6 +65,7 @@
 
 ;; Set default font
 (set-face-attribute 'default nil :family "JetBrains Mono" :height 125)
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono 12"))
 
 (use-package doom-themes :ensure t)
 
@@ -531,6 +542,15 @@ Don't mess with special buffers."
 
 (global-display-line-numbers-mode 1)
 
+(defun fdx/toggle-relative-absolute-line-numbers ()
+  "Toggle between relative and absolute line numbers for dilplay-line-numbers-mode"
+  (interactive)
+  (if (eq display-line-numbers-type 'absolute)
+      (setq display-line-numbers-type 'relative)
+    (setq display-line-numbers-type 'absolute))
+  (global-display-line-numbers-mode))
+(global-set-key (kbd "H-9") 'fdx/toggle-relative-absolute-line-numbers)
+
 (global-hl-line-mode 1)
 
 ;;;###autoload
@@ -717,13 +737,13 @@ Don't mess with special buffers."
 (defun fdx/run-erblint ()
   "Bind an interactively specified key to a new command."
   (interactive)
-  (compile "docker-compose run --rm web erblint \"**/*.erb\""))
+  (compile "erblint \"**/*.erb\""))
 
 (defun fdx/run-erblint-autocorrect-on-current-file ()
   "Bind an interactively specified key to a new command."
   (interactive)
   (compile (concat
-            "docker-compose run --rm web erblint --autocorrect "
+            "erblint --autocorrect "
             (file-relative-name (buffer-file-name) "/home/fedex/code/conquered_self"))
            ))
 
@@ -766,6 +786,8 @@ Don't mess with special buffers."
                                          (fdx/reindent-buffer)
                                          (fdx/run-erblint-autocorrect-on-current-file)))
   )
+
+(use-package rhtml-mode :ensure t)
 
 (use-package emmet-mode :ensure t)
 
@@ -951,6 +973,10 @@ Don't mess with special buffers."
 
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
+(use-package docker :ensure t)
+
+;; (use-package docker-tramp :ensure t)    ;
+
 (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
 
 (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
@@ -963,7 +989,7 @@ Don't mess with special buffers."
 (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
 
 (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'"      . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
 
 (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
