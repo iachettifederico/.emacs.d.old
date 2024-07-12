@@ -1374,6 +1374,12 @@ Make backups of files, even when they're in version control
     )
 #+end_src
 
+* rhtml-mode
+
+#+begin_src emacs-lisp
+  (use-package rhtml-mode :ensure t)
+#+end_src
+
 * Emmet mode
 
 #+begin_src emacs-lisp
@@ -1673,10 +1679,10 @@ Make backups of files, even when they're in version control
   (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
 
   (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'"      . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
 
   (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
-  
+
   (add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
 
   (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
