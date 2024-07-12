@@ -962,6 +962,19 @@ Configuration
   (global-display-line-numbers-mode 1)
 #+end_src
 
+**** Toggle absolute and relative line numbers
+
+#+begin_src emacs-lisp
+  (defun fdx/toggle-relative-absolute-line-numbers ()
+    "Toggle between relative and absolute line numbers for dilplay-line-numbers-mode"
+    (interactive)
+    (if (eq display-line-numbers-type 'absolute)
+        (setq display-line-numbers-type 'relative)
+      (setq display-line-numbers-type 'absolute))
+    (global-display-line-numbers-mode))
+  (global-set-key (kbd "H-9") 'fdx/toggle-relative-absolute-line-numbers)
+#+end_src
+
 *** Highlight current line
 
 #+begin_src emacs-lisp
