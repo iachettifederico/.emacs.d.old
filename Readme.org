@@ -1310,13 +1310,13 @@ Make backups of files, even when they're in version control
   (defun fdx/run-erblint ()
     "Bind an interactively specified key to a new command."
     (interactive)
-    (compile "docker-compose run --rm web erblint \"**/*.erb\""))
+    (compile "erblint \"**/*.erb\""))
 
   (defun fdx/run-erblint-autocorrect-on-current-file ()
     "Bind an interactively specified key to a new command."
     (interactive)
     (compile (concat
-              "docker-compose run --rm web erblint --autocorrect "
+              "erblint --autocorrect "
               (file-relative-name (buffer-file-name) "/home/fedex/code/conquered_self"))
              ))
 
