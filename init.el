@@ -1,3 +1,7 @@
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-check-signature nil)
@@ -104,12 +108,168 @@
  '(org-agenda-files '("/data/second-brain/12_week_year.org"))
  '(org-agenda-start-with-follow-mode t)
  '(package-selected-packages
-   '(undo-tree centered-cursor-mode xterm-color expand-region multiple-cursors slim-mode emmet-mode hydra web-mode inf-ruby ruby-electric rspec-mode seeing-is-believing rvm lsp-mode tree-sitter-langs company-tabnine yaml-mode dockerfile-mode magit wgrep-ag ripgrep ag org-roam-ui ox-pandoc ob-mermaid mermaid-mode org-bullets flx counsel-projectile git-timemachine whitespace-cleanup-mode yasnippet evil which-key try doom-themes auto-package-update))
+   '(rhtml-mode undo-tree centered-cursor-mode xterm-color expand-region multiple-cursors slim-mode emmet-mode hydra web-mode inf-ruby ruby-electric rspec-mode seeing-is-believing rvm lsp-mode tree-sitter-langs company-tabnine yaml-mode dockerfile-mode magit wgrep-ag ripgrep ag org-roam-ui ox-pandoc ob-mermaid mermaid-mode org-bullets flx counsel-projectile git-timemachine whitespace-cleanup-mode yasnippet evil which-key try doom-themes auto-package-update))
  '(rspec-command-options "--format progress")
- '(rspec-docker-command "docker-compose run --rm")
+ '(rspec-docker-command "docker compose run --rm")
  '(rspec-docker-container "web")
+ '(rspec-docker-cwd "/app/")
  '(rspec-use-docker-when-possible t)
- '(rspec-use-opts-file-when-available nil))
+ '(rspec-use-opts-file-when-available nil)
+ '(safe-local-variable-values
+   '((eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (setq compilation-scroll-output 'first-error)
+           (setq rspec-docker-cwd "/kelp/")
+           (setq rspec-command-options "--format progress --exclude-pattern 'spec/system/**/*_spec.rb'")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 '("docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (setq rspec-docker-cwd "/kelp/")
+           (setq rspec-command-options "--format progress --exclude-pattern 'spec/system/**/*_spec.rb'")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 '("docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (setq rspec-docker-cwd "/kelp/")
+           (setq rspec-command-options "--format progress --exclude-pattern \"spec/system/**/*_spec.rb\"")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 '("docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (setq rspec-docker-cwd "/kelp/")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 '("docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 '("docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 '("docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 ("/usr/bin/docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq lsp-solargraph-server-command
+                 ("docker" "compose" "run" "--rm" "web" "bundle" "exec" "solargraph" "stdio")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb "))
+           (setq rspec-docker-cwd "/kelp/"))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (remove-hook 'ruby-ts-mode-hook #'lsp)
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb ")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (setq lsp-auto-configure-exclude
+                 '(ruby-ts-mode))
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb ")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A " "spec/models/feature_flag_client_spec.rb " "app/models/feature_flag.rb " "app/models/launch_darkly_client.rb " "app/models/feature_flag_client.rb " "app/models/feature_flag_client/in_memory.rb ")))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A "
+                                      (file-relative-name
+                                       (buffer-file-name)
+                                       (projectile-project-root)))))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (rvm-use "3.2.3" "global")
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A"
+                                      (file-relative-name
+                                       (buffer-file-name)
+                                       (projectile-project-root)))))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key "H-u"
+                              (concat "bundle exec rubocop -A"
+                                      (file-relative-name
+                                       (buffer-file-name)
+                                       (projectile-project-root)))))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)
+           (rr/global-set-key-current-file "H-u" "bundle exec rubocop -A"))
+     (eval with-eval-after-load "ruby-ts-mode"
+           (define-key ruby-ts-mode-map
+                       (kbd "H-=")
+                       'fdx/reindent-buffer)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
