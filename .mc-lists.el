@@ -6,13 +6,17 @@
         beginning-of-buffer
         beginning-of-visual-line
         bookmark-jump
+        counsel-M-x
         cycle-spacing
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
         end-of-visual-line
+        fdx/duplicate-line
         fdx/insert-and-populate-org-shots
+        fdx/open-line-below
         fdx/reindent-buffer
         fdx/visit-or-projectile-visit
+        forward-sexp
         indent-for-tab-command
         kill-region
         kill-visual-line
@@ -20,7 +24,9 @@
         markdown-beginning-of-line
         markdown-end-of-line
         markdown-outdent-or-delete
+        mouse-yank-primary
         org-beginning-of-line
+        org-ctrl-c-ctrl-c
         org-cycle
         org-deadline
         org-end-of-line
@@ -35,7 +41,11 @@
         org-yank
         rspec-verify
         seeing-is-believing-mark-current-line-for-xmpfilter
+        sgml-close-tag
+        sgml-slash
+        string-inflection-underscore
         wdired--self-insert
+        wdired-downcase-word
         wdired-finish-edit
         wgrep-finish-edit
         yaml-electric-backspace
@@ -48,13 +58,19 @@
         counsel-find-file
         end-of-buffer
         fdx/run-current-ruby-file
+        fdx/save-and-reload-browser-with-delay
         handle-switch-frame
+        ivy-switch-buffer
         magit-status
         mouse-set-region
+        next-buffer
+        previous-buffer
         recompile
         rspec-rerun
         rspec-verify-single
         seeing-is-believing-run-as-xmpfilter
         swiper
+        toggle-truncate-lines
+        wgrep-change-to-wgrep-mode
         winner-undo
         ))

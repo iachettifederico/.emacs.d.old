@@ -1,3 +1,4 @@
+
 #+TITLE: Emacs configuration
 
 #+STARTUP: overview
@@ -29,6 +30,31 @@
   (global-set-key (kbd "H-D t") 'fdx/touch-current-file)
 #+end_src
 
+** Sorting words
+
+#+begin_src emacs-lisp
+  (require 's)
+
+  (defun fdx/sort-words-in-region (beg end &optional reversed)
+    "In active region sort words alphabetically in ascending order.
+  With prefix argument REVERSED use descending order.
+  Don't use this function on regions with nested brackets."
+    (interactive "r\nP")
+    (unless (region-active-p) (user-error "No active region to sort!"))
+    (let* ((str (s-trim (buffer-substring-no-properties beg end)))
+           (com (string-match-p "," str))
+           (cln (replace-regexp-in-string "[\]\[(){}\']+\\|\\.$" "" str))
+           (wrd (split-string cln (if com "," " ") t " "))
+           (new (s-join (if com ", " " ")
+                        (sort wrd (if reversed #'string> #'string<)))))
+      (save-excursion
+        (goto-char beg)
+        (delete-region beg end)
+        (when (and (looking-back "[^ ]") (not (s-starts-with? " " str)))
+            (insert " "))
+        (insert
+         (replace-regexp-in-string "[^\]\[(){}\'\.]+" new str)))))
+#+end_src
 ** Lines
 
 #+begin_src emacs-lisp
@@ -85,24 +111,10 @@ Reload file with =<f5>=
 ** Word and line wrap
 
 #+begin_src emacs-lisp
-  (setq-default truncate-lines t)
-  (setq-default toggle-truncate-lines t)
   (global-visual-line-mode t)
+  (setq-default truncate-lines nil)
+  (setq-default toggle-truncate-lines nil)
   (setq-default word-wrap t)
-#+end_src
-
-*** Add a before hook to fix =C-e= on multiple lines
-
-If I don't add this, whenever I have a line that visually extends onto two or three lines, going to the beginning or end of the line goes to the beginning or end of the visual line instead of the actual line, which is annoying
-
-#+begin_src emacs-lisp
-  (defun fdx/before-open-file-hook ()
-    "Function to run before opening any file."
-    (toggle-truncate-lines t)
-    (toggle-truncate-lines nil)
-    )
-
-  (add-hook 'find-file-hook 'fdx/before-open-file-hook)
 #+end_src
 
 * Interface tweaks
@@ -774,7 +786,7 @@ Installation
 Configuration
 
 #+begin_src emacs-lisp
-  (setenv "ORG_ROAM_DIR" "/data/second-brain")
+  (setenv "ORG_ROAM_DIR" "/home/fedex/second-brain")
   (setq org-roam-directory (file-truename (getenv "ORG_ROAM_DIR")))
   (org-roam-db-autosync-mode)
 #+end_src
@@ -1250,7 +1262,7 @@ Make backups of files, even when they're in version control
     (rvm-use-default))
 #+end_src
 
-** Seeing is besieving
+** Seeing is believing
 
 #+begin_src emacs-lisp
   (use-package seeing-is-believing :ensure t)
@@ -1281,11 +1293,39 @@ Make backups of files, even when they're in version control
   (electric-pair-mode t)
 #+end_src
 
-** inf-ruby
+# ** inf-ruby
+# 
+# #+begin_src emacs-lisp
+#   (use-package inf-ruby :ensure t)
+#   (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+# #+end_src
+
+ # ** Robe
+ # 
+ # #+begin_src emacs-lisp
+ #   (use-package robe
+ #     :ensure t
+ #     :hook (ruby-ts-mode . robe-mode)
+ #     :config
+ #     (add-hook 'ruby-ts-mode-hook 'robe-start)
+ #     (eval-after-load 'company
+ #       '(push 'company-robe company-backends)))
+ # #+end_src
+
+** Ruby refactor
 
 #+begin_src emacs-lisp
-  (use-package inf-ruby :ensure t)
-  (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+  (use-package ruby-refactor
+    :ensure t
+    :hook (ruby-ts-mode . ruby-refactor-mode-launch)
+    )
+
+  ;; (eval-after-load 'ruby-refactor
+  ;;   '(progn
+  ;;      (define-key ruby-refactor-mode-map (kbd "C-c r e") 'ruby-refactor-extract-to-method)
+  ;;      (define-key ruby-refactor-mode-map (kbd "C-c r l") 'ruby-refactor-extract-to-let)
+  ;;      (define-key ruby-refactor-mode-map (kbd "C-c r v") 'ruby-refactor-extract-local-variable)
+  ;;      (define-key ruby-refactor-mode-map (kbd "C-c r c") 'ruby-refactor-convert-post-conditional)))
 #+end_src
 
 ** Ruby Runner Mode
@@ -1337,8 +1377,9 @@ Make backups of files, even when they're in version control
   ;; (rr/global-set-key-current-file "H-6" "rspec")
 
   (which-key-add-key-based-replacements "H-i u" "Rubocop")
-  (rr/global-set-key "H-i u a" "bundle exec rubocop")
-  (rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect; bundle exec rubocop")
+  (rr/global-set-key "H-i u u" "bundle exec rubocop")
+  (rr/global-set-key "H-i u U" "bundle exec rubocop --autocorrect; bundle exec rubocop")
+  (rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect-all; bundle exec rubocop")
   (rr/global-set-key "H-i u T" "bundle exec rubocop --regenerate-todo")
   (global-set-key (kbd "H-i u c") (lambda ()(interactive) (compile "ruboclean")))
   (which-key-add-key-based-replacements "H-i u c" "Ruboclean")
@@ -1664,26 +1705,84 @@ Make backups of files, even when they're in version control
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 #+end_src
 
+* String inflections
+
+#+begin_src emacs-lisp
+  (use-package string-inflection :ensure t) 
+#+end_src
+
+** Global keybindings
+
+#+begin_src ruby
+  (global-set-key (kbd "H-o") 'string-inflection-all-cycle)
+#+end_src
+
+* Docker
+
+** Docker
+
+#+begin_src emacs-lisp
+  (use-package docker :ensure t)
+#+end_src
+
+** Tramp
+
+#+begin_src emacs-lisp
+  ;; (use-package docker-tramp :ensure t)    ;
+#+end_src
+
+* Copy current file name to clipboard
+
+#+begin_src emacs-lisp
+  ;;;###autoload
+  (defun fdx/file-name-to-clipboard ()
+    "Copy current file name to clipboard"
+    (interactive)
+    (if (buffer-file-name)
+        (progn
+          (kill-new (buffer-file-name))
+          (message (buffer-file-name))
+          )
+      (message "Current buffer is not visiting a saved file")
+      )
+    )
+#+end_src
+
+* Edit as sudo
+
+#+begin_src emacs-lisp
+  (use-package sudo-edit :ensure t)
+#+end_src
+
+* Nix
+
+#+begin_src emacs-lisp
+  (use-package nix-mode :ensure t)
+#+end_src
+
+
 * File extensions
 
 #+begin_src emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
+    (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru\\'"       . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
+    (add-to-list 'auto-mode-alist '("\\.ru\\'"       . ruby-ts-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
+    (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
 
-  (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
+    (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
-  (add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
+    (add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
+    (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
+
+  (add-to-list 'auto-mode-alist '("\\.nix\\'"      . nix-mode))
 #+end_src

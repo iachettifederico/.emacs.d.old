@@ -13,6 +13,28 @@
 (global-set-key (kbd "H-D m") 'fdx/chmod-current-file)
 (global-set-key (kbd "H-D t") 'fdx/touch-current-file)
 
+(require 's)
+
+(defun fdx/sort-words-in-region (beg end &optional reversed)
+  "In active region sort words alphabetically in ascending order.
+With prefix argument REVERSED use descending order.
+Don't use this function on regions with nested brackets."
+  (interactive "r\nP")
+  (unless (region-active-p) (user-error "No active region to sort!"))
+  (let* ((str (s-trim (buffer-substring-no-properties beg end)))
+         (com (string-match-p "," str))
+         (cln (replace-regexp-in-string "[\]\[(){}\']+\\|\\.$" "" str))
+         (wrd (split-string cln (if com "," " ") t " "))
+         (new (s-join (if com ", " " ")
+                      (sort wrd (if reversed #'string> #'string<)))))
+    (save-excursion
+      (goto-char beg)
+      (delete-region beg end)
+      (when (and (looking-back "[^ ]") (not (s-starts-with? " " str)))
+          (insert " "))
+      (insert
+       (replace-regexp-in-string "[^\]\[(){}\'\.]+" new str)))))
+
 (global-set-key (kbd "H--") 'kill-whole-line)
 
 (global-set-key (kbd "H-d") 'fdx/duplicate-line)
@@ -42,18 +64,10 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer)
 
-(setq-default truncate-lines t)
-(setq-default toggle-truncate-lines t)
 (global-visual-line-mode t)
+(setq-default truncate-lines nil)
+(setq-default toggle-truncate-lines nil)
 (setq-default word-wrap t)
-
-(defun fdx/before-open-file-hook ()
-  "Function to run before opening any file."
-  (toggle-truncate-lines t)
-  (toggle-truncate-lines nil)
-  )
-
-(add-hook 'find-file-hook 'fdx/before-open-file-hook)
 
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
@@ -457,7 +471,7 @@ Don't mess with special buffers."
 
 (use-package org-roam :ensure t)
 
-(setenv "ORG_ROAM_DIR" "/data/second-brain")
+(setenv "ORG_ROAM_DIR" "/home/fedex/second-brain")
 (setq org-roam-directory (file-truename (getenv "ORG_ROAM_DIR")))
 (org-roam-db-autosync-mode)
 
@@ -719,8 +733,17 @@ Don't mess with special buffers."
 (require 'ruby-electric)
 (electric-pair-mode t)
 
-(use-package inf-ruby :ensure t)
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+(use-package ruby-refactor
+  :ensure t
+  :hook (ruby-ts-mode . ruby-refactor-mode-launch)
+  )
+
+;; (eval-after-load 'ruby-refactor
+;;   '(progn
+;;      (define-key ruby-refactor-mode-map (kbd "C-c r e") 'ruby-refactor-extract-to-method)
+;;      (define-key ruby-refactor-mode-map (kbd "C-c r l") 'ruby-refactor-extract-to-let)
+;;      (define-key ruby-refactor-mode-map (kbd "C-c r v") 'ruby-refactor-extract-local-variable)
+;;      (define-key ruby-refactor-mode-map (kbd "C-c r c") 'ruby-refactor-convert-post-conditional)))
 
 (load (expand-file-name "~/.emacs.d/fdx/vendor/ruby-runner-mode/ruby-runner-mode.el") t)
 
@@ -760,8 +783,9 @@ Don't mess with special buffers."
 ;; (rr/global-set-key-current-file "H-6" "rspec")
 
 (which-key-add-key-based-replacements "H-i u" "Rubocop")
-(rr/global-set-key "H-i u a" "bundle exec rubocop")
-(rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect; bundle exec rubocop")
+(rr/global-set-key "H-i u u" "bundle exec rubocop")
+(rr/global-set-key "H-i u U" "bundle exec rubocop --autocorrect; bundle exec rubocop")
+(rr/global-set-key "H-i u A" "bundle exec rubocop --autocorrect-all; bundle exec rubocop")
 (rr/global-set-key "H-i u T" "bundle exec rubocop --regenerate-todo")
 (global-set-key (kbd "H-i u c") (lambda ()(interactive) (compile "ruboclean")))
 (which-key-add-key-based-replacements "H-i u c" "Ruboclean")
@@ -973,26 +997,47 @@ Don't mess with special buffers."
 
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
+(use-package string-inflection :ensure t)
+
 (use-package docker :ensure t)
 
 ;; (use-package docker-tramp :ensure t)    ;
 
+;;;###autoload
+(defun fdx/file-name-to-clipboard ()
+  "Copy current file name to clipboard"
+  (interactive)
+  (if (buffer-file-name)
+      (progn
+        (kill-new (buffer-file-name))
+        (message (buffer-file-name))
+        )
+    (message "Current buffer is not visiting a saved file")
+    )
+  )
+
+(use-package sudo-edit :ensure t)
+
+(use-package nix-mode :ensure t)
+
 (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
 
-(add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.ru\\'"       . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.ru\\'"       . ruby-ts-mode))
 
-(add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
+  (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
 
-(add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
+  (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
-(add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
+  (add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
 
-(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
+  (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
+
+(add-to-list 'auto-mode-alist '("\\.nix\\'"      . nix-mode))
