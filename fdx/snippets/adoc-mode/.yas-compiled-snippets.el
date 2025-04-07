@@ -6,4 +6,4 @@
                        ("shotn" "shot::[]" "shotn" nil nil nil "/home/fedex/.emacs.d/fdx/snippets/adoc-mode/shotn.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Jul  2 10:55:36 2024
+;;; Do not edit! File generated at Wed Dec 18 08:24:11 2024

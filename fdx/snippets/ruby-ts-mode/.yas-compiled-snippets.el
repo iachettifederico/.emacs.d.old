@@ -164,7 +164,10 @@
                        ("cla" "class ${1:`(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`}\n  $0\nend" "class ..." nil
                         ("declarations")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/class.yasnippet" nil nil)
-                       ("claa" "# frozen_string_literal: true\n\nclass ${1:`(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`}\n  def self.${0:a}\n    new\n  end\n\n  private\n\n  def initialize\n  end\nend" "Snippet Name" nil
+                       ("claaa" "# frozen_string_literal: true\n\nclass ${1:`(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`}\n  def self.${0:a}\n    new\n  end\n\n  private\n\n  def initialize\n  end\nend" "Snippet Name" nil
+                        ("declarations")
+                        nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/claaa.yasnippet" nil nil)
+                       ("claa" "class ${1:`(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n                 (or (buffer-file-name)\n                     (buffer-name (current-buffer))))))))\n       (replace-regexp-in-string \"\\[_*\\]\" \"\" fn))`}\n  def self.${2:a}${3:$(if (> (length yas-text) 0) \"(\" \"\")}${3:b}${3:$(if (> (length yas-text) 0) \")\" \"\")}\n    new${3:$(if (> (length yas-text) 0) \"(\" \"\")}$3${3:$(if (> (length yas-text) 0) \": \" \"\")}$3${3:$(if (> (length yas-text) 0) \")\" \"\")}\n  end\n\n  private\n\n  def initialize${3:$(if (> (length yas-text) 0) \"(\" \"\")}$3${3:$(if (> (length yas-text) 0) \": \" \"\")}${3:$(if (> (length yas-text) 0) \")\" \"\")}\n  end\nend" "A snippet" nil
                         ("declarations")
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/declarations/claa.yasnippet" nil nil)
                        ("begin" "begin\n  $0\nrescue ${1:Exception}${2:$(if (> (length yas-text) 0) \" => \" \"\")}${2:error}\n\nend" "begin" nil
@@ -716,4 +719,4 @@
                         nil "/home/fedex/.emacs.d/fdx/snippets/ruby-ts-mode/tools/amazing_print.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Jul  2 10:55:37 2024
+;;; Do not edit! File generated at Wed Dec 18 08:24:11 2024
