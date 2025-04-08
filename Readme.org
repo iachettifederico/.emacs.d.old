@@ -470,6 +470,40 @@ All buffers, try to reuse windows across all frames
                                                       ((reusable-frames . t))))))
 #+end_src
 
+** Trailing whitespace
+
+#+begin_src emacs-lisp
+  (defun fdx//set-show-trailing-whitespace (value)
+    "Set `show-trailing-whitespace` to VALUE in all prog-mode buffers."
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (when (derived-mode-p 'prog-mode)
+          (setq show-trailing-whitespace value)))))
+
+  (defun fdx/show-trailing-whitespace ()
+    "Enable trailing whitespace in prog-mode buffers."
+    (interactive)
+    (add-hook 'prog-mode-hook #'fdx//enable-trailing-whitespace)
+    (fdx//set-show-trailing-whitespace t))
+
+  (defun fdx/hide-trailing-whitespace ()
+    "Disable trailing whitespace in prog-mode buffers."
+    (interactive)
+    (remove-hook 'prog-mode-hook #'fdx//enable-trailing-whitespace)
+    (fdx//set-show-trailing-whitespace nil))
+
+  (defun fdx/toggle-show-trailing-whitespace ()
+    "Toggle trailing whitespace visibility in prog-mode buffers."
+    (interactive)
+    (if (member #'fdx//enable-trailing-whitespace prog-mode-hook)
+        (fdx/hide-trailing-whitespace)
+      (fdx/show-trailing-whitespace)))
+
+  (defun fdx//enable-trailing-whitespace ()
+    "Hook function to enable trailing whitespace."
+    (setq show-trailing-whitespace t))  
+#+end_src
+
 * Directories
 
 When finding a file, if the parent directory doesn't exist, create it first
