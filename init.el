@@ -120,8 +120,11 @@
  '(rspec-docker-command "docker compose run --rm")
  '(rspec-docker-container "web")
  '(rspec-docker-cwd "/app/")
+ '(rspec-factory-gem 'factory-bot)
+ '(rspec-spec-command "rspec")
  '(rspec-use-docker-when-possible t)
  '(rspec-use-opts-file-when-available nil)
+ '(rspec-use-relative-path nil)
  '(ruby-after-operator-indent t)
  '(ruby-refactor-add-parens t)
  '(safe-local-variable-values
