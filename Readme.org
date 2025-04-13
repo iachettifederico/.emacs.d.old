@@ -1328,25 +1328,6 @@ Make backups of files, even when they're in version control
   (electric-pair-mode t)
 #+end_src
 
-# ** inf-ruby
-# 
-# #+begin_src emacs-lisp
-#   (use-package inf-ruby :ensure t)
-#   (add-hook 'after-init-hook 'inf-ruby-switch-setup)
-# #+end_src
-
- # ** Robe
- # 
- # #+begin_src emacs-lisp
- #   (use-package robe
- #     :ensure t
- #     :hook (ruby-ts-mode . robe-mode)
- #     :config
- #     (add-hook 'ruby-ts-mode-hook 'robe-start)
- #     (eval-after-load 'company
- #       '(push 'company-robe company-backends)))
- # #+end_src
-
 ** Ruby refactor
 
 #+begin_src emacs-lisp
