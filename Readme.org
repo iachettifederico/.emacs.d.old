@@ -502,7 +502,7 @@ All buffers, try to reuse windows across all frames
 
   (defun fdx//enable-trailing-whitespace ()
     "Hook function to enable trailing whitespace."
-    (setq show-trailing-whitespace t))  
+    (setq show-trailing-whitespace t))
 #+end_src
 
 * Directories
