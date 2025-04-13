@@ -127,6 +127,7 @@ Reload file with =<f5>=
   (fset 'yes-or-no-p 'y-or-n-p)
   (blink-cursor-mode 0)
   (show-paren-mode)
+  (setq ring-bell-function 'ignore)
 #+end_src
 
 * Appearance
