@@ -115,7 +115,17 @@
  '(git-commit-summary-max-length 1000)
  '(org-agenda-files '("/data/second-brain/12_week_year.org"))
  '(org-agenda-start-with-follow-mode t)
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(ag auto-package-update centered-cursor-mode company-tabnine
+        counsel-projectile docker dockerfile-mode doom-themes
+        emmet-mode evil exec-path-from-shell expand-region flx
+        git-timemachine hydra lsp-mode magit mermaid-mode
+        multiple-cursors nix-mode ob-mermaid org-bullets org-roam-ui
+        ox-pandoc rhtml-mode ripgrep rspec-mode ruby-electric
+        ruby-refactor rvm seeing-is-believing slim-mode
+        string-inflection sudo-edit tree-sitter-langs try undo-tree
+        web-mode wgrep-ag which-key whitespace-cleanup-mode
+        xterm-color yaml-mode yasnippet))
  '(rspec-command-options "--format progress")
  '(rspec-docker-command "docker compose run --rm")
  '(rspec-docker-container "web")
