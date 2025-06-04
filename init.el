@@ -119,7 +119,7 @@
    '(ag auto-package-update centered-cursor-mode company-tabnine
         counsel-projectile docker dockerfile-mode doom-themes
         emmet-mode evil exec-path-from-shell expand-region flx
-        git-timemachine hydra lsp-mode magit mermaid-mode
+        git-timemachine hydra lsp-mode magit mermaid-mode mise
         multiple-cursors nix-mode ob-mermaid org-bullets org-roam-ui
         ox-pandoc rhtml-mode ripgrep rspec-mode ruby-electric
         ruby-refactor rvm seeing-is-believing slim-mode
