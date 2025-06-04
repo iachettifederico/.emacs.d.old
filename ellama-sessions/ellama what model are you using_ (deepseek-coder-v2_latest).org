@@ -1,0 +1,37 @@
+** User:
+what model are you using?
+
+** Ellama:
+I am an intelligent assistant DeepSeek Coder developed by the Chinese
+company DeepSeek.
+
+** User:
+how can I permanently change the model?
+
+** Ellama:
+As an intelligent assistant built on a specific model, my function and
+performance are determined by this model. To "permanently" change the
+model used in me, you would need to understand what constitutes
+"permanently." 
+
+If you mean making changes at the software level or through updates,
+it's possible that there might be future updates from DeepSeek that
+introduce new models or improve the current one, which could alter my
+responses. However, this is not something you can do manually as a
+user. It's important to note that changing models would typically
+require access to the underlying code and permissions that are usually
+reserved for developers and administrators who manage AI systems like
+mine.
+
+If you meant "permanently" in terms of a different version or
+iteration of me, there could be scenarios where updates or changes to
+my system might lead to new features or alterations in how I respond,
+but these would again require developer intervention and wouldn't be
+something users can control directly.
+
+For any specific information about model updates or changes, it's best
+to check the latest releases or documentation from DeepSeek for
+accurate details on what modifications are made and when they might
+take effect.
+
+** User:

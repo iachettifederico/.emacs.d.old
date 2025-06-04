@@ -1,4 +1,4 @@
-;;; Compiled snippets and support files for `fundamental-mode'
+;;; "Compiled" snippets and support files for `fundamental-mode'  -*- lexical-binding:t -*-
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'fundamental-mode
@@ -14,4 +14,4 @@
                         nil nil)))
 
 
-;;; Do not edit! File generated at Tue May 13 15:11:06 2025
+;;; Do not edit! File generated at Fri Aug  8 19:06:13 2025

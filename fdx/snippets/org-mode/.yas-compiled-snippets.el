@@ -1,4 +1,4 @@
-;;; Compiled snippets and support files for `org-mode'
+;;; "Compiled" snippets and support files for `org-mode'  -*- lexical-binding:t -*-
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'org-mode
@@ -70,4 +70,4 @@
                         nil nil)))
 
 
-;;; Do not edit! File generated at Tue May 13 15:11:06 2025
+;;; Do not edit! File generated at Fri Aug  8 19:06:13 2025

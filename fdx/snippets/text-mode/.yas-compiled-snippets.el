@@ -1,2 +1,2 @@
-;;; Compiled snippets and support files for `text-mode'
-;;; Do not edit! File generated at Tue May 13 15:11:06 2025
+;;; "Compiled" snippets and support files for `text-mode'  -*- lexical-binding:t -*-
+;;; Do not edit! File generated at Fri Aug  8 19:06:13 2025

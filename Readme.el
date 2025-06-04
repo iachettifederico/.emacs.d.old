@@ -13,28 +13,6 @@
 (global-set-key (kbd "H-D m") 'fdx/chmod-current-file)
 (global-set-key (kbd "H-D t") 'fdx/touch-current-file)
 
-(require 's)
-
-(defun fdx/sort-words-in-region (beg end &optional reversed)
-  "In active region sort words alphabetically in ascending order.
-With prefix argument REVERSED use descending order.
-Don't use this function on regions with nested brackets."
-  (interactive "r\nP")
-  (unless (region-active-p) (user-error "No active region to sort!"))
-  (let* ((str (s-trim (buffer-substring-no-properties beg end)))
-         (com (string-match-p "," str))
-         (cln (replace-regexp-in-string "[\]\[(){}\']+\\|\\.$" "" str))
-         (wrd (split-string cln (if com "," " ") t " "))
-         (new (s-join (if com ", " " ")
-                      (sort wrd (if reversed #'string> #'string<)))))
-    (save-excursion
-      (goto-char beg)
-      (delete-region beg end)
-      (when (and (looking-back "[^ ]") (not (s-starts-with? " " str)))
-          (insert " "))
-      (insert
-       (replace-regexp-in-string "[^\]\[(){}\'\.]+" new str)))))
-
 (global-set-key (kbd "H--") 'kill-whole-line)
 
 (global-set-key (kbd "H-d") 'fdx/duplicate-line)
@@ -76,6 +54,7 @@ Don't use this function on regions with nested brackets."
 (fset 'yes-or-no-p 'y-or-n-p)
 (blink-cursor-mode 0)
 (show-paren-mode)
+(setq ring-bell-function 'ignore)
 
 ;; Set default font
 (set-face-attribute 'default nil :family "JetBrains Mono" :height 125)
@@ -252,6 +231,36 @@ Don't mess with special buffers."
   (add-to-list 'display-buffer-alist
                '(".*". (display-buffer-reuse-window .
                                                     ((reusable-frames . t))))))
+
+(defun fdx//set-show-trailing-whitespace (value)
+  "Set `show-trailing-whitespace` to VALUE in all prog-mode buffers."
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (when (derived-mode-p 'prog-mode)
+        (setq show-trailing-whitespace value)))))
+
+(defun fdx/show-trailing-whitespace ()
+  "Enable trailing whitespace in prog-mode buffers."
+  (interactive)
+  (add-hook 'prog-mode-hook #'fdx//enable-trailing-whitespace)
+  (fdx//set-show-trailing-whitespace t))
+
+(defun fdx/hide-trailing-whitespace ()
+  "Disable trailing whitespace in prog-mode buffers."
+  (interactive)
+  (remove-hook 'prog-mode-hook #'fdx//enable-trailing-whitespace)
+  (fdx//set-show-trailing-whitespace nil))
+
+(defun fdx/toggle-show-trailing-whitespace ()
+  "Toggle trailing whitespace visibility in prog-mode buffers."
+  (interactive)
+  (if (member #'fdx//enable-trailing-whitespace prog-mode-hook)
+      (fdx/hide-trailing-whitespace)
+    (fdx/show-trailing-whitespace)))
+
+(defun fdx//enable-trailing-whitespace ()
+  "Hook function to enable trailing whitespace."
+  (setq show-trailing-whitespace t))
 
 ;; Make directories on the fly
 (defun make-parent-directory ()
@@ -680,10 +689,6 @@ Don't mess with special buffers."
 
 (use-package company :ensure t)
 
-(use-package company-tabnine :ensure t)
-
-(add-to-list 'company-backends #'company-tabnine)
-
 (column-number-mode)
 
 (use-package tree-sitter :ensure t)
@@ -757,19 +762,6 @@ Don't mess with special buffers."
   (interactive)
   (rr/compile "bundle exec rubocop --autocorrect; bundle exec rubocop"))
 
-(defun fdx/run-erblint ()
-  "Bind an interactively specified key to a new command."
-  (interactive)
-  (compile "erblint \"**/*.erb\""))
-
-(defun fdx/run-erblint-autocorrect-on-current-file ()
-  "Bind an interactively specified key to a new command."
-  (interactive)
-  (compile (concat
-            "erblint --autocorrect "
-            (file-relative-name (buffer-file-name) "/home/fedex/code/conquered_self"))
-           ))
-
 (defun rrr/cucumber ()
   "Run Rubocop using Ruby Runner mode"
   (interactive)
@@ -805,10 +797,7 @@ Don't mess with special buffers."
 (use-package web-mode :ensure t)
 
 (with-eval-after-load "web-mode"
-  (define-key web-mode-map (kbd "H-=") (lambda ()
-                                         (interactive)
-                                         (fdx/reindent-buffer)
-                                         (fdx/run-erblint-autocorrect-on-current-file)))
+  (define-key web-mode-map (kbd "H-=") 'fdx/reindent-buffer)
   )
 
 (use-package rhtml-mode :ensure t)
@@ -1022,22 +1011,22 @@ Don't mess with special buffers."
 
 (add-to-list 'auto-mode-alist '("\\.org\\'"      . org-mode))
 
-  (add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru\\'"       . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("Gemfile\\'"     . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("Guardfile\\'"   . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("Rakefile\\'"    . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.env"         . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec\\'"  . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'"     . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.rb\\'"       . ruby-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ru\\'"       . ruby-ts-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'"      . web-mode))
 
-  (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
+(add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
-  (add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
+(add-to-list 'auto-mode-alist '("Makefile\\..*" . makefile-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
+(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 
 (add-to-list 'auto-mode-alist '("\\.nix\\'"      . nix-mode))

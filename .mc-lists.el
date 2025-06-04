@@ -13,6 +13,7 @@
         end-of-visual-line
         fdx/duplicate-line
         fdx/insert-and-populate-org-shots
+        fdx/open-line-above
         fdx/open-line-below
         fdx/reindent-buffer
         fdx/visit-or-projectile-visit
@@ -71,6 +72,7 @@
         seeing-is-believing-run-as-xmpfilter
         swiper
         toggle-truncate-lines
+        undo-tree-visualize
         wgrep-change-to-wgrep-mode
         winner-undo
         ))

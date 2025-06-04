@@ -1,4 +1,4 @@
-;;; Compiled snippets and support files for `ruby-ts-mode'
+;;; "Compiled" snippets and support files for `ruby-ts-mode'  -*- lexical-binding:t -*-
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'ruby-ts-mode
@@ -1068,4 +1068,4 @@
                         nil nil)))
 
 
-;;; Do not edit! File generated at Tue May 13 15:11:06 2025
+;;; Do not edit! File generated at Fri Aug  8 19:06:13 2025

@@ -3,7 +3,8 @@
 
 #+STARTUP: overview
 
-* Auto update packages
+
+Auto update packages
 
 #+begin_src emacs-lisp
   (use-package auto-package-update :ensure t)
@@ -30,31 +31,6 @@
   (global-set-key (kbd "H-D t") 'fdx/touch-current-file)
 #+end_src
 
-** Sorting words
-
-#+begin_src emacs-lisp
-  (require 's)
-
-  (defun fdx/sort-words-in-region (beg end &optional reversed)
-    "In active region sort words alphabetically in ascending order.
-  With prefix argument REVERSED use descending order.
-  Don't use this function on regions with nested brackets."
-    (interactive "r\nP")
-    (unless (region-active-p) (user-error "No active region to sort!"))
-    (let* ((str (s-trim (buffer-substring-no-properties beg end)))
-           (com (string-match-p "," str))
-           (cln (replace-regexp-in-string "[\]\[(){}\']+\\|\\.$" "" str))
-           (wrd (split-string cln (if com "," " ") t " "))
-           (new (s-join (if com ", " " ")
-                        (sort wrd (if reversed #'string> #'string<)))))
-      (save-excursion
-        (goto-char beg)
-        (delete-region beg end)
-        (when (and (looking-back "[^ ]") (not (s-starts-with? " " str)))
-          (insert " "))
-        (insert
-         (replace-regexp-in-string "[^\]\[(){}\'\.]+" new str)))))
-#+end_src
 ** Lines
 
 #+begin_src emacs-lisp
@@ -1211,17 +1187,17 @@ Make backups of files, even when they're in version control
   (use-package company :ensure t)
 #+end_src
 
-* Tabnine
+# * Tabnine
 
-#+begin_src emacs-lisp
-  (use-package company-tabnine :ensure t)
-#+end_src
+# #+begin_src emacs-lisp
+#   (use-package company-tabnine :ensure t)
+# #+end_src
 
-** Add to company
+# ** Add to company
 
-#+begin_src emacs-lisp
-  (add-to-list 'company-backends #'company-tabnine)
-#+end_src
+# #+begin_src emacs-lisp
+#   (add-to-list 'company-backends #'company-tabnine)
+# #+end_src
 
 * Columns
 
@@ -1363,19 +1339,6 @@ Make backups of files, even when they're in version control
     (interactive)
     (rr/compile "bundle exec rubocop --autocorrect; bundle exec rubocop"))
 
-  (defun fdx/run-erblint ()
-    "Bind an interactively specified key to a new command."
-    (interactive)
-    (compile "erblint \"**/*.erb\""))
-
-  (defun fdx/run-erblint-autocorrect-on-current-file ()
-    "Bind an interactively specified key to a new command."
-    (interactive)
-    (compile (concat
-              "erblint --autocorrect "
-              (file-relative-name (buffer-file-name) "/home/fedex/code/conquered_self"))
-             ))
-
   (defun rrr/cucumber ()
     "Run Rubocop using Ruby Runner mode"
     (interactive)
@@ -1424,10 +1387,7 @@ Make backups of files, even when they're in version control
 
 #+begin_src emacs-lisp
   (with-eval-after-load "web-mode"
-    (define-key web-mode-map (kbd "H-=") (lambda ()
-                                           (interactive)
-                                           (fdx/reindent-buffer)
-                                           (fdx/run-erblint-autocorrect-on-current-file)))
+    (define-key web-mode-map (kbd "H-=") 'fdx/reindent-buffer)
     )
 #+end_src
 
@@ -1602,6 +1562,15 @@ Make backups of files, even when they're in version control
 
 #+begin_src emacs-lisp
   (setenv "TERM" "256colors")
+#+end_src
+
+* Set Firefox as default browser
+
+#+begin_src emacs-lisp
+  (setq browse-url-browser-function 'browse-url-firefox)
+  (setq browse-url-firefox-program "firefox")
+  (setq org-html-open-in-browser t)
+  (add-to-list 'org-file-apps '("\\.html?\\'" . "firefox %s"))
 #+end_src
 
 * Reload browser
@@ -1792,7 +1761,7 @@ Make backups of files, even when they're in version control
   (add-to-list 'auto-mode-alist '("\\.ru\\'"       . ruby-ts-mode))
 
   (add-to-list 'auto-mode-alist '("\\.html\\'"     . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'"      . rhtml-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'"      . web-mode))
 
   (add-to-list 'auto-mode-alist '("\\Dockerfile\'" . dockerfile-mode))
 
