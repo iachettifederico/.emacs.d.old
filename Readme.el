@@ -899,6 +899,11 @@ Don't mess with special buffers."
 
 (setenv "TERM" "256colors")
 
+(setq browse-url-browser-function 'browse-url-firefox)
+(setq browse-url-firefox-program "firefox")
+(setq org-html-open-in-browser t)
+(add-to-list 'org-file-apps '("\\.html?\\'" . "firefox %s"))
+
 ;;;###autoload
 (defun fdx/reload-browser (&optional by)
   "Reload web browser"
