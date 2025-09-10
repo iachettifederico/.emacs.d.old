@@ -1231,12 +1231,21 @@ Make backups of files, even when they're in version control
 *** Ruby
 
 #+begin_src emacs-lisp
-  (add-hook 'ruby-ts-mode-hook #'lsp)
-  (add-hook 'ruby-mode-hook #'lsp)
+  ;; Ensure LSP starts after mise environment is loaded
+  (defun fdx/ruby-lsp-setup ()
+    "Setup LSP for Ruby with mise environment"
+    (when (fdx/mise-project-p)
+      (fdx/maybe-activate-mise))
+    (lsp))
+
+  (add-hook 'ruby-ts-mode-hook #'fdx/ruby-lsp-setup)
+  (add-hook 'ruby-mode-hook #'fdx/ruby-lsp-setup)
 #+end_src
 
 #+begin_src emacs-lisp
   (setq lsp-solargraph-autoformat t)
+  ;; Let LSP find solargraph through the activated mise environment
+  (setq lsp-solargraph-server-command nil) ; Use default discovery
 #+end_src
 
 * Hydra
@@ -1264,13 +1273,79 @@ Make backups of files, even when they're in version control
     )
 #+end_src
 
-** RVM
+** mise (Ruby version management)
 
 #+begin_src emacs-lisp
-  (use-package rvm
+  ;; Use exec-path-from-shell to inherit mise environment
+  (use-package exec-path-from-shell
     :ensure t
     :config
-    (rvm-use-default))
+    ;; Copy important environment variables from shell
+    (setq exec-path-from-shell-variables
+          '("PATH" "MANPATH" "MISE_DATA_DIR" "MISE_CONFIG_DIR" "RUBY_VERSION" "GEM_HOME" "GEM_PATH" "BUNDLE_PATH"))
+    ;; Initialize on all systems to ensure mise environment is loaded
+    (exec-path-from-shell-initialize))
+
+  ;; Function to refresh mise environment when needed
+  (defun fdx/mise-refresh ()
+    "Refresh the mise environment by re-reading shell environment"
+    (interactive)
+    (let ((default-directory (or (projectile-project-root) default-directory)))
+      (exec-path-from-shell-initialize)
+      (message "Mise environment refreshed for: %s" default-directory)))
+
+  ;; Function to activate mise for current project
+  (defun fdx/mise-activate-project ()
+    "Activate mise environment for current project directory"
+    (interactive)
+    (when-let ((project-root (or (projectile-project-root)
+                                 (locate-dominating-file default-directory ".mise.toml")
+                                 (locate-dominating-file default-directory ".tool-versions"))))
+      (let ((default-directory project-root))
+        ;; Only install if tools are missing, don't always run mise install
+        (unless (zerop (shell-command "mise which ruby >/dev/null 2>&1"))
+          (shell-command "mise install"))
+        (exec-path-from-shell-initialize)
+        (message "Activated mise for project: %s" project-root))))
+
+  ;; Check if mise is configured for current project
+  (defun fdx/mise-project-p ()
+    "Check if current directory has mise configuration"
+    (or (locate-dominating-file default-directory ".mise.toml")
+        (locate-dominating-file default-directory ".tool-versions")))
+
+  ;; Auto-activate mise when opening Ruby files in a project (less aggressive)
+  (defun fdx/maybe-activate-mise ()
+    "Activate mise if we're in a project with mise configuration"
+    (when (and (buffer-file-name)
+               (string-match-p "\\.rb\\'" (buffer-file-name))
+               (fdx/mise-project-p))
+      ;; Only refresh environment, don't always reinstall
+      (let ((default-directory (or (projectile-project-root)
+                                   (file-name-directory (buffer-file-name)))))
+        (exec-path-from-shell-initialize))))
+
+  ;; Add hook to auto-activate mise for Ruby files
+  (add-hook 'ruby-ts-mode-hook #'fdx/maybe-activate-mise)
+  (add-hook 'ruby-mode-hook #'fdx/maybe-activate-mise)
+
+  ;; Function to show current mise status
+  (defun fdx/mise-status ()
+    "Show current mise Ruby version and environment info"
+    (interactive)
+    (let ((ruby-version (shell-command-to-string "ruby --version 2>/dev/null || echo 'Ruby not found'"))
+          (gem-home (getenv "GEM_HOME"))
+          (gem-path (getenv "GEM_PATH"))
+          (which-ruby (shell-command-to-string "which ruby 2>/dev/null || echo 'Ruby not in PATH'")))
+      (message "Ruby: %s | GEM_HOME: %s | Which: %s"
+               (string-trim ruby-version)
+               (or gem-home "not set")
+               (string-trim which-ruby))))
+
+  ;; Keybindings
+  (global-set-key (kbd "H-R") 'fdx/mise-refresh)
+  (global-set-key (kbd "H-M") 'fdx/mise-activate-project)
+  (global-set-key (kbd "H-S-R") 'fdx/mise-status)
 #+end_src
 
 ** Seeing is believing
